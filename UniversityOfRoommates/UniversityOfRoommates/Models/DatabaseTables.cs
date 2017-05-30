@@ -63,4 +63,14 @@ namespace UniversityOfRoommates.Models
         public string descrizioneServizi { get; set; }
     }
 
+	public class fotoCasa
+	{
+		[Key]
+		[ForeignKey("Casa")]
+		public int idCasa { get; set; }
+		public int idFoto { get; set; }
+		public Bitmap foto { get; set; }
+
+	}
+
 }
