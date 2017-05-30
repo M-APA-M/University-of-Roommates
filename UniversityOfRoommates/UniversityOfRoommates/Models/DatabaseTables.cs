@@ -63,7 +63,7 @@ namespace UniversityOfRoommates.Models
         public string descrizioneServizi { get; set; }
     }
 
-	public class fotoCasa
+	public class FotoCasa
 	{ 
 		[Key]
 		[ForeignKey("Casa")]

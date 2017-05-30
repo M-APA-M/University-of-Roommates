@@ -25,6 +25,12 @@ namespace UniversityOfRoommates.Models
         {
         }
 
+        public DbSet<Utente> Utenti { get; set; }
+        public DbSet<Proprietario> Proprietari { get; set; }
+        public DbSet<Interesse> Interessi { get; set; }
+        public DbSet<Casa> Case { get; set; }
+        public DbSet<FotoCasa> FotoCase { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
