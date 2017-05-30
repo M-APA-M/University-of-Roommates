@@ -68,6 +68,7 @@ namespace UniversityOfRoommates.Models
 		[Key]
 		[ForeignKey("Casa")]
 		public int idCasa { get; set; }
+        [Key]
 		public int idFoto { get; set; }
 		public Bitmap foto { get; set; }
 	}
