@@ -72,7 +72,7 @@ namespace UniversityOfRoommates.Models
 		public Bitmap foto { get; set; }
 	}
 
-	public class Stanze
+	public class Stanza
 	{
 		[Key]
 		public int idStanza { get; set; }
@@ -85,9 +85,9 @@ namespace UniversityOfRoommates.Models
 		
 	}
 
-	public class Affitti
+	public class Affitto
 	{
-		[Key][ForeignKey("Stanze")]
+		[Key][ForeignKey("Stanza")]
 		public int idStanza { get; set; }
 		[Key][ForeignKey("Casa")]
 		public int idCasa { get; set; }

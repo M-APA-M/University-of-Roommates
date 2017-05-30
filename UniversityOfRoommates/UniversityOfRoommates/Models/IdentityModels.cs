@@ -30,6 +30,8 @@ namespace UniversityOfRoommates.Models
         public DbSet<Interesse> Interessi { get; set; }
         public DbSet<Casa> Case { get; set; }
         public DbSet<FotoCasa> FotoCase { get; set; }
+        public DbSet<Affitto> Affitti { get; set; }
+        public DbSet<Stanza> Stanze { get; set; }
 
         public static ApplicationDbContext Create()
         {
