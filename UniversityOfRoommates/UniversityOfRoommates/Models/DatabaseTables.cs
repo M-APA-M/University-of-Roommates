@@ -45,4 +45,22 @@ namespace UniversityOfRoommates.Models
         public string p7 { get; set; }
         public string p8 { get; set; }
     }
+    public class Casa
+    {
+        [Key]
+        public int idCasa { get; set; }
+        [ForeignKey("Proprietario")]
+        public int idProprietario { get; set; }
+        public decimal longitudine { get; set; }
+        public decimal latitudine { get; set; }
+        public string indirizzo { get; set; }
+        public string civico { get; set; }
+        public int cap { get; set; }
+        public int numeroServizi { get; set; }
+        public double metraturaInterna { get; set; }
+        public double metraturaEsterna { get; set; }
+        public bool postoAuto { get; set; }
+        public string descrizioneServizi { get; set; }
+    }
+
 }
