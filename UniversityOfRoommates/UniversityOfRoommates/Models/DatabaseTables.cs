@@ -65,12 +65,24 @@ namespace UniversityOfRoommates.Models
 
 	public class fotoCasa
 	{ 
-		[Key]
-		[ForeignKey("Casa")]
+		[Key][ForeignKey("Casa")]
 		public int idCasa { get; set; }
         [Key]
 		public int idFoto { get; set; }
 		public Bitmap foto { get; set; }
+	}
+
+	public class Stanze
+	{
+		[Key]
+		public int idStanza { get; set; }
+		[Key][ForeignKey("Casa")]
+		public int idCasa { get; set; }
+		public int postiLetto { get; set; }
+		public double metratura { get; set; }
+		public Bitmap foto { get; set; }
+		public decimal prezzo { get; set; }
+		
 	}
 
 }
