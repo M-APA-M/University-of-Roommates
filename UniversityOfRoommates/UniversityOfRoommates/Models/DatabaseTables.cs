@@ -21,21 +21,25 @@ namespace UniversityOfRoommates.Models
         public string cittàProvenienza { get; set; }
         public string email { get; set; }
         public string cell { get; set; }
+        
         [ForeignKey("Interesse")]
         public int idInteresse { get; set; }
+        public Interesse Interesse { get; set; }
     }
     public class Proprietario
     {
-        [Key][ForeignKey ("Utente")]
+        [Key, ForeignKey("Utente")]
         public string codiceFiscale { get; set; }
+        public Utente Utente { get; set; }
         public string iban { get; set; }
         public string paypalMe { get; set; }
-        public Bitmap cartaIdentità { get; set; }
+        public byte[] cartaIdentità { get; set; }
     }
     public class Interesse
     {
-        [Key][ForeignKey("Utente")]
+        [Key, ForeignKey("Utente")]
         public string codiceFiscale { get; set; }
+        public Utente Utente { get; set; }
         public string p1 { get; set; }
         public string p2 { get; set; }
         public string p3 { get; set; }
@@ -50,7 +54,8 @@ namespace UniversityOfRoommates.Models
         [Key]
         public int idCasa { get; set; }
         [ForeignKey("Proprietario")]
-        public int idProprietario { get; set; }
+        public string codiceFiscale { get; set; }
+        public Proprietario Proprietario { get; set; }
         public decimal longitudine { get; set; }
         public decimal latitudine { get; set; }
         public string indirizzo { get; set; }
@@ -65,35 +70,45 @@ namespace UniversityOfRoommates.Models
 
 	public class FotoCasa
 	{ 
-		[Key][ForeignKey("Casa")]
-		public int idCasa { get; set; }
+		[Key, ForeignKey("Casa")]
+        [Column(Order = 1)]
+        public int idCasa { get; set; }
+        public Casa Casa { get; set; }
         [Key]
-		public int idFoto { get; set; }
-		public Bitmap foto { get; set; }
+        [Column(Order = 2)]
+        public int idFoto { get; set; }
+		public byte[] foto { get; set; }
 	}
 
 	public class Stanza
 	{
 		[Key]
-		public int idStanza { get; set; }
-		[Key][ForeignKey("Casa")]
-		public int idCasa { get; set; }
-		public int postiLetto { get; set; }
+        [Column(Order = 1)]
+        public int idStanza { get; set; }
+		[Key, ForeignKey("Casa")]
+        [Column(Order = 2)]
+        public int idCasa { get; set; }
+        public Casa Casa { get; set; }
+        public int postiLetto { get; set; }
 		public double metratura { get; set; }
-		public Bitmap foto { get; set; }
+		public byte[] foto { get; set; }
 		public decimal prezzo { get; set; }
 		
 	}
 
-	public class Affitto
-	{
-		[Key][ForeignKey("Stanza")]
-		public int idStanza { get; set; }
-		[Key][ForeignKey("Casa")]
-		public int idCasa { get; set; }
-		[Key][ForeignKey("Utente")]
-		public string codiceFiscale { get; set; }
-
-	}
+    public class Affitto
+    {
+        [Key, ForeignKey("Stanza")]
+        [Column(Order = 1)]
+        public int idStanza { get; set; }
+        [Key, ForeignKey("Stanza")]
+        [Column(Order = 2)]
+        public int idCasa { get; set; }
+        public Stanza Stanza { get; set; }
+        [Key, ForeignKey("Utente")]
+        [Column(Order = 3)]
+        public string codiceFiscale { get; set; }
+        public Utente Utente { get; set; }
+    }
 
 }
