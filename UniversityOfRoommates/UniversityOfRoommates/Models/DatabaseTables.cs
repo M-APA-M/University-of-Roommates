@@ -64,7 +64,7 @@ namespace UniversityOfRoommates.Models
     }
 
 	public class fotoCasa
-	{
+	{ d
 		[Key]
 		[ForeignKey("Casa")]
 		public int idCasa { get; set; }
