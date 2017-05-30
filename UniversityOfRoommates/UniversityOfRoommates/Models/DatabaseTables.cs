@@ -85,4 +85,15 @@ namespace UniversityOfRoommates.Models
 		
 	}
 
+	public class Affitti
+	{
+		[Key][ForeignKey("Stanze")]
+		public int idStanza { get; set; }
+		[Key][ForeignKey("Casa")]
+		public int idCasa { get; set; }
+		[Key][ForeignKey("Utente")]
+		public string codiceFiscale { get; set; }
+
+	}
+
 }
