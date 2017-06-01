@@ -7,13 +7,13 @@ namespace UniversityOfRoommates.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class fixstanze : IMigrationMetadata
+    public sealed partial class firstmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(fixstanze));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(firstmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705301706442_fix stanze"; }
+            get { return "201705301738424_first migration"; }
         }
         
         string IMigrationMetadata.Source

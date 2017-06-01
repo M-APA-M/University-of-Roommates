@@ -202,9 +202,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705301706442_fix stanze.cs" />
-    <Compile Include="Migrations\201705301706442_fix stanze.Designer.cs">
-      <DependentUpon>201705301706442_fix stanze.cs</DependentUpon>
+    <Compile Include="Migrations\201705301738424_first migration.cs" />
+    <Compile Include="Migrations\201705301738424_first migration.Designer.cs">
+      <DependentUpon>201705301738424_first migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -289,8 +289,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705301706442_fix stanze.resx">
-      <DependentUpon>201705301706442_fix stanze.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705301738424_first migration.resx">
+      <DependentUpon>201705301738424_first migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
