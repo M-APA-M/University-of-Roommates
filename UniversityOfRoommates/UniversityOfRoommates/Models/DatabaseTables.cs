@@ -109,6 +109,45 @@ namespace UniversityOfRoommates.Models
         [Column(Order = 3)]
         public string codiceFiscale { get; set; }
         public Utente Utente { get; set; }
+        public DateTime inizioContratto { get; set; }
+        public DateTime fineContratto { get; set; }
     }
+    public class GestioneCasa
+    {
+        [Key,ForeignKey("Affitto")]
+        public int idCasa { get; set; }
+        public Affitto Affitto { get; set; }
+        public string noteComuni { get; set; }
+    }
+    public class Evento
+    {
+        [Key, ForeignKey("GestioneCasa")]
+        [Column(Order = 1)]
+        public int idCasa { get; set; }
+        public GestioneCasa GestioneCasa { get; set; }
+        [Key]
+        public int idEvento { get; set; }
+        public string codiceFiscale { get; set; }
+        public string descrizione { get; set; }
+        public DateTime data { get; set; }
+        public int giorno { get; set; }
+    }   
 
+    public class DebitiCrediti
+    {
+        [Key]
+        public int idCreditiDebiti { get; set; }
+        [ForeignKey("Utente")]
+        public string codiceFiscaleCreditore { get; set; }
+        [ForeignKey("Utente")]
+        public string codiceFiscaleDebitore { get; set; }
+        public Utente Utente { get; set; }
+        public double credito { get; set; }
+        public string descrizione { get; set; }
+        public DateTime data { get; set; }
+        
+    }
 }
+
+
+//TODO icollection o qualcosa di simile da mettere nelle tabelle per creare il collegamento reale.
