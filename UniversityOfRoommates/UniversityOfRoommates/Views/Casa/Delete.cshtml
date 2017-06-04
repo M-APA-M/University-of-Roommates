@@ -1,0 +1,112 @@
+﻿@model UniversityOfRoommates.Models.Casa
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Casa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Proprietario.iban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proprietario.iban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.longitudine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.longitudine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.latitudine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.latitudine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.indirizzo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.indirizzo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.civico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.civico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroServizi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroServizi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.metraturaInterna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.metraturaInterna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.metraturaEsterna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.metraturaEsterna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postoAuto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postoAuto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descrizioneServizi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descrizioneServizi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

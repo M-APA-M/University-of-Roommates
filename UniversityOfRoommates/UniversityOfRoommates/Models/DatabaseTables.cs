@@ -12,7 +12,9 @@ namespace UniversityOfRoommates.Models
     {    }
     public class Utente
     {
-        [Key]
+        public Utente() { }
+
+        [Key, Column(Order = 0)]
         public string codiceFiscale { get; set; }
         public string nome { get; set; }
         public string cognome { get; set; }
@@ -25,6 +27,9 @@ namespace UniversityOfRoommates.Models
         [ForeignKey("Interesse")]
         public int idInteresse { get; set; }
         public Interesse Interesse { get; set; }
+
+        public ICollection<DebitiCrediti> Credito { get; set; }
+        public ICollection<DebitiCrediti> Debito { get; set; }
     }
     public class Proprietario
     {
@@ -34,6 +39,9 @@ namespace UniversityOfRoommates.Models
         public string iban { get; set; }
         public string paypalMe { get; set; }
         public byte[] cartaIdentità { get; set; }
+
+        public ICollection<Casa> Casa { get; set; }
+
     }
     public class Interesse
     {
@@ -66,9 +74,12 @@ namespace UniversityOfRoommates.Models
         public double metraturaEsterna { get; set; }
         public bool postoAuto { get; set; }
         public string descrizioneServizi { get; set; }
+
+        public ICollection<FotoCasa> FotoCasa { get; set; }
+        public ICollection<Stanza> Stanza { get; set; }
     }
 
-	public class FotoCasa
+    public class FotoCasa
 	{ 
 		[Key, ForeignKey("Casa")]
         [Column(Order = 1)]
@@ -82,11 +93,9 @@ namespace UniversityOfRoommates.Models
 
 	public class Stanza
 	{
-		[Key]
-        [Column(Order = 1)]
+		[Key, Column(Order = 1)]
         public int idStanza { get; set; }
-		[Key, ForeignKey("Casa")]
-        [Column(Order = 2)]
+		[Key, ForeignKey("Casa"), Column(Order = 2)]
         public int idCasa { get; set; }
         public Casa Casa { get; set; }
         public int postiLetto { get; set; }
@@ -98,34 +107,36 @@ namespace UniversityOfRoommates.Models
 
     public class Affitto
     {
-        [Key, ForeignKey("Stanza")]
-        [Column(Order = 1)]
+        [Key, ForeignKey("Stanza"), Column(Order = 1)]        
         public int idStanza { get; set; }
-        [Key, ForeignKey("Stanza")]
-        [Column(Order = 2)]
+
+        [Key, ForeignKey("Stanza"), Column(Order = 2)]
         public int idCasa { get; set; }
         public Stanza Stanza { get; set; }
-        [Key, ForeignKey("Utente")]
-        [Column(Order = 3)]
+
+        [Key, ForeignKey("Utente"), Column(Order = 3)]
         public string codiceFiscale { get; set; }
         public Utente Utente { get; set; }
+
         public DateTime inizioContratto { get; set; }
         public DateTime fineContratto { get; set; }
     }
     public class GestioneCasa
     {
-        [Key,ForeignKey("Affitto")]
+        [Key, ForeignKey("Casa")]
         public int idCasa { get; set; }
-        public Affitto Affitto { get; set; }
+        public Casa Casa { get; set; }
+        //idCasa l'ho collegato a Casa e non ad Affitto, non so che ripercussioni potrebbe avere
         public string noteComuni { get; set; }
+
+        public ICollection<Evento> Evento { get; set; }
     }
     public class Evento
     {
-        [Key, ForeignKey("GestioneCasa")]
-        [Column(Order = 1)]
+        [Key, ForeignKey("GestioneCasa"), Column(Order = 1)]
         public int idCasa { get; set; }
         public GestioneCasa GestioneCasa { get; set; }
-        [Key]
+        [Key, Column(Order = 2)]
         public int idEvento { get; set; }
         public string codiceFiscale { get; set; }
         public string descrizione { get; set; }
@@ -135,17 +146,26 @@ namespace UniversityOfRoommates.Models
 
     public class DebitiCrediti
     {
-        [Key]
+        public DebitiCrediti() { }
+
+        [Key, Column(Order = 0)]
         public int idCreditiDebiti { get; set; }
-        [ForeignKey("Utente")]
+
+        [ForeignKey("Creditore"), Column(Order = 1)]
         public string codiceFiscaleCreditore { get; set; }
-        [ForeignKey("Utente")]
+        [ForeignKey("Debitore"), Column(Order = 2)]
         public string codiceFiscaleDebitore { get; set; }
-        public Utente Utente { get; set; }
+
+        [InverseProperty("Credito")]
+        public Utente Creditore { get; set; }
+        [InverseProperty("Debito")]
+        public Utente Debitore { get; set; }
+
+        //public Utente Utente { get; set; }
+
         public double credito { get; set; }
         public string descrizione { get; set; }
         public DateTime data { get; set; }
-        
     }
 }
 

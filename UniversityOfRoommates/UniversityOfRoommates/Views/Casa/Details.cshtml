@@ -1,0 +1,106 @@
+﻿@model UniversityOfRoommates.Models.Casa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Casa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Proprietario.iban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proprietario.iban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.longitudine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.longitudine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.latitudine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.latitudine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.indirizzo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.indirizzo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.civico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.civico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroServizi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroServizi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.metraturaInterna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.metraturaInterna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.metraturaEsterna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.metraturaEsterna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postoAuto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postoAuto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descrizioneServizi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descrizioneServizi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idCasa }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
