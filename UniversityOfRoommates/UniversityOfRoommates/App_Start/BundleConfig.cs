@@ -20,12 +20,18 @@ namespace UniversityOfRoommates
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/js/bootstrap.js",
+                      "~/Scripts/js/jquery.min.js",
+                      "~/Scripts/js/Chart.js",
+                       "~/Scripts/js/classie.js",
+                        "~/Scripts/js/bootstrap.min.js",
+                        "~/Scripts/js/smoothscroll.js",
+                        "~/Scripts/js/main.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/main.css"));
         }
     }
 }
