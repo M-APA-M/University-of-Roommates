@@ -294,7 +294,6 @@
     <Content Include="Content\img\work1.png" />
     <Content Include="Content\img\work2.png" />
     <Content Include="Content\img\work3.png" />
-    <Content Include="Views\Home\HtmlPage1.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -346,6 +345,8 @@
     <Content Include="Views\Utente\Edit.cshtml" />
     <Content Include="Views\Utente\Index.cshtml" />
     <Content Include="Content\img\.DS_Store" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Home\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
