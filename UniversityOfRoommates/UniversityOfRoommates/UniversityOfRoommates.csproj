@@ -232,7 +232,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\font-awesome.min.css" />
@@ -279,22 +278,22 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Home\assets\img\header-bg.jpg" />
-    <Content Include="Views\Home\assets\img\item-01.png" />
-    <Content Include="Views\Home\assets\img\item-02.png" />
-    <Content Include="Views\Home\assets\img\item-bg.jpg" />
-    <Content Include="Views\Home\assets\img\portfolio-bg.jpg" />
-    <Content Include="Views\Home\assets\img\s1.png" />
-    <Content Include="Views\Home\assets\img\s2.png" />
-    <Content Include="Views\Home\assets\img\s3.png" />
-    <Content Include="Views\Home\assets\img\s4.png" />
-    <Content Include="Views\Home\assets\img\team01.jpg" />
-    <Content Include="Views\Home\assets\img\team02.jpg" />
-    <Content Include="Views\Home\assets\img\team03.jpg" />
-    <Content Include="Views\Home\assets\img\team04.jpg" />
-    <Content Include="Views\Home\assets\img\work1.png" />
-    <Content Include="Views\Home\assets\img\work2.png" />
-    <Content Include="Views\Home\assets\img\work3.png" />
+    <Content Include="Content\img\header-bg.jpg" />
+    <Content Include="Content\img\item-01.png" />
+    <Content Include="Content\img\item-02.png" />
+    <Content Include="Content\img\item-bg.jpg" />
+    <Content Include="Content\img\portfolio-bg.jpg" />
+    <Content Include="Content\img\s1.png" />
+    <Content Include="Content\img\s2.png" />
+    <Content Include="Content\img\s3.png" />
+    <Content Include="Content\img\s4.png" />
+    <Content Include="Content\img\team01.jpg" />
+    <Content Include="Content\img\team02.jpg" />
+    <Content Include="Content\img\team03.jpg" />
+    <Content Include="Content\img\team04.jpg" />
+    <Content Include="Content\img\work1.png" />
+    <Content Include="Content\img\work2.png" />
+    <Content Include="Content\img\work3.png" />
     <Content Include="Views\Home\HtmlPage1.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -346,7 +345,7 @@
     <Content Include="Views\Utente\Details.cshtml" />
     <Content Include="Views\Utente\Edit.cshtml" />
     <Content Include="Views\Utente\Index.cshtml" />
-    <Content Include="Views\Home\assets\img\.DS_Store" />
+    <Content Include="Content\img\.DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
