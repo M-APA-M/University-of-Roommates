@@ -31,7 +31,11 @@ namespace UniversityOfRoommates
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/bootstrap.css",
+                      "~/Content/css/owl.carousel.min.css",
+                      "~/Content/css/owl.theme.default.min.css",
+                      "~/Content/css/style.css",
                       "~/Content/css/main.css"));
+
         }
     }
 }
