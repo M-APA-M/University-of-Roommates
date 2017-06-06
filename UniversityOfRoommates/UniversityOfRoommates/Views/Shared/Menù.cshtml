@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <!-- Menu -->
+    <nav class="menu" id="theMenu">
+        <div class="menu-wrap">
+            <h1 class="logo"><a href="index.html#home">RoomMates</a></h1>
+            <i class="icon-remove menu-close"></i>
+            <a href="#home" class="smoothScroll">Home</a>
+            <a href="#services" class="smoothScroll">Servizi</a>
+            <a href="login.html" class="smoothScroll">Login/Registrati</a>
+            <a href="gestioneCasa.html" class="smoothScroll">Gestione casa</a>
+            <a href="chat.html" class="smoothScroll">Chat</a>
+            <a href="item.html" class="smoothScroll">Contact</a>
+            <a href="#"><i class="icon-facebook"></i></a>
+            <a href="#"><i class="icon-twitter"></i></a>
+            <a href="#"><i class="icon-dribbble"></i></a>
+            <a href="#"><i class="icon-envelope"></i></a>
+        </div>
+
+        <!-- Menu button -->
+        <div id="menuToggle"><i class="icon-reorder"></i></div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

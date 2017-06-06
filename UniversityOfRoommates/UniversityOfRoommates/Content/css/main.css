@@ -83,7 +83,7 @@ a:after {
 	margin-top: -10px;
 	padding-top:20px;
 	text-align:center;
-	background-attachment:fixed;
+	background-attachment: relative;
 	background-position: center center;
 	min-height: 700px;
 	width: 100%;
@@ -447,32 +447,29 @@ a:after {
 }
 
 #menuToggle {
-    background-image: url("https://www.nscrypt.com/wp-content/uploads/2015/08/icon-menu.png");
-    position: absolute;
-    top: 20px;
-    left: 0;
-    z-index: 11;
-    display: block;
-    text-align: center;
-    font-size: 14px;
-    color: #ffffff;
-    width: 60px;
-    height: 60px;
-    line-height: 40px;
-    cursor: pointer;
-    //background: rgba(0,0,0,0.25);
-    background-image: url("https://cdn4.iconfinder.com/data/icons/essential-part-1/32/26-List-512.png");
-    background-size: 60px 60px;
-    -webkit-transition: all .1s ease-in-out;
-    -moz-transition: all .1s ease-in-out;
-    -ms-transition: all .1s ease-in-out;
-    -o-transition: all .1s ease-in-out;
-    transition: all .1s ease-in-out;
+	position: absolute;
+	top: 20px;
+	left: 0;
+	z-index: 11;
+	display: block;
+	text-align: center;
+	font-size: 14px;
+	color: #ffffff;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	cursor: pointer;
+	background: rgba(0,0,0,0.25);
+	-webkit-transition: all .1s ease-in-out;
+	   -moz-transition: all .1s ease-in-out;
+		-ms-transition: all .1s ease-in-out;
+		 -o-transition: all .1s ease-in-out;
+			transition: all .1s ease-in-out;
 }
 
 #menuToggle:hover {
 	color: #ffffff;
-	 background-image: url("https://cdn4.iconfinder.com/data/icons/essential-part-1/32/26-List-512.png");
+	background: rgba(0,0,0,0.2);
 	-webkit-transition: all .1s ease-in-out;
 	   -moz-transition: all .1s ease-in-out;
 		-ms-transition: all .1s ease-in-out;
