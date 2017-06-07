@@ -151,6 +151,7 @@ namespace UniversityOfRoommates.Models
         public GestioneCasa GestioneCasa { get; set; }
 
         [Key]
+        [Column(Order = 2)]
         public int idEvento { get; set; }
 
         public string codiceFiscale { get; set; }
