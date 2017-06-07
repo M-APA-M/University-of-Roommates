@@ -23,7 +23,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway";
     font-weight: 300;
     color: #333;
-    
 }
 
 
@@ -87,7 +86,6 @@ a:after {
 	background-attachment: relative;
 	background-position: center center;
 	min-height: 700px;
-    min-width: 0px;
 	width: 100%;
 	
     -webkit-background-size: 100%;
@@ -343,7 +341,7 @@ a:after {
 	top: 0;
 	left: 60px;
 	background: #1a1a1a;
-	width: 100%;
+	width: 200px;
 	height: 100%;
 }
 

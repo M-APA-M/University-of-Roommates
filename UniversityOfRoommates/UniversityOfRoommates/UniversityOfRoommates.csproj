@@ -208,7 +208,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProprietarioController.cs" />
     <Compile Include="Controllers\UtenteController.cs" />
@@ -345,7 +344,6 @@
     <Content Include="Views\Utente\Index.cshtml" />
     <Content Include="Content\img\.DS_Store" />
     <Content Include="Views\Shared\Menù.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
