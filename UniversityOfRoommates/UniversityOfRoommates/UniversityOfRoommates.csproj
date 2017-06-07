@@ -207,6 +207,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BingMapsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProprietarioController.cs" />
@@ -305,6 +306,7 @@
     <Content Include="Views\Utente\Details.cshtml" />
     <Content Include="Views\Utente\Edit.cshtml" />
     <Content Include="Views\Utente\Index.cshtml" />
+    <Content Include="Views\BingMaps\BingMaps.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
