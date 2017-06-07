@@ -80,7 +80,7 @@ namespace UniversityOfRoommates.Models
         public ICollection<Stanza> Stanza { get; set; }
     }
 
-	public class FotoCasa
+    public class FotoCasa
 	{ 
 		[Key, ForeignKey("Casa")]
         [Column(Order = 1)]
@@ -114,17 +114,14 @@ namespace UniversityOfRoommates.Models
 
     public class Affitto
     {
-        [Key, ForeignKey("Stanza")]
-        [Column(Order = 1)]
+        [Key, ForeignKey("Stanza"), Column(Order = 1)]        
         public int idStanza { get; set; }
 
-        [Key, ForeignKey("Stanza")]
-        [Column(Order = 2)]
+        [Key, ForeignKey("Stanza"), Column(Order = 2)]
         public int idCasa { get; set; }
         public Stanza Stanza { get; set; }
 
-        [Key, ForeignKey("Utente")]
-        [Column(Order = 3)]
+        [Key, ForeignKey("Utente"), Column(Order = 3)]
         public string codiceFiscale { get; set; }
         public Utente Utente { get; set; }
 
@@ -145,13 +142,10 @@ namespace UniversityOfRoommates.Models
     }
     public class Evento
     {
-        [Key, ForeignKey("GestioneCasa")]
-        [Column(Order = 1)]
+        [Key, ForeignKey("GestioneCasa"), Column(Order = 1)]
         public int idCasa { get; set; }
         public GestioneCasa GestioneCasa { get; set; }
-
-        [Key]
-        [Column(Order = 2)]
+        [Key, Column(Order = 2)]
         public int idEvento { get; set; }
 
         public string codiceFiscale { get; set; }
@@ -162,7 +156,9 @@ namespace UniversityOfRoommates.Models
 
     public class DebitiCrediti
     {
-        [Key]
+        public DebitiCrediti() { }
+
+        [Key, Column(Order = 0)]
         public int idCreditiDebiti { get; set; }
 
         [ForeignKey("UtenteC")]
@@ -176,7 +172,6 @@ namespace UniversityOfRoommates.Models
         public double cifra { get; set; }
         public string descrizione { get; set; }
         public DateTime data { get; set; }
-        
     }
 }
 

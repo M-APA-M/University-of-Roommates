@@ -1,0 +1,93 @@
+﻿@model IEnumerable<UniversityOfRoommates.Models.Casa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Proprietario.iban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.longitudine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.latitudine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.indirizzo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.civico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numeroServizi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.metraturaInterna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.metraturaEsterna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postoAuto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descrizioneServizi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proprietario.iban)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.longitudine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.latitudine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.indirizzo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.civico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numeroServizi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.metraturaInterna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.metraturaEsterna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postoAuto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descrizioneServizi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idCasa }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idCasa }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idCasa })
+        </td>
+    </tr>
+}
+
+</table>
