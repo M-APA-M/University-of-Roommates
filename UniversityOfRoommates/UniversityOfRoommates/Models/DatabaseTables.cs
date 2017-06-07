@@ -14,6 +14,7 @@ namespace UniversityOfRoommates.Models
     {
         [Key]
         public string codiceFiscale { get; set; }
+
         public string nome { get; set; }
         public string cognome { get; set; }
         public bool sesso { get; set; }
@@ -22,24 +23,30 @@ namespace UniversityOfRoommates.Models
         public string email { get; set; }
         public string cell { get; set; }
         
-        [ForeignKey("Interesse")]
-        public int idInteresse { get; set; }
-        public Interesse Interesse { get; set; }
+        public ICollection<DebitiCrediti> Debiti { get; set; }
+        public ICollection<DebitiCrediti> Crediti { get; set; }
+        public ICollection<Proprietario> Proprietario { get; set; }
+        public ICollection<Interesse> Interesse { get; set; }
+        public ICollection<Affitto> Affitto { get; set; }
     }
     public class Proprietario
     {
         [Key, ForeignKey("Utente")]
         public string codiceFiscale { get; set; }
         public Utente Utente { get; set; }
+
         public string iban { get; set; }
         public string paypalMe { get; set; }
         public byte[] cartaIdentità { get; set; }
+
+        public ICollection<Casa> Casa { get; set; }
     }
     public class Interesse
     {
         [Key, ForeignKey("Utente")]
         public string codiceFiscale { get; set; }
         public Utente Utente { get; set; }
+
         public string p1 { get; set; }
         public string p2 { get; set; }
         public string p3 { get; set; }
@@ -53,9 +60,11 @@ namespace UniversityOfRoommates.Models
     {
         [Key]
         public int idCasa { get; set; }
+
         [ForeignKey("Proprietario")]
         public string codiceFiscale { get; set; }
         public Proprietario Proprietario { get; set; }
+
         public decimal longitudine { get; set; }
         public decimal latitudine { get; set; }
         public string indirizzo { get; set; }
@@ -66,6 +75,9 @@ namespace UniversityOfRoommates.Models
         public double metraturaEsterna { get; set; }
         public bool postoAuto { get; set; }
         public string descrizioneServizi { get; set; }
+
+        public ICollection<FotoCasa> FotoCasa { get; set; }
+        public ICollection<Stanza> Stanza { get; set; }
     }
 
 	public class FotoCasa
@@ -74,10 +86,11 @@ namespace UniversityOfRoommates.Models
         [Column(Order = 1)]
         public int idCasa { get; set; }
         public Casa Casa { get; set; }
+
         [Key]
         [Column(Order = 2)]
         public int idFoto { get; set; }
-		public byte[] foto { get; set; }
+		public string linkFoto { get; set; }
 	}
 
 	public class Stanza
@@ -85,39 +98,50 @@ namespace UniversityOfRoommates.Models
 		[Key]
         [Column(Order = 1)]
         public int idStanza { get; set; }
+
 		[Key, ForeignKey("Casa")]
         [Column(Order = 2)]
         public int idCasa { get; set; }
         public Casa Casa { get; set; }
+
         public int postiLetto { get; set; }
 		public double metratura { get; set; }
 		public byte[] foto { get; set; }
 		public decimal prezzo { get; set; }
-		
-	}
+
+        public ICollection<Affitto> Affitto { get; set; }
+    }
 
     public class Affitto
     {
         [Key, ForeignKey("Stanza")]
         [Column(Order = 1)]
         public int idStanza { get; set; }
+
         [Key, ForeignKey("Stanza")]
         [Column(Order = 2)]
         public int idCasa { get; set; }
         public Stanza Stanza { get; set; }
+
         [Key, ForeignKey("Utente")]
         [Column(Order = 3)]
         public string codiceFiscale { get; set; }
         public Utente Utente { get; set; }
+
         public DateTime inizioContratto { get; set; }
         public DateTime fineContratto { get; set; }
+
+        public ICollection<GestioneCasa> GestioneCasa { get; set; }
     }
     public class GestioneCasa
     {
         [Key,ForeignKey("Affitto")]
         public int idCasa { get; set; }
         public Affitto Affitto { get; set; }
+
         public string noteComuni { get; set; }
+
+        public ICollection<Evento> Evento { get; set; }
     }
     public class Evento
     {
@@ -125,8 +149,10 @@ namespace UniversityOfRoommates.Models
         [Column(Order = 1)]
         public int idCasa { get; set; }
         public GestioneCasa GestioneCasa { get; set; }
+
         [Key]
         public int idEvento { get; set; }
+
         public string codiceFiscale { get; set; }
         public string descrizione { get; set; }
         public DateTime data { get; set; }
@@ -137,12 +163,16 @@ namespace UniversityOfRoommates.Models
     {
         [Key]
         public int idCreditiDebiti { get; set; }
-        [ForeignKey("Utente")]
+
+        [ForeignKey("UtenteC")]
         public string codiceFiscaleCreditore { get; set; }
-        [ForeignKey("Utente")]
+        public Utente UtenteC { get; set; }
+
+        [ForeignKey("UtenteD")]
         public string codiceFiscaleDebitore { get; set; }
-        public Utente Utente { get; set; }
-        public double credito { get; set; }
+        public Utente UtenteD { get; set; }
+
+        public double cifra { get; set; }
         public string descrizione { get; set; }
         public DateTime data { get; set; }
         
@@ -150,4 +180,3 @@ namespace UniversityOfRoommates.Models
 }
 
 
-//TODO icollection o qualcosa di simile da mettere nelle tabelle per creare il collegamento reale.
