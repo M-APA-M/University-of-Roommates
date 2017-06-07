@@ -207,7 +207,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BingMapsController.cs" />
+    <Compile Include="Controllers\CasaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProprietarioController.cs" />
@@ -225,7 +225,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Controllers\CasaController.cs" />
     <Compile Include="Models\DatabaseTables.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -291,25 +290,25 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
-    <Content Include="Views\Casa\Create.cshtml" />
-    <Content Include="Views\Casa\Delete.cshtml" />
-    <Content Include="Views\Casa\Details.cshtml" />
-    <Content Include="Views\Casa\Edit.cshtml" />
-    <Content Include="Views\Casa\Index.cshtml" />
     <Content Include="Views\Proprietario\Create.cshtml" />
     <Content Include="Views\Proprietario\Delete.cshtml" />
     <Content Include="Views\Proprietario\Details.cshtml" />
     <Content Include="Views\Proprietario\Edit.cshtml" />
     <Content Include="Views\Proprietario\Index.cshtml" />
+    <Content Include="Views\Casa\Create.cshtml" />
+    <Content Include="Views\Casa\Delete.cshtml" />
+    <Content Include="Views\Casa\Details.cshtml" />
+    <Content Include="Views\Casa\Edit.cshtml" />
+    <Content Include="Views\Casa\Index.cshtml" />
     <Content Include="Views\Utente\Create.cshtml" />
     <Content Include="Views\Utente\Delete.cshtml" />
     <Content Include="Views\Utente\Details.cshtml" />
     <Content Include="Views\Utente\Edit.cshtml" />
     <Content Include="Views\Utente\Index.cshtml" />
-    <Content Include="Views\BingMaps\BingMaps.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BingMaps\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
