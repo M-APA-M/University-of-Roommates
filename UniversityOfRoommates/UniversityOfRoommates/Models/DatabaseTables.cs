@@ -25,8 +25,8 @@ namespace UniversityOfRoommates.Models
         
         public ICollection<DebitiCrediti> Debiti { get; set; }
         public ICollection<DebitiCrediti> Crediti { get; set; }
-        public ICollection<Proprietario> Proprietario { get; set; }
-        public ICollection<Interesse> Interesse { get; set; }
+        //public ICollection<Proprietario> Proprietario { get; set; }
+        //public ICollection<Interesse> Interesse { get; set; }
         public ICollection<Affitto> Affitto { get; set; }
     }
     public class Proprietario
@@ -131,13 +131,13 @@ namespace UniversityOfRoommates.Models
         public DateTime inizioContratto { get; set; }
         public DateTime fineContratto { get; set; }
 
-        public ICollection<GestioneCasa> GestioneCasa { get; set; }
+        //public ICollection<GestioneCasa> GestioneCasa { get; set; }
     }
     public class GestioneCasa
     {
-        [Key,ForeignKey("Affitto")]
+        [Key,ForeignKey("Casa")]
         public int idCasa { get; set; }
-        public Affitto Affitto { get; set; }
+        public Casa Casa { get; set; }
 
         public string noteComuni { get; set; }
 

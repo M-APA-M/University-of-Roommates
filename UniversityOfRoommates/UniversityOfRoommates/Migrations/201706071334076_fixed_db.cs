@@ -3,7 +3,7 @@ namespace UniversityOfRoommates.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class firstmigration : DbMigration
+    public partial class fixed_db : DbMigration
     {
         public override void Up()
         {
@@ -14,6 +14,8 @@ namespace UniversityOfRoommates.Migrations
                         idStanza = c.Int(nullable: false),
                         idCasa = c.Int(nullable: false),
                         codiceFiscale = c.String(nullable: false, maxLength: 128),
+                        inizioContratto = c.DateTime(nullable: false),
+                        fineContratto = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => new { t.idStanza, t.idCasa, t.codiceFiscale })
                 .ForeignKey("dbo.Stanzas", t => new { t.idStanza, t.idCasa }, cascadeDelete: true)
@@ -58,6 +60,18 @@ namespace UniversityOfRoommates.Migrations
                 .Index(t => t.codiceFiscale);
             
             CreateTable(
+                "dbo.FotoCasas",
+                c => new
+                    {
+                        idCasa = c.Int(nullable: false),
+                        idFoto = c.Int(nullable: false),
+                        linkFoto = c.String(),
+                    })
+                .PrimaryKey(t => new { t.idCasa, t.idFoto })
+                .ForeignKey("dbo.Casas", t => t.idCasa, cascadeDelete: true)
+                .Index(t => t.idCasa);
+            
+            CreateTable(
                 "dbo.Proprietarios",
                 c => new
                     {
@@ -82,9 +96,57 @@ namespace UniversityOfRoommates.Migrations
                         cittàProvenienza = c.String(),
                         email = c.String(),
                         cell = c.String(),
-                        idInteresse = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.codiceFiscale);
+            
+            CreateTable(
+                "dbo.DebitiCreditis",
+                c => new
+                    {
+                        idCreditiDebiti = c.Int(nullable: false, identity: true),
+                        codiceFiscaleCreditore = c.String(maxLength: 128),
+                        codiceFiscaleDebitore = c.String(maxLength: 128),
+                        cifra = c.Double(nullable: false),
+                        descrizione = c.String(),
+                        data = c.DateTime(nullable: false),
+                        Utente_codiceFiscale = c.String(maxLength: 128),
+                        Utente_codiceFiscale1 = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.idCreditiDebiti)
+                .ForeignKey("dbo.Utentes", t => t.codiceFiscaleCreditore)
+                .ForeignKey("dbo.Utentes", t => t.codiceFiscaleDebitore)
+                .ForeignKey("dbo.Utentes", t => t.Utente_codiceFiscale)
+                .ForeignKey("dbo.Utentes", t => t.Utente_codiceFiscale1)
+                .Index(t => t.codiceFiscaleCreditore)
+                .Index(t => t.codiceFiscaleDebitore)
+                .Index(t => t.Utente_codiceFiscale)
+                .Index(t => t.Utente_codiceFiscale1);
+            
+            CreateTable(
+                "dbo.Eventoes",
+                c => new
+                    {
+                        idCasa = c.Int(nullable: false),
+                        idEvento = c.Int(nullable: false),
+                        codiceFiscale = c.String(),
+                        descrizione = c.String(),
+                        data = c.DateTime(nullable: false),
+                        giorno = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.idCasa, t.idEvento })
+                .ForeignKey("dbo.GestioneCasas", t => t.idCasa, cascadeDelete: true)
+                .Index(t => t.idCasa);
+            
+            CreateTable(
+                "dbo.GestioneCasas",
+                c => new
+                    {
+                        idCasa = c.Int(nullable: false),
+                        noteComuni = c.String(),
+                    })
+                .PrimaryKey(t => t.idCasa)
+                .ForeignKey("dbo.Casas", t => t.idCasa)
+                .Index(t => t.idCasa);
             
             CreateTable(
                 "dbo.Interesses",
@@ -103,18 +165,6 @@ namespace UniversityOfRoommates.Migrations
                 .PrimaryKey(t => t.codiceFiscale)
                 .ForeignKey("dbo.Utentes", t => t.codiceFiscale)
                 .Index(t => t.codiceFiscale);
-            
-            CreateTable(
-                "dbo.FotoCasas",
-                c => new
-                    {
-                        idCasa = c.Int(nullable: false),
-                        idFoto = c.Int(nullable: false),
-                        foto = c.Binary(),
-                    })
-                .PrimaryKey(t => new { t.idCasa, t.idFoto })
-                .ForeignKey("dbo.Casas", t => t.idCasa, cascadeDelete: true)
-                .Index(t => t.idCasa);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -192,22 +242,34 @@ namespace UniversityOfRoommates.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.FotoCasas", "idCasa", "dbo.Casas");
+            DropForeignKey("dbo.Interesses", "codiceFiscale", "dbo.Utentes");
+            DropForeignKey("dbo.Eventoes", "idCasa", "dbo.GestioneCasas");
+            DropForeignKey("dbo.GestioneCasas", "idCasa", "dbo.Casas");
             DropForeignKey("dbo.Affittoes", "codiceFiscale", "dbo.Utentes");
             DropForeignKey("dbo.Affittoes", new[] { "idStanza", "idCasa" }, "dbo.Stanzas");
             DropForeignKey("dbo.Stanzas", "idCasa", "dbo.Casas");
             DropForeignKey("dbo.Casas", "codiceFiscale", "dbo.Proprietarios");
             DropForeignKey("dbo.Proprietarios", "codiceFiscale", "dbo.Utentes");
-            DropForeignKey("dbo.Interesses", "codiceFiscale", "dbo.Utentes");
+            DropForeignKey("dbo.DebitiCreditis", "Utente_codiceFiscale1", "dbo.Utentes");
+            DropForeignKey("dbo.DebitiCreditis", "Utente_codiceFiscale", "dbo.Utentes");
+            DropForeignKey("dbo.DebitiCreditis", "codiceFiscaleDebitore", "dbo.Utentes");
+            DropForeignKey("dbo.DebitiCreditis", "codiceFiscaleCreditore", "dbo.Utentes");
+            DropForeignKey("dbo.FotoCasas", "idCasa", "dbo.Casas");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.FotoCasas", new[] { "idCasa" });
             DropIndex("dbo.Interesses", new[] { "codiceFiscale" });
+            DropIndex("dbo.GestioneCasas", new[] { "idCasa" });
+            DropIndex("dbo.Eventoes", new[] { "idCasa" });
+            DropIndex("dbo.DebitiCreditis", new[] { "Utente_codiceFiscale1" });
+            DropIndex("dbo.DebitiCreditis", new[] { "Utente_codiceFiscale" });
+            DropIndex("dbo.DebitiCreditis", new[] { "codiceFiscaleDebitore" });
+            DropIndex("dbo.DebitiCreditis", new[] { "codiceFiscaleCreditore" });
             DropIndex("dbo.Proprietarios", new[] { "codiceFiscale" });
+            DropIndex("dbo.FotoCasas", new[] { "idCasa" });
             DropIndex("dbo.Casas", new[] { "codiceFiscale" });
             DropIndex("dbo.Stanzas", new[] { "idCasa" });
             DropIndex("dbo.Affittoes", new[] { "codiceFiscale" });
@@ -217,10 +279,13 @@ namespace UniversityOfRoommates.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.FotoCasas");
             DropTable("dbo.Interesses");
+            DropTable("dbo.GestioneCasas");
+            DropTable("dbo.Eventoes");
+            DropTable("dbo.DebitiCreditis");
             DropTable("dbo.Utentes");
             DropTable("dbo.Proprietarios");
+            DropTable("dbo.FotoCasas");
             DropTable("dbo.Casas");
             DropTable("dbo.Stanzas");
             DropTable("dbo.Affittoes");
