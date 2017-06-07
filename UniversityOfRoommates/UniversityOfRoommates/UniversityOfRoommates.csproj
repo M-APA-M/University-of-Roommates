@@ -239,6 +239,7 @@
     <Content Include="Content\css\owl.carousel.min.css" />
     <Content Include="Content\css\owl.theme.default.min.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\img\video.mp4" />
     <Content Include="Scripts\js\bootstrap.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\Chart.js" />
@@ -344,7 +345,6 @@
     <Content Include="Views\Utente\Edit.cshtml" />
     <Content Include="Views\Utente\Index.cshtml" />
     <Content Include="Content\img\.DS_Store" />
-    <Content Include="Views\Shared\Menù.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
