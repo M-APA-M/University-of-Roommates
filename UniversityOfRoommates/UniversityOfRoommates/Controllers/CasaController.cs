@@ -134,6 +134,8 @@ namespace UniversityOfRoommates.Controllers
         bisogna creare una cosa come sotto e dopo averla finita clccare col destro sul nome e 
         fare aggiungi visualizz che genera una view chiamata "getPOI" che include la lista di 
         Circondariato che sarà accessibile dall'html scrivendo @Model.quello_che_ti_serve
+
+        Se invece si vuole usare una view esistente basta scrivere codice dentro una funzione come quella sotto già esistente e passare i parametri desiderati (anche nel return View())
         */
         public async Task<ActionResult> getPOI(decimal lo, decimal la,int raggio)
         {
