@@ -129,5 +129,19 @@ namespace UniversityOfRoommates.Controllers
             }
             base.Dispose(disposing);
         }
+        public List<Casa> getPOI(decimal lo, decimal la,int raggio)
+        {
+            List<Casa> circ = new List<Casa>();
+            if (raggio == 0)
+            {
+                //carica tutto
+                foreach(Casa c in db.Case) { circ.Add(c); }
+            }
+            else
+            {
+                //carica solo nel raggio 
+            }
+            return circ;
+        }
     }
 }
