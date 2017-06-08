@@ -19,22 +19,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.longitudine)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.longitudine)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.latitudine)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.latitudine)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.indirizzo)
         </dt>
 
@@ -101,6 +85,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idCasa }) |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

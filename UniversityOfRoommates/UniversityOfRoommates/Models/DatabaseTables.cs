@@ -13,8 +13,9 @@ namespace UniversityOfRoommates.Models
     public class Utente
     {
         [Key]
-        public string codiceFiscale { get; set; }
+        public string nick { get; set; }
 
+        public string pass { get; set; }
         public string nome { get; set; }
         public string cognome { get; set; }
         public bool sesso { get; set; }
@@ -32,7 +33,7 @@ namespace UniversityOfRoommates.Models
     public class Proprietario
     {
         [Key, ForeignKey("Utente")]
-        public string codiceFiscale { get; set; }
+        public string nick { get; set; }
         public Utente Utente { get; set; }
 
         public string iban { get; set; }
@@ -58,15 +59,19 @@ namespace UniversityOfRoommates.Models
     }
     public class Casa
     {
-        [Key]
-        public int idCasa { get; set; }
+        [Key,Column(Order = 1)]
+        public string nomeCasa {get; set; }
+
+        [Key, Column(Order = 2)]
+        public decimal longitudine { get; set; }
+
+        [Key, Column(Order = 3)]
+        public decimal latitudine { get; set; }
 
         [ForeignKey("Proprietario")]
         public string codiceFiscale { get; set; }
         public Proprietario Proprietario { get; set; }
-
-        public decimal longitudine { get; set; }
-        public decimal latitudine { get; set; }
+        
         public string indirizzo { get; set; }
         public string civico { get; set; }
         public int cap { get; set; }
@@ -84,11 +89,20 @@ namespace UniversityOfRoommates.Models
 	{ 
 		[Key, ForeignKey("Casa")]
         [Column(Order = 1)]
-        public int idCasa { get; set; }
+        public string nomeCasa { get; set; }
+
+        [Key, ForeignKey("Casa")]
+        [Column(Order = 2)]
+        public decimal longitude { get; set; }
+
+        [Key, ForeignKey("Casa")]
+        [Column(Order = 3)]
+        public decimal latitude { get; set; }
+
         public Casa Casa { get; set; }
 
         [Key]
-        [Column(Order = 2)]
+        [Column(Order = 4)]
         public int idFoto { get; set; }
 		public string linkFoto { get; set; }
 	}
@@ -101,7 +115,16 @@ namespace UniversityOfRoommates.Models
 
 		[Key, ForeignKey("Casa")]
         [Column(Order = 2)]
-        public int idCasa { get; set; }
+        public string nomeCasa { get; set; }
+
+        [Key, ForeignKey("Casa")]
+        [Column(Order = 3)]
+        public decimal longitude { get; set; }
+
+        [Key, ForeignKey("Casa")]
+        [Column(Order = 4)]
+        public decimal latitude { get; set; }
+
         public Casa Casa { get; set; }
 
         public int postiLetto { get; set; }
@@ -118,10 +141,18 @@ namespace UniversityOfRoommates.Models
         public int idStanza { get; set; }
 
         [Key, ForeignKey("Stanza"), Column(Order = 2)]
-        public int idCasa { get; set; }
+        public string nomeCasa { get; set; }
         public Stanza Stanza { get; set; }
 
-        [Key, ForeignKey("Utente"), Column(Order = 3)]
+        [Key, ForeignKey("Stanza")]
+        [Column(Order = 3)]
+        public decimal longitude { get; set; }
+
+        [Key, ForeignKey("Stanza")]
+        [Column(Order = 4)]
+        public decimal latitude { get; set; }
+
+        [Key, ForeignKey("Utente"), Column(Order = 5)]
         public string codiceFiscale { get; set; }
         public Utente Utente { get; set; }
 
@@ -133,7 +164,17 @@ namespace UniversityOfRoommates.Models
     public class GestioneCasa
     {
         [Key,ForeignKey("Casa")]
-        public int idCasa { get; set; }
+        [Column(Order = 1)]
+        public string nomeCasa { get; set; }
+
+        [Key, ForeignKey("Casa")]
+        [Column(Order = 2)]
+        public decimal longitude { get; set; }
+
+        [Key, ForeignKey("Casa")]
+        [Column(Order = 3)]
+        public decimal latitude { get; set; }
+
         public Casa Casa { get; set; }
 
         public string noteComuni { get; set; }
@@ -143,12 +184,22 @@ namespace UniversityOfRoommates.Models
     public class Evento
     {
         [Key, ForeignKey("GestioneCasa"), Column(Order = 1)]
-        public int idCasa { get; set; }
+        public string nomeCasa { get; set; }
+
+        [Key, ForeignKey("GestioneCasa")]
+        [Column(Order = 2)]
+        public decimal longitude { get; set; }
+
+        [Key, ForeignKey("GestioneCasa")]
+        [Column(Order = 3)]
+        public decimal latitude { get; set; }
+
         public GestioneCasa GestioneCasa { get; set; }
-        [Key, Column(Order = 2)]
+
+        [Key, Column(Order = 4)]
         public int idEvento { get; set; }
 
-        public string codiceFiscale { get; set; }
+        public string nick { get; set; }
         public string descrizione { get; set; }
         public DateTime data { get; set; }
         public int giorno { get; set; }
