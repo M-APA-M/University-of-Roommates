@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<UniversityOfRoommates.Models.Casa>
+@{  
+    //foreach(var casa in Model)
+    //{
+    //    var latitudine = casa.latitudine;
+    //    var longitudine = casa.longitudine;
+    //}
+    var latitudine = 37.50187;
+    var longitudine = 15.08515;
+
+}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+    <head>
+        <title>BingMaps</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+        
+        <script type="text/javascript">
+
+            var map = null;
+
+            function getMap() {
+                Microsoft.Maps.loadModule('Microsoft.Maps.Themes.BingTheme', {
+                   callback: function () {
+                       map = new Microsoft.Maps.Map(document.getElementById("div_map"), {
+                           credentials: "Aj0uk1jKLE_AeTR029hI7B81ovgMuVioZK_qu7e-qBNSzXwqh_ZvBKx-y0wCsPok",
+                           theme: new Microsoft.Maps.Themes.BingTheme(),
+                       });
+                       map.setView({ zoom: 12, center: new Microsoft.Maps.Location(@latitudine, @longitudine) });
+                       var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@latitudine ,@longitudine), null)
+                       map.entities.push(pin);
+                    }
+                });
+            }
+
+            function setView() {
+                map.setView({ zoom: 12, center: new Microsoft.Maps.Location(@latitudine, @longitudine) });
+            }
+
+            function pushPin() {
+                var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@latitudine ,@longitudine), null)
+                map.entities.push(pin);
+            }
+
+            function loadMap() {
+                getMap();
+                //setView();
+                //pushPin();
+            }
+
+        </script>
+        @*declare addMarker function*@
+        @*<script type="text/javascript">
+            function addMarker(la, lo)
+            {
+                
+            var marker = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(la, lo));
+            map.entities.push(marker);
+            };
+
+            //alert("xx");
+            
+        </script>*@
+
+
+    </head>
+    <body onload="loadMap()">
+        <div id="div_map" style="width:1000px;height:700px;position:relative;border:1px;border-color:lightgoldenrodyellow;background-color:whitesmoke;"></div>
+        
+        <input type="button" value="Set View" onclick="setView();" />
+        <input type="button" value="Set Pin" onclick="pushPin();" />
+
+    </body>
+</html>

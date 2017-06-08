@@ -129,6 +129,7 @@ namespace UniversityOfRoommates.Controllers
             }
             base.Dispose(disposing);
         }
+
         public List<Casa> getPOI(decimal lo, decimal la,int raggio)
         {
             List<Casa> circ = new List<Casa>();
@@ -142,6 +143,13 @@ namespace UniversityOfRoommates.Controllers
                 //carica solo nel raggio 
             }
             return circ;
+        }
+
+        public ActionResult GetLocations()
+        {
+            var casa = db.Case;
+            
+            return View(casa.AsEnumerable());
         }
     }
 }
