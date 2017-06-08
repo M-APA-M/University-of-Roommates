@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using UniversityOfRoommates.Models;
 
-namespace UniversityOfRoommates.Models
+namespace UniversityOfRoommates.Controllers
 {
     public class CasaController : Controller
     {
@@ -18,12 +18,12 @@ namespace UniversityOfRoommates.Models
         // GET: Casa
         public async Task<ActionResult> Index()
         {
-            var casa = db.Case.Include(c => c.Proprietario);
-            return View(await casa.ToListAsync());
+            var case = db.Case.Include(c => c.Proprietario);
+            return View(await case.ToListAsync());
         }
 
         // GET: Casa/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public async Task<ActionResult> Details(string id)
         {
             if (id == null)
             {
@@ -40,16 +40,16 @@ namespace UniversityOfRoommates.Models
         // GET: Casa/Create
         public ActionResult Create()
         {
-            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "codiceFiscale", "iban");
+            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "nick", "iban");
             return View();
         }
 
         // POST: Casa/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Per proteggere da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
+        // Per ulteriori dettagli, vedere http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "idCasa,codiceFiscale,longitudine,latitudine,indirizzo,civico,cap,numeroServizi,metraturaInterna,metraturaEsterna,postoAuto,descrizioneServizi")] Casa casa)
+        public async Task<ActionResult> Create([Bind(Include = "nomeCasa,longitudine,latitudine,codiceFiscale,indirizzo,civico,cap,numeroServizi,metraturaInterna,metraturaEsterna,postoAuto,descrizioneServizi")] Casa casa)
         {
             if (ModelState.IsValid)
             {
@@ -58,12 +58,12 @@ namespace UniversityOfRoommates.Models
                 return RedirectToAction("Index");
             }
 
-            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "codiceFiscale", "iban", casa.codiceFiscale);
+            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "nick", "iban", casa.codiceFiscale);
             return View(casa);
         }
 
         // GET: Casa/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        public async Task<ActionResult> Edit(string id)
         {
             if (id == null)
             {
@@ -74,16 +74,16 @@ namespace UniversityOfRoommates.Models
             {
                 return HttpNotFound();
             }
-            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "codiceFiscale", "iban", casa.codiceFiscale);
+            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "nick", "iban", casa.codiceFiscale);
             return View(casa);
         }
 
         // POST: Casa/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Per proteggere da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
+        // Per ulteriori dettagli, vedere http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "idCasa,codiceFiscale,longitudine,latitudine,indirizzo,civico,cap,numeroServizi,metraturaInterna,metraturaEsterna,postoAuto,descrizioneServizi")] Casa casa)
+        public async Task<ActionResult> Edit([Bind(Include = "nomeCasa,longitudine,latitudine,codiceFiscale,indirizzo,civico,cap,numeroServizi,metraturaInterna,metraturaEsterna,postoAuto,descrizioneServizi")] Casa casa)
         {
             if (ModelState.IsValid)
             {
@@ -91,12 +91,12 @@ namespace UniversityOfRoommates.Models
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "codiceFiscale", "iban", casa.codiceFiscale);
+            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "nick", "iban", casa.codiceFiscale);
             return View(casa);
         }
 
         // GET: Casa/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        public async Task<ActionResult> Delete(string id)
         {
             if (id == null)
             {
@@ -113,7 +113,7 @@ namespace UniversityOfRoommates.Models
         // POST: Casa/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(string id)
         {
             Casa casa = await db.Case.FindAsync(id);
             db.Case.Remove(casa);

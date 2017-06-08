@@ -18,8 +18,7 @@ namespace UniversityOfRoommates.Controllers
         // GET: Utente
         public async Task<ActionResult> Index()
         {
-            var utenti = db.Utenti.Include(u => u.Interesse);
-            return View(await utenti.ToListAsync());
+            return View(await db.Utenti.ToListAsync());
         }
 
         // GET: Utente/Details/5
@@ -40,16 +39,15 @@ namespace UniversityOfRoommates.Controllers
         // GET: Utente/Create
         public ActionResult Create()
         {
-            ViewBag.codiceFiscale = new SelectList(db.Interessi, "codiceFiscale", "p1");
             return View();
         }
 
         // POST: Utente/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Per proteggere da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
+        // Per ulteriori dettagli, vedere http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "codiceFiscale,nome,cognome,sesso,ddn,cittàProvenienza,email,cell,idInteresse")] Utente utente)
+        public async Task<ActionResult> Create([Bind(Include = "nick,pass,nome,cognome,sesso,ddn,cittàProvenienza,email,cell")] Utente utente)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +56,6 @@ namespace UniversityOfRoommates.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.codiceFiscale = new SelectList(db.Interessi, "codiceFiscale", "p1", utente.codiceFiscale);
             return View(utente);
         }
 
@@ -74,16 +71,15 @@ namespace UniversityOfRoommates.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.codiceFiscale = new SelectList(db.Interessi, "codiceFiscale", "p1", utente.codiceFiscale);
             return View(utente);
         }
 
         // POST: Utente/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Per proteggere da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
+        // Per ulteriori dettagli, vedere http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "codiceFiscale,nome,cognome,sesso,ddn,cittàProvenienza,email,cell,idInteresse")] Utente utente)
+        public async Task<ActionResult> Edit([Bind(Include = "nick,pass,nome,cognome,sesso,ddn,cittàProvenienza,email,cell")] Utente utente)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +87,6 @@ namespace UniversityOfRoommates.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.codiceFiscale = new SelectList(db.Interessi, "codiceFiscale", "p1", utente.codiceFiscale);
             return View(utente);
         }
 

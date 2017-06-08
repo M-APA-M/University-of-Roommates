@@ -15,12 +15,6 @@
             @Html.DisplayNameFor(model => model.Proprietario.iban)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.longitudine)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.latitudine)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.indirizzo)
         </th>
         <th>
@@ -53,12 +47,6 @@
             @Html.DisplayFor(modelItem => item.Proprietario.iban)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.longitudine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.latitudine)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.indirizzo)
         </td>
         <td>
@@ -83,9 +71,9 @@
             @Html.DisplayFor(modelItem => item.descrizioneServizi)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idCasa }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idCasa }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idCasa })
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }
