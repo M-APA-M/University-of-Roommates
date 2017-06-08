@@ -207,6 +207,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GestioneCasasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -338,6 +339,11 @@
     <Content Include="Views\Proprietarios\Details.cshtml" />
     <Content Include="Views\Proprietarios\Edit.cshtml" />
     <Content Include="Views\Proprietarios\Index.cshtml" />
+    <Content Include="Views\GestioneCasas\Create.cshtml" />
+    <Content Include="Views\GestioneCasas\Delete.cshtml" />
+    <Content Include="Views\GestioneCasas\Details.cshtml" />
+    <Content Include="Views\GestioneCasas\Edit.cshtml" />
+    <Content Include="Views\GestioneCasas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
