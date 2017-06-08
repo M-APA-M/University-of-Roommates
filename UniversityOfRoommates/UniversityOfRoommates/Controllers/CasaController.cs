@@ -18,8 +18,8 @@ namespace UniversityOfRoommates.Controllers
         // GET: Casa
         public async Task<ActionResult> Index()
         {
-            var case = db.Case.Include(c => c.Proprietario);
-            return View(await case.ToListAsync());
+            var casa = db.Case.Include(c => c.Proprietario);
+            return View(await casa.ToListAsync());
         }
 
         // GET: Casa/Details/5
