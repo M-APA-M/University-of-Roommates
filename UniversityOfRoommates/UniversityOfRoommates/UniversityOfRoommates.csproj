@@ -210,24 +210,20 @@
     <Compile Include="Controllers\CasaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProprietarioController.cs" />
     <Compile Include="Controllers\UtenteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706071334076_fixed_db.cs" />
-    <Compile Include="Migrations\201706071334076_fixed_db.Designer.cs">
-      <DependentUpon>201706071334076_fixed_db.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706041834409_Firstcontroller.cs" />
-    <Compile Include="Migrations\201706041834409_Firstcontroller.Designer.cs">
-      <DependentUpon>201706041834409_Firstcontroller.cs</DependentUpon>
+    <Compile Include="Migrations\201706081015126_fix casa-utente-prop.cs" />
+    <Compile Include="Migrations\201706081015126_fix casa-utente-prop.Designer.cs">
+      <DependentUpon>201706081015126_fix casa-utente-prop.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DatabaseTables.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -290,11 +286,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
-    <Content Include="Views\Proprietario\Create.cshtml" />
-    <Content Include="Views\Proprietario\Delete.cshtml" />
-    <Content Include="Views\Proprietario\Details.cshtml" />
-    <Content Include="Views\Proprietario\Edit.cshtml" />
-    <Content Include="Views\Proprietario\Index.cshtml" />
     <Content Include="Views\Casa\Create.cshtml" />
     <Content Include="Views\Casa\Delete.cshtml" />
     <Content Include="Views\Casa\Details.cshtml" />
@@ -322,11 +313,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706071334076_fixed_db.resx">
-      <DependentUpon>201706071334076_fixed_db.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706041834409_Firstcontroller.resx">
-      <DependentUpon>201706041834409_Firstcontroller.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706081015126_fix casa-utente-prop.resx">
+      <DependentUpon>201706081015126_fix casa-utente-prop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
