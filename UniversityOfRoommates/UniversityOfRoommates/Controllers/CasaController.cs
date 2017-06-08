@@ -129,17 +129,35 @@ namespace UniversityOfRoommates.Controllers
             }
             base.Dispose(disposing);
         }
-        public List<Casa> getPOI(decimal lo, decimal la,int raggio)
+        public List<Circondariato> getPOI(decimal lo, decimal la,int raggio)
         {
-            List<Casa> circ = new List<Casa>();
+            List<Circondariato> circ = new List<Circondariato>();
             if (raggio == 0)
             {
                 //carica tutto
-                foreach(Casa c in db.Case) { circ.Add(c); }
+                foreach(Casa c in db.Case)
+                {
+                    Circondariato ci = new Circondariato();
+                    ci.nomeCasa = c.nomeCasa;
+                    ci.lon = c.longitudine;
+                    ci.lat = c.latitudine;
+                    circ.Add(ci);
+                }
             }
             else
             {
-                //carica solo nel raggio 
+                //carica solo nel raggio  
+                foreach (Casa c in db.Case.Where(m=> m.latitudine <= m.latitudine + (raggio / 200) &&
+                                                     m.latitudine>= m.latitudine - (raggio / 200) &&
+                                                     m.longitudine <= m.longitudine + (raggio / 200) && 
+                                                     m.longitudine >= m.longitudine - (raggio / 200)))
+                {
+                    Circondariato ci = new Circondariato();
+                    ci.nomeCasa = c.nomeCasa;
+                    ci.lon = c.longitudine;
+                    ci.lat = c.latitudine;
+                    circ.Add(ci);
+                }
             }
             return circ;
         }
