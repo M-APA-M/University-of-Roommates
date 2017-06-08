@@ -129,13 +129,19 @@ namespace UniversityOfRoommates.Controllers
             }
             base.Dispose(disposing);
         }
-        public List<Circondariato> getPOI(decimal lo, decimal la,int raggio)
+
+        /*praticamente per poter tireare i dati dal db e metterli in una view 
+        bisogna creare una cosa come sotto e dopo averla finita clccare col destro sul nome e 
+        fare aggiungi visualizz che genera una view chiamata "getPOI" che include la lista di 
+        Circondariato che sarà accessibile dall'html scrivendo @Model.quello_che_ti_serve
+        */
+        public async Task<ActionResult> getPOI(decimal lo, decimal la,int raggio)
         {
             List<Circondariato> circ = new List<Circondariato>();
             if (raggio == 0)
             {
                 //carica tutto
-                foreach(Casa c in db.Case)
+                foreach(Casa c in await db.Case.ToListAsync())
                 {
                     Circondariato ci = new Circondariato();
                     ci.nomeCasa = c.nomeCasa;
@@ -147,10 +153,10 @@ namespace UniversityOfRoommates.Controllers
             else
             {
                 //carica solo nel raggio  
-                foreach (Casa c in db.Case.Where(m=> m.latitudine <= m.latitudine + (raggio / 200) &&
+                foreach (Casa c in await db.Case.Where(m=> m.latitudine <= m.latitudine + (raggio / 200) &&
                                                      m.latitudine>= m.latitudine - (raggio / 200) &&
                                                      m.longitudine <= m.longitudine + (raggio / 200) && 
-                                                     m.longitudine >= m.longitudine - (raggio / 200)))
+                                                     m.longitudine >= m.longitudine - (raggio / 200)).ToListAsync())
                 {
                     Circondariato ci = new Circondariato();
                     ci.nomeCasa = c.nomeCasa;
@@ -159,7 +165,7 @@ namespace UniversityOfRoommates.Controllers
                     circ.Add(ci);
                 }
             }
-            return circ;
+            return View(circ);
         }
     }
 }
