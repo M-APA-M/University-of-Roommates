@@ -1,0 +1,50 @@
+﻿@model UniversityOfRoommates.Models.Proprietario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Proprietario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Utente.pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utente.pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paypalMe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paypalMe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cartaIdentità)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cartaIdentità)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.nick }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,42 @@
+﻿@model UniversityOfRoommates.Models.GestioneCasa
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>GestioneCasa</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Casa.codiceFiscale)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Casa.codiceFiscale)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.noteComuni)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.noteComuni)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
