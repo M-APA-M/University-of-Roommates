@@ -50,14 +50,16 @@
                 }
             }
 
+            function getLocation() {
+                var geoLocationProvider = new Microsoft.Maps.GeoLocationProvider(map);
+                geoLocationProvider.getCurrentPosition({ showAccuracyCircle: false });
+            }
+
         </script>
 
     </head>
     <body onload="getMap();">
         <div id="div_map" style="width:1000px;height:700px;position:relative;border:1px;border-color:lightgoldenrodyellow;background-color:whitesmoke;"></div>
         
-        <input type="button" value="Set View" onclick="setView();" />
-        <input type="button" value="Set Pin" onclick="pushPin();" />
-
     </body>
 </html>
