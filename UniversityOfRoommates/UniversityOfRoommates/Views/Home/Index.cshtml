@@ -3,28 +3,6 @@
 
 
 
-@if (Request.IsAuthenticated)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-        @Html.AntiForgeryToken()
-
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("Salve " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Disconnetti</a></li>
-        </ul>
-    }
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Registrazione", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Accedi", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}
-
 
 
 
@@ -113,9 +91,37 @@ else
             <source src="video/big_buck_bunny.ogv" type="video/ogg">
         </video>
     </div>*@
+    
+      
+    
+
     <div id="prova">
+
+    <div id="prova2">
+        @if (Request.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-left" }))
+                {
+                @Html.AntiForgeryToken()
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        @Html.ActionLink("Salve " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                    </li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Disconnetti</a></li>
+                </ul>
+            }
+        }
+        else
+        {
+            <ul class="nav navbar-nav navbar-left">
+                <li>@Html.ActionLink("Registrazione", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Accedi", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            </ul>
+        }</div>
         <br>
-       <h1 style=" color:azure; font-family:'Manhattan Darling'; font-size:100%; " >Room Mates</h1> 
+        <br>
+       <h2 style=" color:azure; font-family:'Manhattan Darling'; font-size:100%; text-align:center " >Room Mates</h2> 
         <h2 style=" color:azure;     ">Organizza casa tua</h2>
         <div class="container">
             <br>

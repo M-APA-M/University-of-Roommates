@@ -115,15 +115,20 @@ a:after {
     padding-top: 20px;
     text-align: center;
     background-size: 100%;
-    min-height: 200px;
+    min-height: 300px;
     font-family: 'Manhattan Darling';
     font-size: 90px;
     font-weight: 700;
 
 }
 
-   
 
+#prova2 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    text-align: left;
+    min-height: 10px
+}
    
 
 
@@ -494,7 +499,7 @@ a.button {
 
 #menuToggle {
 	position: absolute;
-	top: 60px;
+	top: 10px;
 	left: 0;
 	z-index: 11;
 	display: block;
@@ -504,7 +509,7 @@ a.button {
 	width: 40px;
 	height: 40px;
 	line-height: 40px;
-	cursor: pointer;
+	cursor:pointer;
 	background: rgba(0,0,0,0.25);
 	-webkit-transition: all .1s ease-in-out;
 	   -moz-transition: all .1s ease-in-out;
