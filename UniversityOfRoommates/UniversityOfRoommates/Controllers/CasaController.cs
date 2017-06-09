@@ -137,8 +137,9 @@ namespace UniversityOfRoommates.Controllers
 
         Se invece si vuole usare una view esistente basta scrivere codice dentro una funzione come quella sotto già esistente e passare i parametri desiderati (anche nel return View())
         */
-        public async Task<ActionResult> getPOI(decimal lo, decimal la,int raggio)
+        public async Task<ActionResult> GetLocations()
         {
+            int raggio = 0;
             List<Circondariato> circ = new List<Circondariato>();
             if (raggio == 0)
             {
@@ -167,14 +168,14 @@ namespace UniversityOfRoommates.Controllers
                     circ.Add(ci);
                 }
             }
-            return View(circ);
+            return View(circ.AsEnumerable());
         }
 
-        public ActionResult GetLocations()
-        {
-            var casa = db.Case;
+        //public ActionResult GetLocations()
+        //{
+        //    var casa = db.Case;
             
-            return View(casa.AsEnumerable());
-        }
+        //    return View(casa.AsEnumerable());
+        //}
     }
 }

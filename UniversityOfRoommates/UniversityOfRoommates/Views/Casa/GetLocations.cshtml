@@ -1,19 +1,11 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model IEnumerable<UniversityOfRoommates.Models.Casa>
-@{  
-    //foreach(var casa in Model)
-    //{
-    //    var latitudine = casa.latitudine;
-    //    var longitudine = casa.longitudine;
-    //}
-    
+@model IEnumerable<UniversityOfRoommates.Models.Circondariato>
+@{     
     var latitudine = 37.50187;
     var longitudine = 15.08515;
-
 }
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -28,7 +20,6 @@
 
             var map;
             var mapOptions;
-            //var map = new Microsoft.Maps.Map(document.getElementById("div_map"), mapOptions);
 
             var initMap = function () {
                 mapOptions = {
@@ -49,8 +40,13 @@
             }
 
             function pushPin() {
-                var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@latitudine ,@longitudine), null)
+                @foreach(var item in Model)
+                {
+                    <text>
+                var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@item.lat, @item.lon), null);
                 map.entities.push(pin);
+                </text>
+                }
             }
 
         </script>
