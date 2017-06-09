@@ -99,15 +99,15 @@ a:after {
     background-size: cover;
 }
 
-#headerwrap h1 {
-	margin-top: 130px;
-	color: white;
-	font-size: 190px;
-	font-weight: 700;
-	letter-spacing: 3px;
-    font-family:'Manhattan Darling';
-
-}
+    #headerwrap h1 {
+        margin-top: 130px;
+        color: white;
+        font-size: 190px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        font-family: 'Manhattan Darling';
+        src: local("Manhattan Darling"), url("../fonts/MANHATTANDARLING-REGULAR.OTF") format("truetype"); /* non-IE */
+    }
 
 #prova {
     background: url(../img/header-bg.jpg) no-repeat center top;
