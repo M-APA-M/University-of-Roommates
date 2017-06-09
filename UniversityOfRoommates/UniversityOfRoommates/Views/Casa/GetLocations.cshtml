@@ -28,7 +28,7 @@
                 };
                 map = new Microsoft.Maps.Map(document.getElementById("div_map"), mapOptions);
                 setView();
-                pushPin();
+                entitiesPush();
             };
 
             function getMap() {
@@ -39,12 +39,13 @@
                 map.setView({ zoom: 12, center: new Microsoft.Maps.Location(@latitudine, @longitudine) });
             }
 
-            function pushPin() {
+            function entitiesPush() {
                 @foreach(var item in Model)
                 {
                     <text>
-                var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@item.lat, @item.lon), null);
+                var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@item.lat, @item.lon), { typeName: 'micro' });
                 map.entities.push(pin);
+                map.entities.push(new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(@item.lat, @item.lon), { title: '@item.nomeCasa', description: 'Descrizione', pushpin: pin }));
                 </text>
                 }
             }
