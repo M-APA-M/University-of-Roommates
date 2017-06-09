@@ -94,14 +94,12 @@ namespace UniversityOfRoommates.Models
         public bool sesso { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
         public DateTime ddn { get; set; }
 
         [Required]
         public string cittàProvenienza { get; set; }
 
         [Required]
-        [DataType(DataType.PhoneNumber)]
         public string cell { get; set; }
 
         //public ICollection<DebitiCrediti> Debiti { get; set; }
