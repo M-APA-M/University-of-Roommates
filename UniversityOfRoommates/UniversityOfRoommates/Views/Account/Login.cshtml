@@ -4,7 +4,9 @@
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
-
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @model LoginViewModel
 @{
     ViewBag.Title = "Accedi";
@@ -23,9 +25,7 @@
             <div class="login-wrap">
                
                 <div class="login-html">
-                    <p>
-                        @Html.ActionLink("Home", "../Home/Index")
-                    </p>
+                   
                     <h2 style="color:azure">@ViewBag.Title.</h2>
                     <h4 style="color:azure">Usare un account locale per accedere.</h4>
                     <div class="form-group">
