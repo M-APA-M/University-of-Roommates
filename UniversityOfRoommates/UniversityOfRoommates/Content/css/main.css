@@ -450,6 +450,15 @@ a:after {
 			transition: all .1s ease-in-out;
 }
 
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: initial;
+}
+
+
 .menu-close:hover {
 	color: #ffffff;
 	-webkit-transition: all .1s ease-in-out;
@@ -485,7 +494,7 @@ a:after {
 
 #menuToggle {
 	position: absolute;
-	top: 20px;
+	top: 60px;
 	left: 0;
 	z-index: 11;
 	display: block;

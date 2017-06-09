@@ -344,6 +344,8 @@
     <Content Include="Views\GestioneCasas\Details.cshtml" />
     <Content Include="Views\GestioneCasas\Edit.cshtml" />
     <Content Include="Views\GestioneCasas\Index.cshtml" />
+    <Content Include="Views\Utente\LogIn.cshtml" />
+    <Content Include="Views\Utente\_ExternalLoginsListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
