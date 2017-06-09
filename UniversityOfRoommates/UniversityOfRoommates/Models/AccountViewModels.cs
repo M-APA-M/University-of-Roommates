@@ -1,5 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System;
+using System.Linq;
+using System.Web;
+using System.Drawing;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UniversityOfRoommates.Models
 {
@@ -79,6 +84,29 @@ namespace UniversityOfRoommates.Models
         [Display(Name = "Conferma password")]
         [Compare("Password", ErrorMessage = "La password e la password di conferma non corrispondono.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string nome { get; set; }
+
+        [Required]
+        public string cognome { get; set; }
+
+        public bool sesso { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime ddn { get; set; }
+
+        [Required]
+        public string cittàProvenienza { get; set; }
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        public string cell { get; set; }
+
+        //public ICollection<DebitiCrediti> Debiti { get; set; }
+        //public ICollection<DebitiCrediti> Crediti { get; set; }
+        //public ICollection<Affitto> Affitto { get; set; }
     }
 
     public class ResetPasswordViewModel
