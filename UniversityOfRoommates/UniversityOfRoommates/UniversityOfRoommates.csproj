@@ -207,7 +207,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CasaController.cs" />
     <Compile Include="Controllers\GestioneCasasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -225,7 +224,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Controllers\CasaController.cs" />
     <Compile Include="Models\DatabaseTables.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -331,11 +329,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
-    <Content Include="Views\Casa\Create.cshtml" />
-    <Content Include="Views\Casa\Delete.cshtml" />
-    <Content Include="Views\Casa\Details.cshtml" />
-    <Content Include="Views\Casa\Edit.cshtml" />
-    <Content Include="Views\Casa\Index.cshtml" />
     <Content Include="Content\img\.DS_Store" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Proprietarios\Create.cshtml" />
@@ -348,7 +341,6 @@
     <Content Include="Views\GestioneCasas\Details.cshtml" />
     <Content Include="Views\GestioneCasas\Edit.cshtml" />
     <Content Include="Views\GestioneCasas\Index.cshtml" />
-    <Content Include="Views\Casa\GetLocations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
