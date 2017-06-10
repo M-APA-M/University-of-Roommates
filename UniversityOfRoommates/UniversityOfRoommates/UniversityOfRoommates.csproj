@@ -212,8 +212,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProprietariosController.cs" />
-    <Compile Include="Controllers\UtenteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,8 +219,13 @@
     <Compile Include="Migrations\201706101636505_modify casa.Designer.cs">
       <DependentUpon>201706101636505_modify casa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706091625561_TEST use account asp.net as our.cs" />
+    <Compile Include="Migrations\201706091625561_TEST use account asp.net as our.Designer.cs">
+      <DependentUpon>201706091625561_TEST use account asp.net as our.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Controllers\CasaController.cs" />
     <Compile Include="Models\DatabaseTables.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -328,11 +331,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
-    <Content Include="Views\Utente\Create.cshtml" />
-    <Content Include="Views\Utente\Delete.cshtml" />
-    <Content Include="Views\Utente\Details.cshtml" />
-    <Content Include="Views\Utente\Edit.cshtml" />
-    <Content Include="Views\Utente\Index.cshtml" />
+    <Content Include="Views\Casa\Create.cshtml" />
+    <Content Include="Views\Casa\Delete.cshtml" />
+    <Content Include="Views\Casa\Details.cshtml" />
+    <Content Include="Views\Casa\Edit.cshtml" />
+    <Content Include="Views\Casa\Index.cshtml" />
     <Content Include="Content\img\.DS_Store" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Proprietarios\Create.cshtml" />
@@ -345,13 +348,7 @@
     <Content Include="Views\GestioneCasas\Details.cshtml" />
     <Content Include="Views\GestioneCasas\Edit.cshtml" />
     <Content Include="Views\GestioneCasas\Index.cshtml" />
-    <Content Include="Views\Utente\LogIn.cshtml" />
-    <Content Include="Views\Utente\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Casa\Create.cshtml" />
-    <Content Include="Views\Casa\Delete.cshtml" />
-    <Content Include="Views\Casa\Details.cshtml" />
-    <Content Include="Views\Casa\Edit.cshtml" />
-    <Content Include="Views\Casa\Index.cshtml" />
+    <Content Include="Views\Casa\GetLocations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -370,6 +367,11 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706101636505_modify casa.resx">
       <DependentUpon>201706101636505_modify casa.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706091625561_TEST use account asp.net as our.resx">
+      <DependentUpon>201706091625561_TEST use account asp.net as our.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

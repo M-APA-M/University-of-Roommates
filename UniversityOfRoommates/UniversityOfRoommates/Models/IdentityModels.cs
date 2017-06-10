@@ -3,12 +3,25 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+using System;
 
 namespace UniversityOfRoommates.Models
 {
     // È possibile aggiungere dati di profilo dell'utente specificando altre proprietà della classe ApplicationUser. Per ulteriori informazioni, visitare http://go.microsoft.com/fwlink/?LinkID=317594.
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser 
     {
+        public string nome { get; set; }
+        public string cognome { get; set; }
+        public bool sesso { get; set; }
+        public DateTime ddn { get; set; }
+        public string cittàProvenienza { get; set; }
+        public string cell { get; set; }
+
+        public ICollection<DebitiCrediti> Debiti { get; set; }
+        public ICollection<DebitiCrediti> Crediti { get; set; }
+        public ICollection<Affitto> Affitto { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Tenere presente che il valore di authenticationType deve corrispondere a quello definito in CookieAuthenticationOptions.AuthenticationType
@@ -25,7 +38,7 @@ namespace UniversityOfRoommates.Models
         {
         }
 
-        public DbSet<Utente> Utenti { get; set; }
+       // public DbSet<Utente> Utenti { get; set; }
         public DbSet<Proprietario> Proprietari { get; set; }
         public DbSet<Interesse> Interessi { get; set; }
         public DbSet<Casa> Case { get; set; }

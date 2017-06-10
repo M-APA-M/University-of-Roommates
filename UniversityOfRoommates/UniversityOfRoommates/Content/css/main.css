@@ -124,7 +124,7 @@ a:after {
 
 
 #prova2 {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Adobe Arabic';
     font-size: 20px;
     text-align: left;
     min-height: 10px
@@ -498,24 +498,25 @@ a.button {
 }
 
 #menuToggle {
-	position: absolute;
-	top: 10px;
-	left: 0;
-	z-index: 11;
-	display: block;
-	text-align: center;
-	font-size: 14px;
-	color: #ffffff;
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
-	cursor:pointer;
-	background: rgba(0,0,0,0.25);
-	-webkit-transition: all .1s ease-in-out;
-	   -moz-transition: all .1s ease-in-out;
-		-ms-transition: all .1s ease-in-out;
-		 -o-transition: all .1s ease-in-out;
-			transition: all .1s ease-in-out;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    z-index: 11;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    background: url(https://lh5.googleusercontent.com/qeIUa9qRweI-nNARKyJEiobfwy_Y1JcBFkN4rH1YS2397DwabQcKkz8roLTnmGKautHzwIj4AAtcLc1MXC-QlRAUeXa2WFWvWcomiGrs4A3r-o40mW46wm7nUHJQ8UVpDg) center;
+    background-size: 40px 40px;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -ms-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
 }
 
 #menuToggle:hover {

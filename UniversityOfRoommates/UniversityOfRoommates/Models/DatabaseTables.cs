@@ -10,31 +10,30 @@ namespace UniversityOfRoommates.Models
 {
     public class DatabaseTables
     {    }
-    public class Utente
-    {
-        [Key]
-        public string nick { get; set; }
+    //public class Utente
+    //{
+    //    [Key]
+    //    public string nick { get; set; }
 
-        public string pass { get; set; }
-        public string nome { get; set; }
-        public string cognome { get; set; }
-        public bool sesso { get; set; }
-        public DateTime ddn { get; set; }
-        public string cittàProvenienza { get; set; }
-        public string email { get; set; }
-        public string cell { get; set; }
+    //    public string pass { get; set; }
+    //    public string nome { get; set; }
+    //    public string cognome { get; set; }
+    //    public bool sesso { get; set; }
+    //    public DateTime ddn { get; set; }
+    //    public string cittàProvenienza { get; set; }
+    //    public string cell { get; set; }
         
-        public ICollection<DebitiCrediti> Debiti { get; set; }
-        public ICollection<DebitiCrediti> Crediti { get; set; }
-        //public ICollection<Proprietario> Proprietario { get; set; }
-        //public ICollection<Interesse> Interesse { get; set; }
-        public ICollection<Affitto> Affitto { get; set; }
-    }
+    //    public ICollection<DebitiCrediti> Debiti { get; set; }
+    //    public ICollection<DebitiCrediti> Crediti { get; set; }
+    //    //public ICollection<Proprietario> Proprietario { get; set; }
+    //    //public ICollection<Interesse> Interesse { get; set; }
+    //    public ICollection<Affitto> Affitto { get; set; }
+    //}
     public class Proprietario
     {
         [Key, ForeignKey("Utente")]
         public string nick { get; set; }
-        public Utente Utente { get; set; }
+        public ApplicationUser Utente { get; set; }
 
         public string iban { get; set; }
         public string paypalMe { get; set; }
@@ -46,7 +45,7 @@ namespace UniversityOfRoommates.Models
     {
         [Key, ForeignKey("Utente")]
         public string codiceFiscale { get; set; }
-        public Utente Utente { get; set; }
+        public ApplicationUser Utente { get; set; }
 
         public string p1 { get; set; }
         public string p2 { get; set; }
@@ -156,7 +155,7 @@ namespace UniversityOfRoommates.Models
 
         [Key, ForeignKey("Utente"), Column(Order = 5)]
         public string codiceFiscale { get; set; }
-        public Utente Utente { get; set; }
+        public ApplicationUser Utente { get; set; }
 
         public DateTime inizioContratto { get; set; }
         public DateTime fineContratto { get; set; }
@@ -201,7 +200,10 @@ namespace UniversityOfRoommates.Models
         [Key, Column(Order = 4)]
         public int idEvento { get; set; }
 
+        [ForeignKey("Utente")]
         public string nick { get; set; }
+        public ApplicationUser Utente { get; set; }
+
         public string descrizione { get; set; }
         public DateTime data { get; set; }
         public int giorno { get; set; }
@@ -216,11 +218,11 @@ namespace UniversityOfRoommates.Models
 
         [ForeignKey("UtenteC")]
         public string codiceFiscaleCreditore { get; set; }
-        public Utente UtenteC { get; set; }
+        public ApplicationUser UtenteC { get; set; }
 
         [ForeignKey("UtenteD")]
         public string codiceFiscaleDebitore { get; set; }
-        public Utente UtenteD { get; set; }
+        public ApplicationUser UtenteD { get; set; }
 
         public double cifra { get; set; }
         public string descrizione { get; set; }

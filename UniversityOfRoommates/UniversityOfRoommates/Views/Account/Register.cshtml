@@ -1,5 +1,7 @@
 ﻿@model UniversityOfRoommates.Models.RegisterViewModel
-
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @Styles.Render("~/Content/css")
 @Scripts.Render("~/bundles/modernizr")
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
@@ -20,9 +22,7 @@
     <div class="back">
         <div class="login-wrap">
             <div class="login-html">
-                <p>
-                    @Html.ActionLink("Home", "../Home/Index")
-                </p>
+                
                 <h2 style="color:azure">@ViewBag.Title.</h2>
                 <h4 style="color:azure">Creare un nuovo utente.</h4>
                 <div class="form-group">
@@ -57,4 +57,6 @@
 
         @section Scripts {
             @Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
         }
