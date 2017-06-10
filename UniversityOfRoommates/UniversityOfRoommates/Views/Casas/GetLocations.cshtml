@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<UniversityOfRoommates.Models.Circondariato>
+@{     
+    var latitudine = 37.50187;
+    var longitudine = 15.08515;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+    <head>
+        <title>BingMaps</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+        <script>document.addEventListener("DOMContentLoaded", initialize, false);</script>
+
+        <script type="text/javascript">
+
+            var map;
+            var mapOptions;
+
+            var initMap = function () {
+                mapOptions = {
+                    credentials: "Aj0uk1jKLE_AeTR029hI7B81ovgMuVioZK_qu7e-qBNSzXwqh_ZvBKx-y0wCsPok",
+                    theme: new Microsoft.Maps.Themes.BingTheme()
+                };
+                map = new Microsoft.Maps.Map(document.getElementById("div_map"), mapOptions);
+                setView();
+                entitiesPush();
+            };
+
+            function getMap() {
+                Microsoft.Maps.loadModule('Microsoft.Maps.Themes.BingTheme', { callback: initMap });
+            }
+
+            function setView() {
+                map.setView({ zoom: 12, center: new Microsoft.Maps.Location(@latitudine, @longitudine) });
+            }
+
+            function entitiesPush() {
+                @foreach(var item in Model)
+                {
+                    <text>
+                var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@item.lat, @item.lon), { typeName: 'micro' });
+                map.entities.push(pin);
+                map.entities.push(new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(@item.lat, @item.lon), { title: '@item.nomeCasa', description: 'Descrizione', pushpin: pin }));
+                </text>
+                }
+            }
+
+            function getLocation() {
+                var geoLocationProvider = new Microsoft.Maps.GeoLocationProvider(map);
+                geoLocationProvider.getCurrentPosition({ showAccuracyCircle: false });
+            }
+
+        </script>
+
+    </head>
+    <body onload="getMap();">
+        <div id="div_map" style="width:1000px;height:700px;position:relative;border:1px;border-color:lightgoldenrodyellow;background-color:whitesmoke;"></div>
+        
+    </body>
+</html>

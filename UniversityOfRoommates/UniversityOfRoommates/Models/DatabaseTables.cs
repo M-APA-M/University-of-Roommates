@@ -32,7 +32,7 @@ namespace UniversityOfRoommates.Models
     public class Proprietario
     {
         [Key, ForeignKey("Utente")]
-        public string nick { get; set; }
+        public string UserName { get; set; }
         public ApplicationUser Utente { get; set; }
 
         public string iban { get; set; }
@@ -44,7 +44,7 @@ namespace UniversityOfRoommates.Models
     public class Interesse
     {
         [Key, ForeignKey("Utente")]
-        public string codiceFiscale { get; set; }
+        public string UserName { get; set; }
         public ApplicationUser Utente { get; set; }
 
         public string p1 { get; set; }
@@ -68,7 +68,7 @@ namespace UniversityOfRoommates.Models
         public decimal latitudine { get; set; }
 
         [ForeignKey("Proprietario")]
-        public string codiceFiscale { get; set; }
+        public string UserName { get; set; }
         public Proprietario Proprietario { get; set; }
 
         public string provincia{ get; set; }
@@ -154,7 +154,7 @@ namespace UniversityOfRoommates.Models
         public decimal latitude { get; set; }
 
         [Key, ForeignKey("Utente"), Column(Order = 5)]
-        public string codiceFiscale { get; set; }
+        public string UserName { get; set; }
         public ApplicationUser Utente { get; set; }
 
         public DateTime inizioContratto { get; set; }
@@ -201,7 +201,7 @@ namespace UniversityOfRoommates.Models
         public int idEvento { get; set; }
 
         [ForeignKey("Utente")]
-        public string nick { get; set; }
+        public string UserName { get; set; }
         public ApplicationUser Utente { get; set; }
 
         public string descrizione { get; set; }
@@ -217,11 +217,11 @@ namespace UniversityOfRoommates.Models
         public int idCreditiDebiti { get; set; }
 
         [ForeignKey("UtenteC")]
-        public string codiceFiscaleCreditore { get; set; }
+        public string UserNameCreditore { get; set; }
         public ApplicationUser UtenteC { get; set; }
 
         [ForeignKey("UtenteD")]
-        public string codiceFiscaleDebitore { get; set; }
+        public string UserNameDebitore { get; set; }
         public ApplicationUser UtenteD { get; set; }
 
         public double cifra { get; set; }

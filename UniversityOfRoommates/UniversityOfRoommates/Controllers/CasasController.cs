@@ -40,7 +40,7 @@ namespace UniversityOfRoommates.Controllers
         // GET: Casas/Create
         public ActionResult Create()
         {
-            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "nick", "iban");
+            ViewBag.UserName = new SelectList(db.Proprietari, "UserName", "iban");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace UniversityOfRoommates.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "nomeCasa,longitudine,latitudine,codiceFiscale,provincia,city,indirizzo,civico,cap,numeroServizi,metraturaInterna,metraturaEsterna,postoAuto,descrizioneServizi")] Casa casa)
+        public async Task<ActionResult> Create([Bind(Include = "nomeCasa,longitudine,latitudine,UserName,provincia,city,indirizzo,civico,cap,numeroServizi,metraturaInterna,metraturaEsterna,postoAuto,descrizioneServizi")] Casa casa)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace UniversityOfRoommates.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "nick", "iban", casa.codiceFiscale);
+            ViewBag.UserName = new SelectList(db.Proprietari, "UserName", "iban", casa.UserName);
             return View(casa);
         }
 
@@ -74,7 +74,7 @@ namespace UniversityOfRoommates.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "nick", "iban", casa.codiceFiscale);
+            ViewBag.UserName = new SelectList(db.Proprietari, "UserName", "iban", casa.UserName);
             return View(casa);
         }
 
@@ -83,7 +83,7 @@ namespace UniversityOfRoommates.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "nomeCasa,longitudine,latitudine,codiceFiscale,provincia,city,indirizzo,civico,cap,numeroServizi,metraturaInterna,metraturaEsterna,postoAuto,descrizioneServizi")] Casa casa)
+        public async Task<ActionResult> Edit([Bind(Include = "nomeCasa,longitudine,latitudine,UserName,provincia,city,indirizzo,civico,cap,numeroServizi,metraturaInterna,metraturaEsterna,postoAuto,descrizioneServizi")] Casa casa)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace UniversityOfRoommates.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.codiceFiscale = new SelectList(db.Proprietari, "nick", "iban", casa.codiceFiscale);
+            ViewBag.UserName = new SelectList(db.Proprietari, "UserName", "iban", casa.UserName);
             return View(casa);
         }
 
@@ -129,5 +129,52 @@ namespace UniversityOfRoommates.Controllers
             }
             base.Dispose(disposing);
         }
+        /*praticamente per poter tireare i dati dal db e metterli in una view 
+        bisogna creare una cosa come sotto e dopo averla finita clccare col destro sul nome e 
+        fare aggiungi visualizz che genera una view chiamata "getPOI" che include la lista di 
+        Circondariato che sarà accessibile dall'html scrivendo @Model.quello_che_ti_serve
+
+        Se invece si vuole usare una view esistente basta scrivere codice dentro una funzione come quella sotto già esistente e passare i parametri desiderati (anche nel return View())
+        */
+        public async Task<ActionResult> GetLocations()
+        {
+            int raggio = 0;
+            List<Circondariato> circ = new List<Circondariato>();
+            if (raggio == 0)
+            {
+                //carica tutto
+                foreach (Casa c in await db.Case.ToListAsync())
+                {
+                    Circondariato ci = new Circondariato();
+                    ci.nomeCasa = c.nomeCasa;
+                    ci.lon = c.longitudine;
+                    ci.lat = c.latitudine;
+                    circ.Add(ci);
+                }
+            }
+            else
+            {
+                //carica solo nel raggio  
+                foreach (Casa c in await db.Case.Where(m => m.latitudine <= m.latitudine + (raggio / 200) &&
+                                                     m.latitudine >= m.latitudine - (raggio / 200) &&
+                                                     m.longitudine <= m.longitudine + (raggio / 200) &&
+                                                     m.longitudine >= m.longitudine - (raggio / 200)).ToListAsync())
+                {
+                    Circondariato ci = new Circondariato();
+                    ci.nomeCasa = c.nomeCasa;
+                    ci.lon = c.longitudine;
+                    ci.lat = c.latitudine;
+                    circ.Add(ci);
+                }
+            }
+            return View(circ.AsEnumerable());
+        }
+
+        //public ActionResult GetLocations()
+        //{
+        //    var casa = db.Case;
+
+        //    return View(casa.AsEnumerable());
+        //}
     }
 }
