@@ -15,6 +15,12 @@
             @Html.DisplayNameFor(model => model.Proprietario.iban)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.provincia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.indirizzo)
         </th>
         <th>
@@ -45,6 +51,12 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Proprietario.iban)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.provincia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.indirizzo)

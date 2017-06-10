@@ -71,7 +71,9 @@ namespace UniversityOfRoommates.Models
         [ForeignKey("Proprietario")]
         public string codiceFiscale { get; set; }
         public Proprietario Proprietario { get; set; }
-        
+
+        public string provincia{ get; set; }
+        public string city { get; set; }
         public string indirizzo { get; set; }
         public string civico { get; set; }
         public int cap { get; set; }
