@@ -1,7 +1,12 @@
-﻿@{
+﻿@model IEnumerable<UniversityOfRoommates.Models.Circondariato>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css' />
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model IEnumerable<UniversityOfRoommates.Models.Circondariato>
+
 @{     
     var latitudine = 37.50187;
     var longitudine = 15.08515;
@@ -63,3 +68,8 @@
         
     </body>
 </html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+}
