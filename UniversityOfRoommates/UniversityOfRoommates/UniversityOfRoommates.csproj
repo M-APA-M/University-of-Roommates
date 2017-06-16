@@ -212,6 +212,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProprietariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -352,6 +353,7 @@
     <Content Include="Views\Casas\Edit.cshtml" />
     <Content Include="Views\Casas\Index.cshtml" />
     <Content Include="Views\Casas\GetLocations.cshtml" />
+    <Content Include="Views\Account\RegProp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

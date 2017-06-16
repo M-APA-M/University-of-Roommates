@@ -27,7 +27,7 @@
                     <dd>
                         [
                         @if (Model.HasPassword)
-            {
+                        {
                             @Html.ActionLink("Cambia password", "ChangePassword")
                         }
                         else
@@ -35,6 +35,22 @@
                             @Html.ActionLink("Crea", "SetPassword")
                         }
                         ]
+                    
+                        @*@if (Model.PhoneNumber)
+                        {
+                            @Html.ActionLink("pas Proprietario", "../Proprietarios/Edit")
+
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Diventa Proprietario", "../Proprietarios/Create")
+                        }*@
+                        @Html.ActionLink("Diventa Proprietario", "../Proprietarios/Create")
+                        <br/>
+
+                        
+
+                        
                     </dd>
                     @*<dt style="color:azure; font-size:medium">Account di accesso esterni:</dt>
                     <dd style="color:azure; font-size:medium">

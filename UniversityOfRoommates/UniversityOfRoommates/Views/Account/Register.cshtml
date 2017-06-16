@@ -1,4 +1,5 @@
 ﻿@model UniversityOfRoommates.Models.RegisterViewModel
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -16,7 +17,7 @@
 {
     @Html.AntiForgeryToken()
     
-    @Html.ValidationSummary("", new { @class = "text-danger" })
+  
 
 
     <div class="back">
@@ -61,17 +62,16 @@
                     <div class="UtenteFont">
                         <div class="checkbox">
                            
-                            <form action="">
+                           
                             
-                                @Html.RadioButtonFor(m => m.sesso, new { @class = "form-control" ,value = true}) Male <br/>
-                                @Html.RadioButtonFor(m => m.sesso, new { @class = "form-control", value = false, }) Female<br />
-                                @*<input type="radio" name="gender" value=true> Male<br>
-                                <input type="radio" name="gender" value=false> Female<br>*@
-                            </form>
-                            <label value="gender"> </label>
-                          @*@Html.RadioButtonFor(m => m.sesso, new { @class = "form-control" })*@
-                           @* @Model.sesso=1;*@
-                          @*<script>console.log(input:radio:checked)</script>*@
+                                @Html.RadioButtonFor(m => m.sesso, true) Male <br/>
+                                @Html.RadioButtonFor(m => m.sesso,false) Female<br />
+                                
+                           
+                           
+                          
+                          
+                       
                            
                         </div>
                     </div>
@@ -101,7 +101,10 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" class="btn btn-default" value="Registra" />
+                     
                     </div>
+                    <br />
+                    @Html.ValidationSummary(" Risolvi:", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
@@ -112,6 +115,6 @@
 
         @section Scripts {
             @Scripts.Render("~/bundles/jqueryval")
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
         }
