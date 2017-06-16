@@ -1,0 +1,76 @@
+﻿@model UniversityOfRoommates.Models.Proprietario
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+@{
+    ViewBag.Title = "Registrazione Proprietario";
+}
+
+
+
+@using (Html.BeginForm("RegProp", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+
+
+
+    <div class="back">
+        <div class="login-wrap">
+            <div class="login-html">
+
+                <h2 style="color:azure">@ViewBag.Title.</h2>
+                <h4 style="color:azure">Creare un nuovo utente.</h4>
+                <div class="form-group">
+                    <label class="UtenteFont">Iban  </label>
+                    <div class="group">
+                        @Html.TextBoxFor(m => m.iban, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="UtenteFont">Paypal.me</label>
+                    <div class="group">
+                        @Html.TextBoxFor(m => m.paypalMe, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="UtenteFont">Carta d'identità </label>
+                    <div class="group">
+                        @Html.PasswordFor(m => m.cartaIdentità, new { @class = "form-control" })
+                    </div>
+                </div>
+                
+                
+                
+                
+               
+              
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-default" value="Registra" />
+
+                    </div>
+                    <br />
+                    @Html.ValidationSummary(" Risolvi:", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+}
+
+
