@@ -26,66 +26,74 @@
                 <h2 style="color:azure">@ViewBag.Title.</h2>
                 <h4 style="color:azure">Creare un nuovo utente.</h4>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Posta elettronica  </label>
                     <div class="group">
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Password</label>
                     <div class="group">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Conferma password </label>
                     <div class="group">
                         @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.nome, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Nome  </label>
                     <div class="group">
                         @Html.TextBoxFor(m => m.nome, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.cognome, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Cognome </label>
                     <div class="group">
                         @Html.TextBoxFor(m => m.cognome, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.sesso, new { @class = "UtenteFont" })<br />
+                    @*@Html.LabelFor(m => m.sesso, new { @class = "UtenteFont" })<br />*@
+                    <label class="UtenteFont">Sesso  </label>
                     <div class="UtenteFont">
                         <div class="checkbox">
                            
                             <form action="">
-                                <input type="radio" name="gender" value="male"> Male<br>
-                                <input type="radio" name="gender" value="female"> Female<br>
-                                <input type="radio" name="gender" value="other"> Other
+                            
+                                @Html.RadioButtonFor(m => m.sesso, new { @class = "form-control" ,value = true}) Male <br/>
+                                @Html.RadioButtonFor(m => m.sesso, new { @class = "form-control", value = false, }) Female<br />
+                                @*<input type="radio" name="gender" value=true> Male<br>
+                                <input type="radio" name="gender" value=false> Female<br>*@
                             </form>
-                           @*@Html.RadioButtonFor(m => m.sesso)*@
+                            <label value="gender"> </label>
+                          @*@Html.RadioButtonFor(m => m.sesso, new { @class = "form-control" })*@
+                           @* @Model.sesso=1;*@
+                          @*<script>console.log(input:radio:checked)</script>*@
                            
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.cell, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Numero di telefono  </label>
                     <div class="group">
                         @Html.TextBoxFor(m => m.cell, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.cittàProvenienza, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Città di porvenienza  </label>
                     <div class="group">
                         @Html.TextBoxFor(m => m.cittàProvenienza, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.ddn, new { @class = "UtenteFont" })
+                  
+                    <label class="UtenteFont">Data di nascita  </label>
                     <div class="group">
-                        @Html.TextBoxFor(m => m.ddn, new { @class = "form-control" })
+                        <input type="date"name="ciao" class="form-control">
+                        @*@Html.TextBoxFor(m => m.ddn, new { @class = "form-control" })*@
                     </div>
                 </div>
                
