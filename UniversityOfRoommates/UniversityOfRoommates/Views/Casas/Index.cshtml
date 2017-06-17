@@ -83,9 +83,9 @@
             @Html.DisplayFor(modelItem => item.descrizioneServizi)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { nomeCasa = item.nomeCasa, longitudine = item.longitudine, latitudine = item.latitudine }) |
+            @Html.ActionLink("Details", "Details", new { nomeCasa = item.nomeCasa, longitudine = item.longitudine, latitudine =item.latitudine  }) |
+            @Html.ActionLink("Delete", "Delete", new { nomeCasa = item.nomeCasa, longitudine = item.longitudine, latitudine = item.latitudine })
         </td>
     </tr>
 }

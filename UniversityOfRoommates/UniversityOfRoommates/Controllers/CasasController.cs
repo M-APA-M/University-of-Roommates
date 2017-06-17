@@ -23,13 +23,13 @@ namespace UniversityOfRoommates.Controllers
         }
 
         // GET: Casas/Details/5
-        public async Task<ActionResult> Details(string id)
+        public async Task<ActionResult> Details(string nomeCasa, float longitudine, float latitudine)
         {
-            if (id == null)
+            if (nomeCasa == null || longitudine==0 || latitudine==0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Casa casa = await db.Case.FindAsync(id);
+            Casa casa = await db.Case.FindAsync(nomeCasa, longitudine, latitudine);
             if (casa == null)
             {
                 return HttpNotFound();
@@ -63,13 +63,13 @@ namespace UniversityOfRoommates.Controllers
         }
 
         // GET: Casas/Edit/5
-        public async Task<ActionResult> Edit(string id)
+        public async Task<ActionResult> Edit(string nomeCasa, float longitudine, float latitudine)
         {
-            if (id == null)
+            if (nomeCasa == null || longitudine == 0 || latitudine == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Casa casa = await db.Case.FindAsync(id);
+            Casa casa = await db.Case.FindAsync(nomeCasa, longitudine, latitudine);
             if (casa == null)
             {
                 return HttpNotFound();
@@ -96,13 +96,13 @@ namespace UniversityOfRoommates.Controllers
         }
 
         // GET: Casas/Delete/5
-        public async Task<ActionResult> Delete(string id)
+        public async Task<ActionResult> Delete(string nomeCasa, float longitudine, float latitudine)
         {
-            if (id == null)
+            if (nomeCasa == null || longitudine == 0 || latitudine == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Casa casa = await db.Case.FindAsync(id);
+            Casa casa = await db.Case.FindAsync(nomeCasa, longitudine, latitudine);
             if (casa == null)
             {
                 return HttpNotFound();
@@ -113,9 +113,9 @@ namespace UniversityOfRoommates.Controllers
         // POST: Casas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(string id)
+        public async Task<ActionResult> DeleteConfirmed(string nomeCasa, float longitudine, float latitudine)
         {
-            Casa casa = await db.Case.FindAsync(id);
+            Casa casa = await db.Case.FindAsync(nomeCasa, longitudine, latitudine);
             db.Case.Remove(casa);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
@@ -149,7 +149,7 @@ namespace UniversityOfRoommates.Controllers
                     ci.nomeCasa = c.nomeCasa;
                     ci.lon = c.longitudine;
                     ci.lat = c.latitudine;
-                    ci.indirizzo = c.indirizzo + "," + c.civico + " ," + c.city;
+                    ci.indirizzo = c.indirizzo + "," + c.civico + ", " + c.city;
                     circ.Add(ci);
                 }
             }

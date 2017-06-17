@@ -51,7 +51,7 @@
                     <text>
                 var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@item.lat, @item.lon));
                 map.entities.push(pin);
-                map.entities.push(new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(@item.lat, @item.lon), { title: '@item.nomeCasa', description: '@item.lat, @item.lon\t @item.indirizzo', pushpin: pin }));
+                map.entities.push(new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(@item.lat, @item.lon), { title: '@item.nomeCasa', description: '@item.indirizzo', pushpin: pin }));
                 </text>
                 }
             }
