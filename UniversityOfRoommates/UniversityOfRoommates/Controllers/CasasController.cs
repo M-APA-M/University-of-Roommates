@@ -149,6 +149,7 @@ namespace UniversityOfRoommates.Controllers
                     ci.nomeCasa = c.nomeCasa;
                     ci.lon = c.longitudine;
                     ci.lat = c.latitudine;
+                    ci.indirizzo = c.indirizzo + "," + c.civico + " ," + c.city;
                     circ.Add(ci);
                 }
             }
@@ -164,6 +165,7 @@ namespace UniversityOfRoommates.Controllers
                     ci.nomeCasa = c.nomeCasa;
                     ci.lon = c.longitudine;
                     ci.lat = c.latitudine;
+                    ci.indirizzo = c.indirizzo + "," + c.civico + " ," + c.city;
                     circ.Add(ci);
                 }
             }

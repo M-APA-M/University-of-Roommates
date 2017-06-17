@@ -228,6 +228,10 @@
     <Compile Include="Migrations\201706101815298_UserName in tutto.Designer.cs">
       <DependentUpon>201706101815298_UserName in tutto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706171032543_changeDecimalInFloat.cs" />
+    <Compile Include="Migrations\201706171032543_changeDecimalInFloat.Designer.cs">
+      <DependentUpon>201706171032543_changeDecimalInFloat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DatabaseTables.cs" />
@@ -375,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706101815298_UserName in tutto.resx">
       <DependentUpon>201706101815298_UserName in tutto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706171032543_changeDecimalInFloat.resx">
+      <DependentUpon>201706171032543_changeDecimalInFloat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

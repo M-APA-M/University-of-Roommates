@@ -8,8 +8,8 @@
 }
 
 @{     
-    var latitudine = 37.50187;
-    var longitudine = 15.08515;
+    var latitudine = 37.584098815918;
+    var longitudine = 14.9754199981689;
 }
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -29,7 +29,8 @@
             var initMap = function () {
                 mapOptions = {
                     credentials: "Aj0uk1jKLE_AeTR029hI7B81ovgMuVioZK_qu7e-qBNSzXwqh_ZvBKx-y0wCsPok",
-                    theme: new Microsoft.Maps.Themes.BingTheme()
+                    theme: new Microsoft.Maps.Themes.BingTheme(),
+                    mapTypeId: Microsoft.Maps.MapTypeId.birdseye
                 };
                 map = new Microsoft.Maps.Map(document.getElementById("div_map"), mapOptions);
                 setView();
@@ -41,16 +42,16 @@
             }
 
             function setView() {
-                map.setView({ zoom: 12, center: new Microsoft.Maps.Location(@latitudine, @longitudine) });
+                map.setView({ zoom: 14, center: new Microsoft.Maps.Location(@latitudine, @longitudine) });
             }
 
             function entitiesPush() {
                 @foreach(var item in Model)
                 {
                     <text>
-                var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@item.lat, @item.lon), { typeName: 'micro' });
+                var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@item.lat, @item.lon));
                 map.entities.push(pin);
-                map.entities.push(new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(@item.lat, @item.lon), { title: '@item.nomeCasa', description: 'Descrizione', pushpin: pin }));
+                map.entities.push(new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(@item.lat, @item.lon), { title: '@item.nomeCasa', description: '@item.lat, @item.lon\t @item.indirizzo', pushpin: pin }));
                 </text>
                 }
             }

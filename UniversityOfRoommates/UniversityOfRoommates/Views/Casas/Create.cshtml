@@ -66,14 +66,7 @@
         });
 
         function displaySelectedItem(item) {
-            @*@Model.latitudine=item.point.coordinates[0];
-            @Model.longitudine=item.point.coordinates[1];
-            @Model.indirizzo=item.address.addressLine.split(",")[0];
-            @Model.civico=item.address.addressLine.split(",")[1];
-            @Model.provincia=item.address.adminDistrict2;
-            @Model.city=item.address.locality;
-            @Model.cap=item.address.postalCode;*@
-            $("#searchResult").empty().append(item.name).append(' (Latitude: ' + item.point.coordinates[0] + ' Longitude: ' + item.point.coordinates[1] + ')');
+            $("#searchResult").empty().append(' (Latitude: ' + item.point.coordinates[0] + ' Longitude: ' + item.point.coordinates[1] + ')');
 
             document.getElementById("latitudine").value = item.point.coordinates[0];
             document.getElementById("longitudine").value = item.point.coordinates[1];
@@ -82,14 +75,6 @@
             document.getElementById("provincia").value = item.address.adminDistrict2;
             document.getElementById("city").value = item.address.locality;
             document.getElementById("cap").value = item.address.postalCode;
-
-            //$("#latitudine").empty().append(item.point.coordinates[0]);
-            //$("#longitudine").empty().append(item.point.coordinates[1]);
-            //$("#indirizzo").empty().append(item.address.addressLine.split(",")[0]);
-            //$("#civico").empty().append(item.address.addressLine.split(",")[1]);
-            //$("#provincia").empty().append(item.address.adminDistrict2);
-            //$("#city").empty().append(item.address.locality);
-            //$("#cap").empty().append(item.address.postalCode);
         }
     </script>
 </head>

@@ -62,10 +62,10 @@ namespace UniversityOfRoommates.Models
         public string nomeCasa {get; set; }
 
         [Key, Column(Order = 2)]
-        public decimal longitudine { get; set; }
+        public float longitudine { get; set; }
 
         [Key, Column(Order = 3)]
-        public decimal latitudine { get; set; }
+        public float latitudine { get; set; }
 
         [ForeignKey("Proprietario")]
         public string UserName { get; set; }
@@ -94,11 +94,11 @@ namespace UniversityOfRoommates.Models
 
         [Key, ForeignKey("Casa")]
         [Column(Order = 2)]
-        public decimal longitude { get; set; }
+        public float longitude { get; set; }
 
         [Key, ForeignKey("Casa")]
         [Column(Order = 3)]
-        public decimal latitude { get; set; }
+        public float latitude { get; set; }
 
         public Casa Casa { get; set; }
 
@@ -120,11 +120,11 @@ namespace UniversityOfRoommates.Models
 
         [Key, ForeignKey("Casa")]
         [Column(Order = 3)]
-        public decimal longitude { get; set; }
+        public float longitude { get; set; }
 
         [Key, ForeignKey("Casa")]
         [Column(Order = 4)]
-        public decimal latitude { get; set; }
+        public float latitude { get; set; }
 
         public Casa Casa { get; set; }
 
@@ -147,11 +147,11 @@ namespace UniversityOfRoommates.Models
 
         [Key, ForeignKey("Stanza")]
         [Column(Order = 3)]
-        public decimal longitude { get; set; }
+        public float longitude { get; set; }
 
         [Key, ForeignKey("Stanza")]
         [Column(Order = 4)]
-        public decimal latitude { get; set; }
+        public float latitude { get; set; }
 
         [Key, ForeignKey("Utente"), Column(Order = 5)]
         public string UserName { get; set; }
@@ -170,11 +170,11 @@ namespace UniversityOfRoommates.Models
 
         [Key, ForeignKey("Casa")]
         [Column(Order = 2)]
-        public decimal longitude { get; set; }
+        public float longitude { get; set; }
 
         [Key, ForeignKey("Casa")]
         [Column(Order = 3)]
-        public decimal latitude { get; set; }
+        public float latitude { get; set; }
 
         public Casa Casa { get; set; }
 
@@ -189,11 +189,11 @@ namespace UniversityOfRoommates.Models
 
         [Key, ForeignKey("GestioneCasa")]
         [Column(Order = 2)]
-        public decimal longitude { get; set; }
+        public float longitude { get; set; }
 
         [Key, ForeignKey("GestioneCasa")]
         [Column(Order = 3)]
-        public decimal latitude { get; set; }
+        public float latitude { get; set; }
 
         public GestioneCasa GestioneCasa { get; set; }
 
