@@ -18,40 +18,63 @@
     <head>
         <title>BingMaps</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
-        <script>document.addEventListener("DOMContentLoaded", initialize, false);</script>
-
         <script type="text/javascript">
 
             var map;
             var mapOptions;
 
-            var initMap = function () {
+            function getMap() {
                 mapOptions = {
-                    credentials: "Aj0uk1jKLE_AeTR029hI7B81ovgMuVioZK_qu7e-qBNSzXwqh_ZvBKx-y0wCsPok",
-                    theme: new Microsoft.Maps.Themes.BingTheme(),
-                    mapTypeId: Microsoft.Maps.MapTypeId.birdseye
+                    credentials: "Aj0uk1jKLE_AeTR029hI7B81ovgMuVioZK_qu7e-qBNSzXwqh_ZvBKx-y0wCsPok"
+                    //mapTypeId: Microsoft.Maps.MapTypeId.birdseye
                 };
                 map = new Microsoft.Maps.Map(document.getElementById("div_map"), mapOptions);
                 setView();
                 entitiesPush();
             };
 
-            function getMap() {
-                Microsoft.Maps.loadModule('Microsoft.Maps.Themes.BingTheme', { callback: initMap });
-            }
-
             function setView() {
                 map.setView({ zoom: 14, center: new Microsoft.Maps.Location(@latitudine, @longitudine) });
             }
 
             function entitiesPush() {
-                @foreach(var item in Model)
-                {
+                @foreach (var item in Model){
                     <text>
-                var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@item.lat, @item.lon));
+                //INFOBOX
+                var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(@latitudine, @longitudine), {
+                    maxHeight: 300,
+                    maxWidth: 420,
+                    visible: false
+                });
+                infobox.setMap(map);
+                var nomeCasap = '@item.nomeCasa';
+                var lonp = '@item.lon'; var latp = '@item.lat';
+                //PIN
+                var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(@item.lat, @item.lon), {
+                    color: 'red',
+                    enableHoverStyle: true,
+                    enableClickedStyle: false
+                });
+                pin.metadata = {
+                    title: '@item.nomeCasa',
+                    description: '<iframe src="/Casas/Details?nomeCasa=@item.nomeCasa&longitudine=@item.lon&latitudine=@item.lat" width="420" height="300" allowFullScreen frameBorder="0"></iframe>'
+                };
+
+                Microsoft.Maps.Events.addHandler(pin, 'click', function (args) {
+                    infobox.setOptions({
+                        location: args.target.getLocation(),
+                        title: args.target.metadata.title,
+                        description: args.target.metadata.description,
+                        visible: true
+                    });
+                    Microsoft.Maps.Events.addHandler(infobox, 'infoboxChanged', function () {
+                        if (infobox.getVisible() == false) {
+                            args.target.setOptions({ enableClickedStyle: false });
+                        }
+                        args.target.setOptions({ enableClickedStyle: true });
+                    });
+                });
                 map.entities.push(pin);
-                map.entities.push(new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(@item.lat, @item.lon), { title: '@item.nomeCasa', description: '@item.indirizzo', pushpin: pin }));
                 </text>
                 }
             }
@@ -64,9 +87,9 @@
         </script>
 
     </head>
-    <body onload="getMap();">
-        <div id="div_map" style="width:1000px;height:700px;position:relative;border:1px;border-color:lightgoldenrodyellow;background-color:whitesmoke;"></div>
-        
+    <body>
+        <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=getMap' async defer></script>
+        <div id="div_map" style="width:1000px;height:700px;position:relative;border:10px;border-color:lightgoldenrodyellow;background-color:whitesmoke;"></div>        
     </body>
 </html>
 @section Scripts {
