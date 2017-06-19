@@ -58,7 +58,7 @@ namespace UniversityOfRoommates.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserName = new SelectList(db.Users, "Id", "nome", proprietario.UserName);
+            ViewBag.UserName = new SelectList(db.Users, "Id", "nome", proprietario.UserId);
             return View(proprietario);
         }
 
@@ -74,7 +74,7 @@ namespace UniversityOfRoommates.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserName = new SelectList(db.Users, "Id", "nome", proprietario.UserName);
+            ViewBag.UserName = new SelectList(db.Users, "Id", "nome", proprietario.UserId);
             return View(proprietario);
         }
 
@@ -91,7 +91,7 @@ namespace UniversityOfRoommates.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserName = new SelectList(db.Users, "Id", "nome", proprietario.UserName);
+            ViewBag.UserName = new SelectList(db.Users, "Id", "nome", proprietario.UserId);
             return View(proprietario);
         }
 

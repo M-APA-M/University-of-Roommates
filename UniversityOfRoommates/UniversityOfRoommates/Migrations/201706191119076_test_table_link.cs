@@ -3,7 +3,7 @@ namespace UniversityOfRoommates.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class TESTuseaccountaspnetasour : DbMigration
+    public partial class test_table_link : DbMigration
     {
         public override void Up()
         {
@@ -13,17 +13,17 @@ namespace UniversityOfRoommates.Migrations
                     {
                         idStanza = c.Int(nullable: false),
                         nomeCasa = c.String(nullable: false, maxLength: 128),
-                        longitude = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        latitude = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        codiceFiscale = c.String(nullable: false, maxLength: 128),
+                        longitude = c.Single(nullable: false),
+                        latitude = c.Single(nullable: false),
+                        UserId = c.String(nullable: false, maxLength: 128),
                         inizioContratto = c.DateTime(nullable: false),
                         fineContratto = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => new { t.idStanza, t.nomeCasa, t.longitude, t.latitude, t.codiceFiscale })
+                .PrimaryKey(t => new { t.idStanza, t.nomeCasa, t.longitude, t.latitude, t.UserId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .ForeignKey("dbo.Stanzas", t => new { t.idStanza, t.nomeCasa, t.longitude, t.latitude }, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.codiceFiscale, cascadeDelete: true)
                 .Index(t => new { t.idStanza, t.nomeCasa, t.longitude, t.latitude })
-                .Index(t => t.codiceFiscale);
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.Stanzas",
@@ -31,8 +31,8 @@ namespace UniversityOfRoommates.Migrations
                     {
                         idStanza = c.Int(nullable: false),
                         nomeCasa = c.String(nullable: false, maxLength: 128),
-                        longitude = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        latitude = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        longitude = c.Single(nullable: false),
+                        latitude = c.Single(nullable: false),
                         postiLetto = c.Int(nullable: false),
                         metratura = c.Double(nullable: false),
                         foto = c.Binary(),
@@ -47,9 +47,11 @@ namespace UniversityOfRoommates.Migrations
                 c => new
                     {
                         nomeCasa = c.String(nullable: false, maxLength: 128),
-                        longitudine = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        latitudine = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        codiceFiscale = c.String(maxLength: 128),
+                        longitudine = c.Single(nullable: false),
+                        latitudine = c.Single(nullable: false),
+                        UserName = c.String(maxLength: 128),
+                        provincia = c.String(),
+                        city = c.String(),
                         indirizzo = c.String(),
                         civico = c.String(),
                         cap = c.Int(nullable: false),
@@ -60,16 +62,16 @@ namespace UniversityOfRoommates.Migrations
                         descrizioneServizi = c.String(),
                     })
                 .PrimaryKey(t => new { t.nomeCasa, t.longitudine, t.latitudine })
-                .ForeignKey("dbo.Proprietarios", t => t.codiceFiscale)
-                .Index(t => t.codiceFiscale);
+                .ForeignKey("dbo.Proprietarios", t => t.UserName)
+                .Index(t => t.UserName);
             
             CreateTable(
                 "dbo.FotoCasas",
                 c => new
                     {
                         nomeCasa = c.String(nullable: false, maxLength: 128),
-                        longitude = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        latitude = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        longitude = c.Single(nullable: false),
+                        latitude = c.Single(nullable: false),
                         idFoto = c.Int(nullable: false),
                         linkFoto = c.String(),
                     })
@@ -81,14 +83,14 @@ namespace UniversityOfRoommates.Migrations
                 "dbo.Proprietarios",
                 c => new
                     {
-                        nick = c.String(nullable: false, maxLength: 128),
+                        UserId = c.String(nullable: false, maxLength: 128),
                         iban = c.String(),
                         paypalMe = c.String(),
                         cartaIdentità = c.Binary(),
                     })
-                .PrimaryKey(t => t.nick)
-                .ForeignKey("dbo.AspNetUsers", t => t.nick)
-                .Index(t => t.nick);
+                .PrimaryKey(t => t.UserId)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -134,8 +136,8 @@ namespace UniversityOfRoommates.Migrations
                 c => new
                     {
                         idCreditiDebiti = c.Int(nullable: false, identity: true),
-                        codiceFiscaleCreditore = c.String(maxLength: 128),
-                        codiceFiscaleDebitore = c.String(maxLength: 128),
+                        UserNameCreditore = c.String(maxLength: 128),
+                        UserNameDebitore = c.String(maxLength: 128),
                         cifra = c.Double(nullable: false),
                         descrizione = c.String(),
                         data = c.DateTime(nullable: false),
@@ -143,12 +145,12 @@ namespace UniversityOfRoommates.Migrations
                         ApplicationUser_Id1 = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.idCreditiDebiti)
-                .ForeignKey("dbo.AspNetUsers", t => t.codiceFiscaleCreditore)
-                .ForeignKey("dbo.AspNetUsers", t => t.codiceFiscaleDebitore)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserNameCreditore)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserNameDebitore)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id1)
-                .Index(t => t.codiceFiscaleCreditore)
-                .Index(t => t.codiceFiscaleDebitore)
+                .Index(t => t.UserNameCreditore)
+                .Index(t => t.UserNameDebitore)
                 .Index(t => t.ApplicationUser_Id)
                 .Index(t => t.ApplicationUser_Id1);
             
@@ -182,27 +184,27 @@ namespace UniversityOfRoommates.Migrations
                 c => new
                     {
                         nomeCasa = c.String(nullable: false, maxLength: 128),
-                        longitude = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        latitude = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        longitude = c.Single(nullable: false),
+                        latitude = c.Single(nullable: false),
                         idEvento = c.Int(nullable: false),
-                        nick = c.String(maxLength: 128),
+                        UserId = c.String(maxLength: 128),
                         descrizione = c.String(),
                         data = c.DateTime(nullable: false),
                         giorno = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.nomeCasa, t.longitude, t.latitude, t.idEvento })
                 .ForeignKey("dbo.GestioneCasas", t => new { t.nomeCasa, t.longitude, t.latitude }, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.nick)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => new { t.nomeCasa, t.longitude, t.latitude })
-                .Index(t => t.nick);
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.GestioneCasas",
                 c => new
                     {
                         nomeCasa = c.String(nullable: false, maxLength: 128),
-                        longitude = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        latitude = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        longitude = c.Single(nullable: false),
+                        latitude = c.Single(nullable: false),
                         noteComuni = c.String(),
                     })
                 .PrimaryKey(t => new { t.nomeCasa, t.longitude, t.latitude })
@@ -213,7 +215,7 @@ namespace UniversityOfRoommates.Migrations
                 "dbo.Interesses",
                 c => new
                     {
-                        codiceFiscale = c.String(nullable: false, maxLength: 128),
+                        UserId = c.String(nullable: false, maxLength: 128),
                         p1 = c.String(),
                         p2 = c.String(),
                         p3 = c.String(),
@@ -223,9 +225,9 @@ namespace UniversityOfRoommates.Migrations
                         p7 = c.String(),
                         p8 = c.String(),
                     })
-                .PrimaryKey(t => t.codiceFiscale)
-                .ForeignKey("dbo.AspNetUsers", t => t.codiceFiscale)
-                .Index(t => t.codiceFiscale);
+                .PrimaryKey(t => t.UserId)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -242,42 +244,42 @@ namespace UniversityOfRoommates.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Interesses", "codiceFiscale", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Eventoes", "nick", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Interesses", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Eventoes", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Eventoes", new[] { "nomeCasa", "longitude", "latitude" }, "dbo.GestioneCasas");
             DropForeignKey("dbo.GestioneCasas", new[] { "nomeCasa", "longitude", "latitude" }, "dbo.Casas");
-            DropForeignKey("dbo.Affittoes", "codiceFiscale", "dbo.AspNetUsers");
             DropForeignKey("dbo.Affittoes", new[] { "idStanza", "nomeCasa", "longitude", "latitude" }, "dbo.Stanzas");
             DropForeignKey("dbo.Stanzas", new[] { "nomeCasa", "longitude", "latitude" }, "dbo.Casas");
-            DropForeignKey("dbo.Casas", "codiceFiscale", "dbo.Proprietarios");
-            DropForeignKey("dbo.Proprietarios", "nick", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Casas", "UserName", "dbo.Proprietarios");
+            DropForeignKey("dbo.Proprietarios", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.DebitiCreditis", "ApplicationUser_Id1", "dbo.AspNetUsers");
             DropForeignKey("dbo.DebitiCreditis", "ApplicationUser_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.DebitiCreditis", "codiceFiscaleDebitore", "dbo.AspNetUsers");
-            DropForeignKey("dbo.DebitiCreditis", "codiceFiscaleCreditore", "dbo.AspNetUsers");
+            DropForeignKey("dbo.DebitiCreditis", "UserNameDebitore", "dbo.AspNetUsers");
+            DropForeignKey("dbo.DebitiCreditis", "UserNameCreditore", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Affittoes", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.FotoCasas", new[] { "nomeCasa", "longitude", "latitude" }, "dbo.Casas");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Interesses", new[] { "codiceFiscale" });
+            DropIndex("dbo.Interesses", new[] { "UserId" });
             DropIndex("dbo.GestioneCasas", new[] { "nomeCasa", "longitude", "latitude" });
-            DropIndex("dbo.Eventoes", new[] { "nick" });
+            DropIndex("dbo.Eventoes", new[] { "UserId" });
             DropIndex("dbo.Eventoes", new[] { "nomeCasa", "longitude", "latitude" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.DebitiCreditis", new[] { "ApplicationUser_Id1" });
             DropIndex("dbo.DebitiCreditis", new[] { "ApplicationUser_Id" });
-            DropIndex("dbo.DebitiCreditis", new[] { "codiceFiscaleDebitore" });
-            DropIndex("dbo.DebitiCreditis", new[] { "codiceFiscaleCreditore" });
+            DropIndex("dbo.DebitiCreditis", new[] { "UserNameDebitore" });
+            DropIndex("dbo.DebitiCreditis", new[] { "UserNameCreditore" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Proprietarios", new[] { "nick" });
+            DropIndex("dbo.Proprietarios", new[] { "UserId" });
             DropIndex("dbo.FotoCasas", new[] { "nomeCasa", "longitude", "latitude" });
-            DropIndex("dbo.Casas", new[] { "codiceFiscale" });
+            DropIndex("dbo.Casas", new[] { "UserName" });
             DropIndex("dbo.Stanzas", new[] { "nomeCasa", "longitude", "latitude" });
-            DropIndex("dbo.Affittoes", new[] { "codiceFiscale" });
+            DropIndex("dbo.Affittoes", new[] { "UserId" });
             DropIndex("dbo.Affittoes", new[] { "idStanza", "nomeCasa", "longitude", "latitude" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Interesses");

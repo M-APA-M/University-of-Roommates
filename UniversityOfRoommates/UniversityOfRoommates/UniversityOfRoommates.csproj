@@ -216,21 +216,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706101636505_modify casa.cs" />
-    <Compile Include="Migrations\201706101636505_modify casa.Designer.cs">
-      <DependentUpon>201706101636505_modify casa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706091625561_TEST use account asp.net as our.cs" />
-    <Compile Include="Migrations\201706091625561_TEST use account asp.net as our.Designer.cs">
-      <DependentUpon>201706091625561_TEST use account asp.net as our.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706101815298_UserName in tutto.cs" />
-    <Compile Include="Migrations\201706101815298_UserName in tutto.Designer.cs">
-      <DependentUpon>201706101815298_UserName in tutto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706171032543_changeDecimalInFloat.cs" />
-    <Compile Include="Migrations\201706171032543_changeDecimalInFloat.Designer.cs">
-      <DependentUpon>201706171032543_changeDecimalInFloat.cs</DependentUpon>
+    <Compile Include="Migrations\201706191119076_test_table_link.cs" />
+    <Compile Include="Migrations\201706191119076_test_table_link.Designer.cs">
+      <DependentUpon>201706191119076_test_table_link.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -374,19 +362,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706101636505_modify casa.resx">
-      <DependentUpon>201706101636505_modify casa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706101815298_UserName in tutto.resx">
-      <DependentUpon>201706101815298_UserName in tutto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706171032543_changeDecimalInFloat.resx">
-      <DependentUpon>201706171032543_changeDecimalInFloat.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706091625561_TEST use account asp.net as our.resx">
-      <DependentUpon>201706091625561_TEST use account asp.net as our.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706191119076_test_table_link.resx">
+      <DependentUpon>201706191119076_test_table_link.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

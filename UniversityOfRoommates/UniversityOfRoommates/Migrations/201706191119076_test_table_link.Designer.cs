@@ -7,13 +7,13 @@ namespace UniversityOfRoommates.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class changeDecimalInFloat : IMigrationMetadata
+    public sealed partial class test_table_link : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changeDecimalInFloat));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(test_table_link));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706171032543_changeDecimalInFloat"; }
+            get { return "201706191119076_test_table_link"; }
         }
         
         string IMigrationMetadata.Source

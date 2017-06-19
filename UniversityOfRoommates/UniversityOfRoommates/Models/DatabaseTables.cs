@@ -31,21 +31,25 @@ namespace UniversityOfRoommates.Models
     //}
     public class Proprietario
     {
-        [Key, ForeignKey("Utente")]
-        public string UserName { get; set; }
-        public ApplicationUser Utente { get; set; }
+        [Key]
+        public string UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser Utente { get; set; }
 
         public string iban { get; set; }
         public string paypalMe { get; set; }
         public byte[] cartaIdentità { get; set; }
 
-        public ICollection<Casa> Casa { get; set; }
+        public virtual ICollection<Casa> Casa { get; set; }
     }
     public class Interesse
     {
-        [Key, ForeignKey("Utente")]
-        public string UserName { get; set; }
-        public ApplicationUser Utente { get; set; }
+        [Key]
+        public string UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser Utente { get; set; }
 
         public string p1 { get; set; }
         public string p2 { get; set; }
@@ -82,8 +86,8 @@ namespace UniversityOfRoommates.Models
         public bool postoAuto { get; set; }
         public string descrizioneServizi { get; set; }
 
-        public ICollection<FotoCasa> FotoCasa { get; set; }
-        public ICollection<Stanza> Stanza { get; set; }
+        public virtual ICollection<FotoCasa> FotoCasa { get; set; }
+        public virtual ICollection<Stanza> Stanza { get; set; }
     }
 
     public class FotoCasa
@@ -133,7 +137,7 @@ namespace UniversityOfRoommates.Models
 		public byte[] foto { get; set; }
 		public decimal prezzo { get; set; }
 
-        public ICollection<Affitto> Affitto { get; set; }
+        public virtual ICollection<Affitto> Affitto { get; set; }
     }
 
     public class Affitto
@@ -153,9 +157,11 @@ namespace UniversityOfRoommates.Models
         [Column(Order = 4)]
         public float latitude { get; set; }
 
-        [Key, ForeignKey("Utente"), Column(Order = 5)]
-        public string UserName { get; set; }
-        public ApplicationUser Utente { get; set; }
+        [Key,Column(Order = 5)]
+        public string UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser Utente { get; set; }
 
         public DateTime inizioContratto { get; set; }
         public DateTime fineContratto { get; set; }
@@ -180,7 +186,7 @@ namespace UniversityOfRoommates.Models
 
         public string noteComuni { get; set; }
 
-        public ICollection<Evento> Evento { get; set; }
+        public virtual ICollection<Evento> Evento { get; set; }
     }
     public class Evento
     {
@@ -200,9 +206,11 @@ namespace UniversityOfRoommates.Models
         [Key, Column(Order = 4)]
         public int idEvento { get; set; }
 
-        [ForeignKey("Utente")]
-        public string UserName { get; set; }
-        public ApplicationUser Utente { get; set; }
+        
+        public string UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser Utente { get; set; }
 
         public string descrizione { get; set; }
         public DateTime data { get; set; }
