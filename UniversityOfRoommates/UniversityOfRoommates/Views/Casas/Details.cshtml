@@ -3,104 +3,119 @@
 @{
     ViewBag.Title = "Details";
 }
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
-<h2>Details</h2>
 
-<div>
-    <h4>Casa</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Proprietario.iban)
-        </dt>
+<div class="back">
+    <div class="login-wrap">
 
-        <dd>
-            @Html.DisplayFor(model => model.Proprietario.iban)
-        </dd>
+        <div class="login-html">
+            
+                <h4>Dettagli casa</h4>
+                <hr />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.provincia)
-        </dt>
+                <div class="group">
+                    
+                        @Html.LabelFor(model => model.Proprietario.iban, new { @class = "UtenteFont" })
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.provincia)
-        </dd>
+                <div class="group">
+                    @Html.DisplayFor(model => model.Proprietario.iban)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.city)
-        </dt>
+                <div class="group">
+                    @Html.LabelFor(model => model.provincia, new { @class = "UtenteFont" })
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.city)
-        </dd>
+                <div class="group">
+                    @Html.DisplayFor(model => model.provincia, new { @class = "UtenteFont" })
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.indirizzo)
-        </dt>
+                <div class="group">
+                    @Html.LabelFor(model => model.city, new { @class = "UtenteFont" })
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.indirizzo)
-        </dd>
+                <div class="group">
+                    @Html.DisplayFor(model => model.city, new { @class = "UtenteFont" })
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.civico)
-        </dt>
+                <div class="group">
+                    @Html.LabelFor(model => model.indirizzo, new { @class = "UtenteFont" })
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.civico)
-        </dd>
+                <div class="group">
+                    @Html.DisplayFor(model => model.indirizzo, new { @class = "UtenteFont" })
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cap)
-        </dt>
+                <div class="group">
+                    @Html.LabelFor(model => model.civico, new { @class = "UtenteFont" })
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.cap)
-        </dd>
+                <div class="group">
+                    @Html.DisplayFor(model => model.civico, new { @class = "UtenteFont" })
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.numeroServizi)
-        </dt>
+                <div class="group">
+                    @Html.LabelFor(model => model.cap, new { @class = "UtenteFont" })
+                </div>
+                <div class="group">
+                    @Html.DisplayFor(model => model.cap, new { @class = "UtenteFont" })
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.numeroServizi)
-        </dd>
+                <div class="group">
+                    @Html.LabelFor(model => model.numeroServizi, new { @class = "UtenteFont" })
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.metraturaInterna)
-        </dt>
+                <div class="group">
+                    @Html.DisplayFor(model => model.numeroServizi, new { @class = "UtenteFont" })
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.metraturaInterna)
-        </dd>
+                <div class="group">
+                    @Html.LabelFor(model => model.metraturaInterna, new { @class = "UtenteFont" })
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.metraturaEsterna)
-        </dt>
+                <div class="group">
+                    @Html.DisplayFor(model => model.metraturaInterna, new { @class = "UtenteFont" })
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.metraturaEsterna)
-        </dd>
+                <div class="group">
+                    @Html.LabelFor(model => model.metraturaEsterna, new { @class = "UtenteFont" })
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.postoAuto)
-        </dt>
+                <div class="group">
+                    @Html.DisplayFor(model => model.metraturaEsterna, new { @class = "UtenteFont" })
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.postoAuto)
-        </dd>
+                <div class="group">
+                    @Html.LabelFor(model => model.postoAuto, new { @class = "UtenteFont" })
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descrizioneServizi)
-        </dt>
+                <div class="group">
+                    @Html.DisplayFor(model => model.postoAuto, new { @class = "UtenteFont" })
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.descrizioneServizi)
-        </dd>
+                <div class="group">
+                    @Html.LabelFor(model => model.descrizioneServizi, new { @class = "UtenteFont" })
+                </div>
 
-    </dl>
+                <div class="group">
+                    @Html.DisplayFor(model => model.descrizioneServizi)
+                </div>
+
+                                                                                                  
+                                                                                                
+        </div>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+}
