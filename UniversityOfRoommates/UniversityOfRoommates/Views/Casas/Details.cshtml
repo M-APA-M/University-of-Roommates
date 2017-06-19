@@ -17,93 +17,80 @@
                 <h4>Dettagli casa</h4>
                 <hr />
 
-                <div class="group">
-                    
-                        @Html.LabelFor(model => model.Proprietario.iban, new { @class = "UtenteFont" })
-                    </div>
+            <div class="group">
+                <label class="UtenteFont">Proprietario : </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.Proprietario)</span>
+            </div>
+
+              
 
                 <div class="group">
-                    @Html.DisplayFor(model => model.Proprietario.iban)
+                    <label class="UtenteFont">Provincia :  </label>
+                    <span class="DetailFont">@Html.DisplayFor(model => model.provincia)</span>
                 </div>
 
-                <div class="group">
-                    @Html.LabelFor(model => model.provincia, new { @class = "UtenteFont" })
-                </div>
+                
 
                 <div class="group">
-                    @Html.DisplayFor(model => model.provincia, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Città :  </label>
+                    <span class="DetailFont">@Html.DisplayFor(model => model.city)</span>
                 </div>
 
-                <div class="group">
-                    @Html.LabelFor(model => model.city, new { @class = "UtenteFont" })
-                </div>
+                
 
                 <div class="group">
-                    @Html.DisplayFor(model => model.city, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Indirizzo :  </label>
+                    <span class="DetailFont">@Html.DisplayFor(model => model.indirizzo)</span>
                 </div>
 
-                <div class="group">
-                    @Html.LabelFor(model => model.indirizzo, new { @class = "UtenteFont" })
-                </div>
+                
 
                 <div class="group">
-                    @Html.DisplayFor(model => model.indirizzo, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Civico : </label>
+                    <span class="DetailFont">@Html.DisplayFor(model => model.civico)</span>
                 </div>
 
-                <div class="group">
-                    @Html.LabelFor(model => model.civico, new { @class = "UtenteFont" })
-                </div>
+            
 
                 <div class="group">
-                    @Html.DisplayFor(model => model.civico, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Cap :  </label>
+                    <span class="DetailFont">@Html.DisplayFor(model => model.cap)</span>
                 </div>
+                
 
                 <div class="group">
-                    @Html.LabelFor(model => model.cap, new { @class = "UtenteFont" })
-                </div>
-                <div class="group">
-                    @Html.DisplayFor(model => model.cap, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Numero di servizi :  </label>
+                    <span class="DetailFont">@Html.DisplayFor(model => model.numeroServizi)</span>
                 </div>
 
-                <div class="group">
-                    @Html.LabelFor(model => model.numeroServizi, new { @class = "UtenteFont" })
-                </div>
+               
 
                 <div class="group">
-                    @Html.DisplayFor(model => model.numeroServizi, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Metratura interna :  </label>
+                    <span class="DetailFont">@Html.DisplayFor(model => model.metraturaInterna)</span>
                 </div>
 
-                <div class="group">
-                    @Html.LabelFor(model => model.metraturaInterna, new { @class = "UtenteFont" })
-                </div>
+                
 
                 <div class="group">
-                    @Html.DisplayFor(model => model.metraturaInterna, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Metratura esterna :  </label>
+                    <span class="DetailFont">@Html.DisplayFor(model => model.metraturaEsterna)</span>
                 </div>
 
-                <div class="group">
-                    @Html.LabelFor(model => model.metraturaEsterna, new { @class = "UtenteFont" })
-                </div>
+               
 
                 <div class="group">
-                    @Html.DisplayFor(model => model.metraturaEsterna, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">posto auto :  </label>
+                    <span class="DetailFont">@Html.DisplayFor(model => model.postoAuto)</span>
                 </div>
 
+                
                 <div class="group">
-                    @Html.LabelFor(model => model.postoAuto, new { @class = "UtenteFont" })
+                    <label class="UtenteFont">Descrizione :  </label>
+                    <span class="DetailFont">@Html.DisplayFor(model => model.descrizioneServizi)</span>
                 </div>
 
-                <div class="group">
-                    @Html.DisplayFor(model => model.postoAuto, new { @class = "UtenteFont" })
-                </div>
-
-                <div class="group">
-                    @Html.LabelFor(model => model.descrizioneServizi, new { @class = "UtenteFont" })
-                </div>
-
-                <div class="group">
-                    @Html.DisplayFor(model => model.descrizioneServizi)
-                </div>
+                
 
                                                                                                   
                                                                                                 

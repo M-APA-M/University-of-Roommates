@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="UtenteFont">Città di porvenienza  </label>
+                    <label class="UtenteFont">Città di provenienza  </label>
                     <div class="group">
                         @Html.TextBoxFor(m => m.cittàProvenienza, new { @class = "form-control" })
                     </div>
@@ -92,8 +92,9 @@
                   
                     <label class="UtenteFont">Data di nascita  </label>
                     <div class="group">
-                        <input type="date"name="ciao" class="form-control">
-                        @*@Html.TextBoxFor(m => m.ddn, new { @class = "form-control" })*@
+                        <input type="date"id="ciao" class="form-control">
+                        @*@Html.TextBoxFor(m => m.ddn, new { @class = "hidden", id = "c"})*@
+                        @*onchange="dataFun()*@
                     </div>
                 </div>
                
@@ -112,7 +113,17 @@
                
 
 }
+<script >
+    var dataFun = function () {
+        var a = document.getElementById("ciao").value;
+        a += " 00:00:00.000";       //var a = new Date();
+        //a= a.getDate() + "/" + parseInt(a.getMonth() + 1) + "/" + a.getFullYear() + " 10:10:10"
+        console.log(a);
+        document.getElementById("c").value = a;
 
+    }
+
+</script>
         @section Scripts {
             @Scripts.Render("~/bundles/jqueryval")
             @Scripts.Render("~/bundles/jquery")
