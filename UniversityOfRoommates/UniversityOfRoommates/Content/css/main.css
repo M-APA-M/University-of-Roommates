@@ -516,7 +516,7 @@ a.button {
     height: 40px;
     line-height: 40px;
     cursor: pointer;
-    background: url(https://lh5.googleusercontent.com/qeIUa9qRweI-nNARKyJEiobfwy_Y1JcBFkN4rH1YS2397DwabQcKkz8roLTnmGKautHzwIj4AAtcLc1MXC-QlRAUeXa2WFWvWcomiGrs4A3r-o40mW46wm7nUHJQ8UVpDg) center;
+    background: url(http://www.365bricks.com/Images/Icons/General/menu_icon.png) center;
     background-size: 40px 40px;
     -webkit-transition: all .1s ease-in-out;
     -moz-transition: all .1s ease-in-out;
@@ -525,15 +525,16 @@ a.button {
     transition: all .1s ease-in-out;
 }
 
-#menuToggle:hover {
-	color: #ffffff;
-	background: rgba(0,0,0,0.2);
-	-webkit-transition: all .1s ease-in-out;
-	   -moz-transition: all .1s ease-in-out;
-		-ms-transition: all .1s ease-in-out;
-		 -o-transition: all .1s ease-in-out;
-			transition: all .1s ease-in-out;
-}
+    #menuToggle:hover {
+        background: url(http://www.365bricks.com/Images/Icons/General/menu_icon.png) center;
+        opacity: 0.5;
+        background-size: 40px 40px;
+        -webkit-transition: all .1s ease-in-out;
+        -moz-transition: all .1s ease-in-out;
+        -ms-transition: all .1s ease-in-out;
+        -o-transition: all .1s ease-in-out;
+        transition: all .1s ease-in-out;
+    }
 
 
 /* BUTTON CONF */
