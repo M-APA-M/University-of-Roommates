@@ -27,6 +27,16 @@ a{color:inherit;text-decoration:none}
     padding: 90px 70px 50px 70px;
     background: rgba(40,57,101,.9);
 }
+.tabCase {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    max-width: 99999px;
+    min-height: 1300px;
+    position: relative;
+    /*background: url(http://wallpapercave.com/wp/sHBD9f4.jpg) no-repeat center;*/
+    background-size: 80px 60px;
+}
 
 .casa-html {
     width: 100%;
