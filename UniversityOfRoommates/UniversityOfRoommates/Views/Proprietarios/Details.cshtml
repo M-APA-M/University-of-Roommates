@@ -1,50 +1,68 @@
 ﻿@model UniversityOfRoommates.Models.Proprietario
-
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Proprietario</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Utente.nome)
-        </dt>
+<div class="back">
+    <div class="login-wrap">
+        <div class="login-html">
+            <div>
+                <h4 style="color:azure">Dettagli proprietario.</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        <label class="UtenteFont">Nome :   </label>
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Utente.nome)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Utente.nome, new { @class = "UtenteFont" })
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.iban)
-        </dt>
+                    <dt>
+                        <label class="UtenteFont">Iban :   </label>
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.iban)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.iban)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.paypalMe)
-        </dt>
+                    <dt>
+                        <label class="UtenteFont">Paypal.Me :   </label>
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.paypalMe)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.paypalMe)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cartaIdentità)
-        </dt>
+                    <dt>
+                        <label class="UtenteFont">Carta di i :   </label>
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.cartaIdentità)
-        </dd>
-
-    </dl>
+                    <dd>
+                        @Html.DisplayFor(model => model.cartaIdentità)
+                    </dd>
+                    @Html.ActionLink("Modifica", "Edit", new { id = Model.UserId }) |@Html.ActionLink("Gestisci case", "../Casas/Index", new { id = Model.UserId }) |
+                </dl>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
-    @*@Html.ActionLink("Back to List", "Index")*@
-</p>
+            <p>
+                @*@Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |*@
+                @*@Html.ActionLink("Back to List", "Index")*@
+            </p>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+}
+
+

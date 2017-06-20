@@ -93,7 +93,7 @@
                     <label class="UtenteFont">Data di nascita  </label>
                     <div class="group">
                         <input type="date" id="ciao" class="form-control", onchange = "dataFun()">
-                        @Html.TextBoxFor(m => m.ddn, new { @class = "form-control", id = "c" })
+                        @Html.HiddenFor(m => m.ddn, new { @class = "form-control", id = "c" })
 
 
                     </div>
@@ -101,12 +101,14 @@
                
 
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
+                    
                         <input type="submit" class="btn btn-default" value="Registra" />
-                     
-                    </div>
+                       
+                    
                     <br />
-                    @Html.ValidationSummary(" Risolvi:", new { @class = "text-danger" })
+                    <br />
+                    @Html.ValidationSummary(" ", new { @class = "text-danger" })
+                 
                 </div>
             </div>
         </div>
