@@ -43,13 +43,13 @@
                     </dd>
 
                     <dt>
-                        <label class="UtenteFont">Carta di i :   </label>
+                        <label class="UtenteFont">Carta di identità :   </label>
                     </dt>
 
                     <dd>
                         @Html.DisplayFor(model => model.cartaIdentità)
                     </dd>
-                    @Html.ActionLink("Modifica", "Edit", new { id = Model.UserId }) |@Html.ActionLink("Gestisci case", "../Casas/Index", new { id = Model.UserId }) |
+                    @Html.ActionLink("Modifica", "Edit", new { id = Model.UserId })   |    @Html.ActionLink("Gestisci case", "../Casas/Index", new { id = Model.UserId }) |
                 </dl>
             </div>
         </div>
