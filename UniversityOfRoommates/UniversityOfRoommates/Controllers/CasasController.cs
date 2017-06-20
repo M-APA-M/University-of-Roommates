@@ -40,7 +40,9 @@ namespace UniversityOfRoommates.Controllers
         // GET: Casas/Create
         public ActionResult Create()
         {
-            ViewBag.UserName = new SelectList(db.Proprietari, "UserName", "iban");
+            string name = System.Web.HttpContext.Current.User.Identity.Name;
+            ViewBag.UserName = db.Users.Where(m => m.UserName == name).First().Id;
+           // ViewBag.UserName = new SelectList(db.Proprietari, "UserName", "iban");
             return View();
         }
 
@@ -57,7 +59,6 @@ namespace UniversityOfRoommates.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
             ViewBag.UserName = new SelectList(db.Proprietari, "UserName", "iban", casa.UserName);
             return View(casa);
         }
