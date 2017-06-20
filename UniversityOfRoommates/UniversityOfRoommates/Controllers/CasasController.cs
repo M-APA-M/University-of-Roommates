@@ -18,7 +18,10 @@ namespace UniversityOfRoommates.Controllers
         // GET: Casas
         public async Task<ActionResult> Index()
         {
-            var casa = db.Case.Include(c => c.Proprietario);
+
+            //var casa = db.Case.Include(c => c.Proprietario);
+            string name = System.Web.HttpContext.Current.User.Identity.Name;
+            var casa = db.Case.Where(c => c.Proprietario.Utente.UserName == name);
             return View(await casa.ToListAsync());
         }
 
