@@ -68,13 +68,13 @@
         function displaySelectedItem(item) {
             $("#searchResult").empty().append(' (Latitude: ' + item.point.coordinates[0] + ' Longitude: ' + item.point.coordinates[1] + ')');
 
-            document.getElementById("latitudine").value = item.point.coordinates[0];
-            document.getElementById("longitudine").value = item.point.coordinates[1];
-            document.getElementById("indirizzo").value = item.address.addressLine.split(",")[0];
-            document.getElementById("civico").value = item.address.addressLine.split(",")[1];
-            document.getElementById("provincia").value = item.address.adminDistrict2;
-            document.getElementById("city").value = item.address.locality;
-            document.getElementById("cap").value = item.address.postalCode;
+            document.getElementById("latitudine").value = item.point.coordinates[0].toString().replace(".", ","); console.log(item.point.coordinates[0]);
+            document.getElementById("longitudine").value = item.point.coordinates[1].toString().replace(".", ","); console.log(item.point.coordinates[1]);
+            document.getElementById("indirizzo").value = item.address.addressLine.split(",")[0]; console.log(item.address.addressLine.split(",")[0]);
+            document.getElementById("civico").value = item.address.addressLine.split(",")[1]; console.log(item.address.addressLine.split(",")[1]);
+            document.getElementById("provincia").value = item.address.adminDistrict2; console.log(item.address.adminDistrict2);
+            document.getElementById("city").value = item.address.locality; console.log(item.address.locality);
+            document.getElementById("cap").value = item.address.postalCode; console.log(item.address.postalCode);
         }
     </script>
 </head>
@@ -130,8 +130,48 @@
                                     @Html.ValidationMessageFor(model => model.latitudine, "", new { @class = "text-danger" })
                                 </div>
                             </div>*@
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.provincia, htmlAttributes: new { @class = "UtenteFont" })
+            <div class="group">
+                @Html.EditorFor(model => model.provincia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.provincia, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.city, htmlAttributes: new { @class = "UtenteFont" })
+            <div class="group">
+                @Html.EditorFor(model => model.city, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.indirizzo, htmlAttributes: new { @class = "UtenteFont" })
+            <div class="cgroup0">
+                @Html.EditorFor(model => model.indirizzo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.indirizzo, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.civico, htmlAttributes: new { @class = "UtenteFont" })
+            <div class="group">
+                @Html.EditorFor(model => model.civico, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.civico, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.cap, htmlAttributes: new { @class = "UtenteFont" })
+            <div class="group">
+                @Html.EditorFor(model => model.cap, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cap, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
                         <div class="form-group">
-                            @Html.HiddenFor(model => model.latitudine)
+                            @Html.HiddenFor(model => model.latitudine )
                             @Html.HiddenFor(model => model.longitudine)
                             @Html.HiddenFor(model => model.indirizzo)
                             @Html.HiddenFor(model => model.civico)
@@ -139,53 +179,19 @@
                             @Html.HiddenFor(model => model.city)
                             @Html.HiddenFor(model => model.cap)
                         </div>
-                        <div class="form-group">
+                        @*<div class="form-group">
                             @Html.LabelFor(model => model.UserName, "UserName", htmlAttributes: new { @class = "UtenteFont" })
                             <div class="group">
-                                @Html.DropDownList("UserName", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.DropDownList("UserId", null, htmlAttributes: new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                             </div>
+                        </div>*@
+
+                        <div class="form-group">
+                            @Html.HiddenFor(model => model.UserName, new { @Value = ViewBag.UserName})
                         </div>
 
-                     @*<div class="form-group">
-                                @Html.LabelFor(model => model.provincia, htmlAttributes: new { @class = "UtenteFont" })
-                                <div class="group">
-                                    @Html.EditorFor(model => model.provincia, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.provincia, "", new { @class = "text-danger" })
-                                </div>
-                            </div>*@
-
-                        @*<div class="form-group">
-                                @Html.LabelFor(model => model.city, htmlAttributes: new { @class = "UtenteFont" })
-                                <div class="group">
-                                    @Html.EditorFor(model => model.city, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
-                                </div>
-                            </div>*@
-
-                        @*<div class="form-group">
-                                @Html.LabelFor(model => model.indirizzo, htmlAttributes: new { @class = "UtenteFont" })
-                                <div class="cgroup0">
-                                    @Html.EditorFor(model => model.indirizzo, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.indirizzo, "", new { @class = "text-danger" })
-                                </div>
-                            </div>*@
-
-                        @*<div class="form-group">
-                                @Html.LabelFor(model => model.civico, htmlAttributes: new { @class = "UtenteFont" })
-                                <div class="group">
-                                    @Html.EditorFor(model => model.civico, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.civico, "", new { @class = "text-danger" })
-                                </div>
-                            </div>*@
-
-                        @*<div class="form-group">
-                                @Html.LabelFor(model => model.cap, htmlAttributes: new { @class = "UtenteFont" })
-                                <div class="group">
-                                    @Html.EditorFor(model => model.cap, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.cap, "", new { @class = "text-danger" })
-                                </div>
-                            </div>*@
+                     
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.numeroServizi, htmlAttributes: new { @class = "UtenteFont" })
