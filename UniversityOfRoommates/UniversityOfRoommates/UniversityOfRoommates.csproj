@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201706191119076_test_table_link.Designer.cs">
       <DependentUpon>201706191119076_test_table_link.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706192101258_null-date.cs" />
+    <Compile Include="Migrations\201706192101258_null-date.Designer.cs">
+      <DependentUpon>201706192101258_null-date.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DatabaseTables.cs" />
@@ -364,6 +368,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706191119076_test_table_link.resx">
       <DependentUpon>201706191119076_test_table_link.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706192101258_null-date.resx">
+      <DependentUpon>201706192101258_null-date.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

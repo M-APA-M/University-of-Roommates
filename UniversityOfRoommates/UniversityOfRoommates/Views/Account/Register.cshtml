@@ -92,9 +92,10 @@
                   
                     <label class="UtenteFont">Data di nascita  </label>
                     <div class="group">
-                        <input type="date"id="ciao" class="form-control">
-                        @*@Html.TextBoxFor(m => m.ddn, new { @class = "hidden", id = "c"})*@
-                        @*onchange="dataFun()*@
+                        <input type="date" id="ciao" class="form-control", onchange = "dataFun()">
+                        @Html.TextBoxFor(m => m.ddn, new { @class = "form-control", id = "c" })
+
+
                     </div>
                 </div>
                
@@ -116,8 +117,9 @@
 <script >
     var dataFun = function () {
         var a = document.getElementById("ciao").value;
-        a += " 00:00:00.000";       //var a = new Date();
-        //a= a.getDate() + "/" + parseInt(a.getMonth() + 1) + "/" + a.getFullYear() + " 10:10:10"
+        //a += "T00:00:00Z";
+        //var a = new Date();
+        ////a= a.getDate() + "/" + parseInt(a.getMonth() + 1) + "/" + a.getFullYear() + " 10:10:10"
         console.log(a);
         document.getElementById("c").value = a;
 

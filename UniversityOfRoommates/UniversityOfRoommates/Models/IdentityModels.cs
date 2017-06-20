@@ -14,7 +14,7 @@ namespace UniversityOfRoommates.Models
         public string nome { get; set; }
         public string cognome { get; set; }
         public bool sesso { get; set; }
-        public DateTime ddn { get; set; }
+        public DateTime? ddn { get; set; }
         public string cittàProvenienza { get; set; }
         public string cell { get; set; }
 

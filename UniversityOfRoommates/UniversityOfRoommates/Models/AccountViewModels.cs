@@ -93,7 +93,7 @@ namespace UniversityOfRoommates.Models
 
         public bool sesso { get; set; }
 
-        [Required]
+       
         public DateTime ddn { get; set; }
 
         [Required]

@@ -13,6 +13,7 @@ namespace UniversityOfRoommates.Controllers
 {
     public class ProprietariosController : Controller
     {
+        private ApplicationUserManager _userManager;
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Proprietarios
@@ -40,7 +41,9 @@ namespace UniversityOfRoommates.Controllers
         // GET: Proprietarios/Create
         public ActionResult Create()
         {
-            ViewBag.UserName = new SelectList(db.Users, "Id", "nome");
+            string name= System.Web.HttpContext.Current.User.Identity.Name;
+            ViewBag.UserName = db.Users.Where(m => m.UserName == name).First().Id;
+            //ViewBag.UserName = new SelectList(db.Users, "Id", "UserName");
             return View();
         }
 
@@ -49,7 +52,7 @@ namespace UniversityOfRoommates.Controllers
         // Per ulteriori dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "UserName,iban,paypalMe,cartaIdentità")] Proprietario proprietario)
+        public async Task<ActionResult> Create([Bind(Include = "UserId,iban,paypalMe,cartaIdentità")] Proprietario proprietario)
         {
             if (ModelState.IsValid)
             {

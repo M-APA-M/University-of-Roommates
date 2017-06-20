@@ -151,7 +151,7 @@ namespace UniversityOfRoommates.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, cell=model.cell,cittàProvenienza=model.cittàProvenienza,cognome=model.cognome,ddn=model.ddn,nome=model.nome,sesso=model.sesso };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
