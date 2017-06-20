@@ -15,6 +15,7 @@ namespace UniversityOfRoommates.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        ApplicationDbContext db = new ApplicationDbContext();
 
         public ManageController()
         {
@@ -64,6 +65,8 @@ namespace UniversityOfRoommates.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            ViewBag.isProp = isProprietario(userId);
+            ViewBag.UserId = userId;
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
@@ -332,7 +335,19 @@ namespace UniversityOfRoommates.Controllers
 
             base.Dispose(disposing);
         }
-
+        private bool isProprietario(string id)
+        {   
+            try
+            {
+                var a = db.Proprietari.Where(m => m.UserId == id).First();
+                if (a == null) throw new Exception();
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
 #region Helper
         // Usato per la protezione XSRF durante l'aggiunta di account di accesso esterni
         private const string XsrfKey = "XsrfId";

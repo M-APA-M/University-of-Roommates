@@ -86,7 +86,7 @@ namespace UniversityOfRoommates.Controllers
         // Per ulteriori dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "UserName,iban,paypalMe,cartaIdentità")] Proprietario proprietario)
+        public async Task<ActionResult> Edit([Bind(Include = "UserId,iban,paypalMe,cartaIdentità")] Proprietario proprietario)
         {
             if (ModelState.IsValid)
             {
