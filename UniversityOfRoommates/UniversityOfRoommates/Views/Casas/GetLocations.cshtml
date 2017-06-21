@@ -8,7 +8,7 @@
 }
 
 @{     
-    var latitudine = 37.584098815918;
+    var latitudine = position.coords.latitude;
     var longitudine = 14.9754199981689;
 }
 
@@ -43,7 +43,7 @@
                 //INFOBOX
                 var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(@latitudine, @longitudine), {
                     maxHeight: 300,
-                    maxWidth: 420,
+                    maxWidth: 350,
                     visible: false
                 });
                 infobox.setMap(map);

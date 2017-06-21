@@ -3,9 +3,7 @@
 @Scripts.Render("~/bundles/modernizr")
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+
 @{
     ViewBag.Title = "Details";
 }
@@ -13,63 +11,56 @@
 
 <div class="back">
     <div class="mappa-wrap">
-        <div class="login-html">
-            <div>
+        <div class="mappa-html">
+            
                 <h4 style="color:azure">Dettagli proprietario.</h4>
                 <hr />
-                <dl class="dl-horizontal">
-                    <dt>
-                        <label class="UtenteFont">Nome :   </label>
-                    </dt>
+                
+                <div class="group">
+                    <label class="UtenteFont">Nome :   </label>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.Utente.nome, new { @class = "UtenteFont" })
-                    </dd>
 
-                    <dt>
-                        <label class="UtenteFont">Cognome :   </label>
-                    </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.Utente.cognome, new { @class = "UtenteFont" })
-                    </dd>
+                    <span class="DetailFont"> @Html.DisplayFor(model => model.Utente.nome)</span>
+                </div>
 
-                    <dt>
-                        <label class="UtenteFont">Iban :   </label>
-                    </dt>
+                <div class="group">
+                    <label class="UtenteFont">Cognome :   </label>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.iban)
-                    </dd>
 
-                    <dt>
-                        <label class="UtenteFont">Paypal.Me :   </label>
-                    </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.paypalMe)
-                    </dd>
-                   
-                    <dt>
-                        <label class="UtenteFont">Cellulare :   </label>
-                    </dt>
+                    <span class="DetailFont">@Html.DisplayFor(model => model.Utente.cognome)</span>
+                </div>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.Utente.cell)
-                    </dd>
+                <div class="group">
+                    <label class="UtenteFont">Iban :   </label>
 
-                    <dt>
-                        <label class="UtenteFont">Carta di identità :   </label>
-                    </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.cartaIdentità)
-                    </dd>
-                </dl>
-            </div>
+
+                    <span class="DetailFont">@Html.DisplayFor(model => model.iban)</span>
+                </div>
+
+                <div class="group">
+                    <label class="UtenteFont">Paypal.Me :   </label>
+
+
+
+                    <span class="DetailFont"> @Html.DisplayFor(model => model.paypalMe)</span>
+                </div>
+
+                <div class="group">
+                    <label class="UtenteFont">cellulare :   </label>
+
+
+
+                    <span class="DetailFont"> @Html.DisplayFor(model => model.Utente.cell)</span>
+                </div>
+
+                    
+                </div>
         </div>
     </div>
-</div>
+
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |*@
     @*@Html.ActionLink("Back to List", "Index")*@
