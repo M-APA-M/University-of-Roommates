@@ -13,13 +13,12 @@
     <div class="login-wrap">
 
         <div class="login-html">
-            
+            <div align="center"><h3>  @Html.ActionLink("Torna alla lista", "Index")</h3></div>
             <div class="group">
-                <label class="UtenteFont">Proprietario : </label>
-                <span class="DetailFont">@Html.DisplayFor(model => model.Proprietario)</span>
+                <label class="UtenteFont">Nome Casa :  </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.nomeCasa)</span>
             </div>
 
-              
 
                 <div class="group">
                     <label class="UtenteFont">Provincia :  </label>
@@ -91,12 +90,12 @@
 
                                                                                                   
                                                                                                 
-        </div>
+            
+         </div>
     </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    
 </p>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
