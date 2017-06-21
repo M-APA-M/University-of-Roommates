@@ -38,6 +38,20 @@ namespace UniversityOfRoommates.Controllers
             return View(proprietario);
         }
 
+        public async Task<ActionResult> DetailsMap(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Proprietario proprietario = await db.Proprietari.FindAsync(id);
+            if (proprietario == null)
+            {
+                return HttpNotFound();
+            }
+            return View(proprietario);
+        }
+
         // GET: Proprietarios/Create
         public ActionResult Create()
         {

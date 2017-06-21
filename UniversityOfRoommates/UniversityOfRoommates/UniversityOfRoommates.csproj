@@ -355,6 +355,7 @@
     <Content Include="Views\Casas\GetLocations.cshtml" />
     <Content Include="Views\Account\RegProp.cshtml" />
     <Content Include="Views\Casas\DetailsMap.cshtml" />
+    <Content Include="Views\Proprietarios\DetailsMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
