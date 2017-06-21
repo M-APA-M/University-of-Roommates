@@ -98,7 +98,7 @@ a:after {
     -o-background-size: cover;
     background-size: cover;
 }
-@font-face {
+@font-face { 
     font-family: 'MANHATTANDARLING-REGULAR';
     src: url('../../fonts/MANHATTANDARLING-REGULAR.OTF') format('opentype');
 }
