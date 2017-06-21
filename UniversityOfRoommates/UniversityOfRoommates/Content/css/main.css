@@ -105,9 +105,13 @@ a:after {
         font-size: 190px;
         font-weight: 700;
         letter-spacing: 3px;
-        font-family: 'Manhattan Darling';
-        src: local("Manhattan Darling"), url("../fonts/MANHATTANDARLING-REGULAR.OTF") format("truetype"); /* non-IE */
+        font-family: 'MANHATTANDARLING-REGULAR';
+      
     }
+@font-face {
+    
+    src: url('../../fonts/MANHATTANDARLING-REGULAR.OTF') format('opentype');
+}
 
 #prova {
     background: url(../img/header-bg.jpg) no-repeat center top;
