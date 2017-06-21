@@ -27,9 +27,16 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     @Html.HiddenFor(model => model.nomeCasa)
 
-                    @Html.HiddenFor(model => model.longitudine)
+                    @Html.HiddenFor(model => model.longitudine, new { @Value = ViewBag.lon })
 
-                    @Html.HiddenFor(model => model.latitudine)
+                    @Html.HiddenFor(model => model.latitudine, new { @Value = ViewBag.lat })
+
+                       @Html.HiddenFor(model => model.UserName)
+                       @Html.HiddenFor(model => model.cap)
+                       @Html.HiddenFor(model => model.provincia)
+                       @Html.HiddenFor(model => model.city)
+                       @Html.HiddenFor(model => model.indirizzo)
+                       @Html.HiddenFor(model => model.civico)
 
                     <div class="form-group">
                         <label class="UtenteFont">Numero servizi  </label>

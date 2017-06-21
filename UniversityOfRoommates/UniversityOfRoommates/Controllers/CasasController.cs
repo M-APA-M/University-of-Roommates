@@ -93,6 +93,8 @@ namespace UniversityOfRoommates.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.lon = Convert.ToString(longitudine).Replace('.', ',');
+            ViewBag.lat = Convert.ToString(latitudine).Replace('.', ',');
             ViewBag.UserName = new SelectList(db.Proprietari, "UserName", "iban", casa.UserName);
             return View(casa);
         }

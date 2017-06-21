@@ -107,7 +107,7 @@ namespace UniversityOfRoommates.Controllers
             {
                 db.Entry(proprietario).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details",new { id = proprietario.UserId});
             }
             ViewBag.UserName = new SelectList(db.Users, "Id", "nome", proprietario.UserId);
             return View(proprietario);
