@@ -409,14 +409,14 @@ a:after {
 }
 
 .menu h1.logo a {
-	font-family:'Manhattan Darling';
-	font-size: 59px;
-	font-weight: 800;
-	letter-spacing: 0.15em;
-	line-height: 40px;
-	text-transform: uppercase;
-	color: #ffffff;
-	margin-top: -100px;
+    font-family: 'MANHATTANDARLING-REGULAR';
+    font-size: 59px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-top: -100px;
 }
 
 .menu h1.logo a:hover {
