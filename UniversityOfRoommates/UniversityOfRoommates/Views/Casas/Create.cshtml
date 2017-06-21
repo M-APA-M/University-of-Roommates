@@ -88,12 +88,14 @@
 
                 <div class="login-html">
                     <div class="form-horizontal">
-                        
-                        <h4 style="color:azure">Inserisci i dati della casa</h4>
+                        <div align="center">
+                            <h2 style="color:azure">Inserisci i dati della casa</h2>
+                            <h3>@Html.ActionLink("Torna alla lista ", "Index")</h3>
+                        </div>
                         <hr />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
-                            @Html.LabelFor(model => model.nomeCasa, htmlAttributes: new { @class = "UtenteFont" })
+                            <label class="UtenteFont">Nome casa  </label>
                             <div class="group">
                                 @Html.EditorFor(model => model.nomeCasa, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.nomeCasa, "", new { @class = "text-danger" })
@@ -105,7 +107,7 @@
                                 <div>
 
                                     <div class="ui-widget">
-                                        <label for="searchBox" style="color:azure">
+                                        <label for="searchBox" style="color:azure", class="UtenteFont">
                                             Cerca e seleziona l'indirizzo della casa
                                         </label>
                                         <input id="searchBox" />
@@ -194,7 +196,7 @@
                      
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.numeroServizi, htmlAttributes: new { @class = "UtenteFont" })
+                            <label class="UtenteFont">Numero di servizi  </label>
                             <div class="group">
                                 @Html.EditorFor(model => model.numeroServizi, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.numeroServizi, "", new { @class = "text-danger" })
@@ -202,7 +204,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.metraturaInterna, htmlAttributes: new { @class = "UtenteFont" })
+                            <label class="UtenteFont">Metratura interna </label>
                             <div class="group">
                                 @Html.EditorFor(model => model.metraturaInterna, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.metraturaInterna, "", new { @class = "text-danger" })
@@ -210,7 +212,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.metraturaEsterna, htmlAttributes: new { @class = "UtenteFont" })
+                            <label class="UtenteFont">Metratura esterna  </label>
                             <div class="group">
                                 @Html.EditorFor(model => model.metraturaEsterna, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.metraturaEsterna, "", new { @class = "text-danger" })
@@ -218,17 +220,19 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.postoAuto, htmlAttributes: new { @class = "UtenteFont" })
+                            <label class="UtenteFont">Posto auto   :   </label>
+                            @Html.EditorFor(model => model.postoAuto)
                             <div class="group">
                                 <div class="checkbox">
-                                    @Html.EditorFor(model => model.postoAuto)
+                                     
+                                  
                                     @Html.ValidationMessageFor(model => model.postoAuto, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.descrizioneServizi, htmlAttributes: new { @class = "UtenteFont" })
+                            <label class="UtenteFont">Descrizione servizi  </label>
                             <div class="group">
                                 @Html.EditorFor(model => model.descrizioneServizi, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.descrizioneServizi, "", new { @class = "text-danger" })
@@ -236,7 +240,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
+                            <div align="center">
                                 <input type="submit" value="Create" class="btn btn-default" />
                             </div>
                         </div>
@@ -247,7 +251,7 @@
     }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+       
     </div>
 
 

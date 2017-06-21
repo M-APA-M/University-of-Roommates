@@ -23,38 +23,34 @@
                 <table class="table">
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Proprietario.iban)
+                            <label class="TableFont">Nome casa  </label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.provincia)
+                            <label class="TableFont">Provincia   </label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.city)
+                            <label class="TableFont">Città </label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.indirizzo)
+                            <label class="TableFont">Indirizzo </label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.civico)
+                            <label class="TableFont">Civico </label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.cap)
+                            <label class="TableFont">Cap </label>
+                        </th>
+                        
+                        @*<th>
+                            <label class="TableFont">Mq int. </label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.numeroServizi)
-                        </th>
+                            <label class="TableFont">Mq est. </label>
+                        </th>*@
                         <th>
-                            @Html.DisplayNameFor(model => model.metraturaInterna)
+                            <label class="TableFont">Posto auto </label>
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.metraturaEsterna)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.postoAuto)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.descrizioneServizi)
-                        </th>
+                       
                         <th></th>
                     </tr>
 
@@ -62,7 +58,7 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Proprietario.iban)
+                                @Html.DisplayFor(modelItem => item.nomeCasa)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.provincia)
@@ -79,25 +75,23 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.cap)
                             </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.numeroServizi)
-                            </td>
-                            <td>
+                            
+                            @*<td>
                                 @Html.DisplayFor(modelItem => item.metraturaInterna)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.metraturaEsterna)
-                            </td>
+                            </td>*@
                             <td>
                                 @Html.DisplayFor(modelItem => item.postoAuto)
                             </td>
+                           
                             <td>
-                                @Html.DisplayFor(modelItem => item.descrizioneServizi)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { nomeCasa = item.nomeCasa, longitudine = item.longitudine, latitudine = item.latitudine }) |
-                                @Html.ActionLink("Details", "Details", new { nomeCasa = item.nomeCasa, longitudine = item.longitudine, latitudine = item.latitudine }) |
-                                @Html.ActionLink("Delete", "Delete", new { nomeCasa = item.nomeCasa, longitudine = item.longitudine, latitudine = item.latitudine })
+                                <div align="center">
+                                    @Html.ActionLink("Modifica", "Edit", new { nomeCasa = item.nomeCasa, longitudine = item.longitudine, latitudine = item.latitudine }) |
+                                    @Html.ActionLink("Dettagli", "Details", new { nomeCasa = item.nomeCasa, longitudine = item.longitudine, latitudine = item.latitudine }) |
+                                    @Html.ActionLink("Cancella", "Delete", new { nomeCasa = item.nomeCasa, longitudine = item.longitudine, latitudine = item.latitudine })
+                                </div>
                             </td>
                         </tr>
                     }
