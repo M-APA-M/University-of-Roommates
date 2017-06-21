@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label class="UtenteFont">metratura interna</label>
                         <div class="group">
-                            @Html.EditorFor(model => model.metraturaInterna, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.metraturaInterna, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
                             @Html.ValidationMessageFor(model => model.metraturaInterna, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <label class="UtenteFont">Metratura esterna  </label>
                         <div class="group">
-                            @Html.EditorFor(model => model.metraturaEsterna, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.metraturaEsterna, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
                             @Html.ValidationMessageFor(model => model.metraturaEsterna, "", new { @class = "text-danger" })
                         </div>
                     </div>
