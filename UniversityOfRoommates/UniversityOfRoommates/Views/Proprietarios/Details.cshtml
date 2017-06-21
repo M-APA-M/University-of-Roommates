@@ -15,43 +15,48 @@
     <div class="login-wrap">
         <div class="login-html">
             <div>
-                <h4 style="color:azure">Dettagli proprietario.</h4>
-                <hr />
-                <dl class="dl-horizontal">
-                    <dt>
-                        <label class="UtenteFont">Nome :   </label>
-                    </dt>
+                <div align="center">
+                    <h4 style="color:azure">Dettagli proprietario.</h4>
+                </div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            <label class="UtenteFont">Nome :   </label>
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.Utente.nome, new { @class = "UtenteFont" })
-                    </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Utente.nome, new { @class = "UtenteFont" })
+                        </dd>
 
-                    <dt>
-                        <label class="UtenteFont">Iban :   </label>
-                    </dt>
+                        <dt>
+                            <label class="UtenteFont">Iban :   </label>
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.iban)
-                    </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.iban)
+                        </dd>
 
-                    <dt>
-                        <label class="UtenteFont">Paypal.Me :   </label>
-                    </dt>
+                        <dt>
+                            <label class="UtenteFont">Paypal.Me :   </label>
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.paypalMe)
-                    </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.paypalMe)
+                        </dd>
 
-                    <dt>
-                        <label class="UtenteFont">Carta di identità :   </label>
-                    </dt>
+                        <dt>
+                            <label class="UtenteFont">Carta di identità :   </label>
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.cartaIdentità)
-                    </dd>
-                    @Html.ActionLink("Modifica", "Edit", new { id = Model.UserId })   |    @Html.ActionLink("Gestisci case", "../Casas/Index", new { id = Model.UserId }) |
-                </dl>
-            </div>
+                        <dd>
+                            @Html.DisplayFor(model => model.cartaIdentità)
+                        </dd>
+
+                    </dl>
+                    <div align="center">
+                        @Html.ActionLink("Modifica", "Edit", new { id = Model.UserId })   |    @Html.ActionLink("Gestisci case", "../Casas/Index", new { id = Model.UserId }) |
+                    </div>
+                </div>
         </div>
     </div>
 </div>
