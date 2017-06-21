@@ -68,13 +68,13 @@
         function displaySelectedItem(item) {
             $("#searchResult").empty().append(' (Latitude: ' + item.point.coordinates[0] + ' Longitude: ' + item.point.coordinates[1] + ')');
 
-            document.getElementById("latitudine").value = item.point.coordinates[0].toString().replace(".", ","); console.log(item.point.coordinates[0]);
-            document.getElementById("longitudine").value = item.point.coordinates[1].toString().replace(".", ","); console.log(item.point.coordinates[1]);
-            document.getElementById("indirizzo").value = item.address.addressLine.split(",")[0]; console.log(item.address.addressLine.split(",")[0]);
-            document.getElementById("civico").value = item.address.addressLine.split(",")[1]; console.log(item.address.addressLine.split(",")[1]);
-            document.getElementById("provincia").value = item.address.adminDistrict2; console.log(item.address.adminDistrict2);
-            document.getElementById("city").value = item.address.locality; console.log(item.address.locality);
-            document.getElementById("cap").value = item.address.postalCode; console.log(item.address.postalCode);
+            document.getElementById("latitudine").value = item.point.coordinates[0].toString().replace(".", ",");
+            document.getElementById("longitudine").value = item.point.coordinates[1].toString().replace(".", ",");
+            document.getElementById("indirizzo").value = item.address.addressLine.split(",")[0];
+            document.getElementById("civico").value = item.address.addressLine.split(",")[1];
+            document.getElementById("provincia").value = item.address.adminDistrict2;
+            document.getElementById("city").value = item.address.locality;
+            document.getElementById("cap").value = item.address.postalCode;
         }
     </script>
 </head>

@@ -1,0 +1,110 @@
+﻿@model UniversityOfRoommates.Models.Casa
+
+@{
+    ViewBag.Title = "Details";
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+
+
+<div class="back">
+    <div class="menu-wrap">
+
+        <div class="login-html">
+
+            <h4>Dettagli casa</h4>
+            <hr />
+
+            <div class="group">
+                <label class="UtenteFont">Proprietario : </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.Proprietario)</span>
+               @Html.ActionLink("Info proprietario", "../Proprietarios/Details", new {id=ViewBag.UserId })
+            </div>
+
+
+
+            <div class="group">
+                <label class="UtenteFont">Provincia :  </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.provincia)</span>
+            </div>
+
+
+
+            <div class="group">
+                <label class="UtenteFont">Città :  </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.city)</span>
+            </div>
+
+
+
+            <div class="group">
+                <label class="UtenteFont">Indirizzo :  </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.indirizzo)</span>
+            </div>
+
+
+
+            <div class="group">
+                <label class="UtenteFont">Civico : </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.civico)</span>
+            </div>
+
+
+
+            <div class="group">
+                <label class="UtenteFont">Cap :  </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.cap)</span>
+            </div>
+
+
+            <div class="group">
+                <label class="UtenteFont">Numero di servizi :  </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.numeroServizi)</span>
+            </div>
+
+
+
+            <div class="group">
+                <label class="UtenteFont">Metratura interna :  </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.metraturaInterna)</span>
+            </div>
+
+
+
+            <div class="group">
+                <label class="UtenteFont">Metratura esterna :  </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.metraturaEsterna)</span>
+            </div>
+
+
+
+            <div class="group">
+                <label class="UtenteFont">posto auto :  </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.postoAuto)</span>
+            </div>
+
+
+            <div class="group">
+                <label class="UtenteFont">Descrizione :  </label>
+                <span class="DetailFont">@Html.DisplayFor(model => model.descrizioneServizi)</span>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+}
+
+
+
+

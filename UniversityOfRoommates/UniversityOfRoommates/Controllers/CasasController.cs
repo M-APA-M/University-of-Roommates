@@ -39,6 +39,21 @@ namespace UniversityOfRoommates.Controllers
             }
             return View(casa);
         }
+        public async Task<ActionResult> DetailsMap(string nomeCasa, double longitudine, double latitudine)
+        {
+            if (nomeCasa == null || longitudine == 0 || latitudine == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Casa casa = await db.Case.FindAsync(nomeCasa, longitudine, latitudine);
+            
+            if (casa == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.UserId = casa.UserName;
+            return View(casa);
+        }
 
         // GET: Casas/Create
         public ActionResult Create()
@@ -67,7 +82,7 @@ namespace UniversityOfRoommates.Controllers
         }
 
         // GET: Casas/Edit/5
-        public async Task<ActionResult> Edit(string nomeCasa, float longitudine, float latitudine)
+        public async Task<ActionResult> Edit(string nomeCasa, double longitudine, double latitudine)
         {
             if (nomeCasa == null || longitudine == 0 || latitudine == 0)
             {
