@@ -104,14 +104,13 @@ a:after {
 }
 
 #headerwrap h1 {
-        margin-top: 130px;
-        color: white;
-        font-size: 190px;
-        font-weight: 700;
-        letter-spacing: 3px;
-        font-family:'Manhattan Darling';
-      
-    }
+    margin-top: 130px;
+    color: white;
+    font-size: 190px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-family: 'MANHATTANDARLING-REGULAR';
+}
 
 #headerwrap h2 {
     
