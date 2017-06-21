@@ -26,7 +26,7 @@ namespace UniversityOfRoommates.Controllers
         }
 
         // GET: Casas/Details/5
-        public async Task<ActionResult> Details(string nomeCasa, float longitudine, float latitudine)
+        public async Task<ActionResult> Details(string nomeCasa, double longitudine, double latitudine)
         {
             if (nomeCasa == null || longitudine==0 || latitudine==0)
             {
@@ -151,8 +151,8 @@ namespace UniversityOfRoommates.Controllers
                 {
                     Circondariato ci = new Circondariato();
                     ci.nomeCasa = c.nomeCasa;
-                    ci.lon = c.longitudine;
-                    ci.lat = c.latitudine;
+                    ci.lon = Convert.ToString(c.longitudine).Replace(',', '.');
+                    ci.lat = Convert.ToString(c.latitudine).Replace(',','.');
                     ci.indirizzo = c.indirizzo + "," + c.civico + ", " + c.city;
                     circ.Add(ci);
                 }
@@ -167,8 +167,8 @@ namespace UniversityOfRoommates.Controllers
                 {
                     Circondariato ci = new Circondariato();
                     ci.nomeCasa = c.nomeCasa;
-                    ci.lon = c.longitudine;
-                    ci.lat = c.latitudine;
+                    ci.lon = Convert.ToString(c.longitudine).Replace(',', '.');
+                    ci.lat = Convert.ToString(c.latitudine).Replace(',', '.');
                     ci.indirizzo = c.indirizzo + "," + c.civico + " ," + c.city;
                     circ.Add(ci);
                 }

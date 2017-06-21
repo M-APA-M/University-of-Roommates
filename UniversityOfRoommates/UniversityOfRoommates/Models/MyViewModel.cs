@@ -13,8 +13,8 @@ namespace UniversityOfRoommates.Models
     public class Circondariato //questa serve per non caricare la pagina della mappa con tutte le minchiate di Casa
     {
         public string nomeCasa { get; set; }
-        public double lon { get; set; }
-        public double lat { get; set; }
+        public string lon { get; set; }
+        public string lat { get; set; }
         public string indirizzo { get; set; }
     }
 }
