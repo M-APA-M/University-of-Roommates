@@ -17,10 +17,11 @@
     <div class="login-wrap">
         <div class="login-html">
             <div>
-               
+               <div align="center">
                 <h2 style="color:azure; font-size:30px">@ViewBag.Title.</h2>
                
                 <h4 style="color:azure; font-size:medium">Cambiare le impostazioni dell'account</h4>
+                </div>
                 <hr />
                 <dl class="dl-horizontal">
                     <dt class="CasaFont">Password:</dt>
@@ -36,21 +37,14 @@
                         }
                         <br />
                     
-                        @if (ViewBag.isProp)
-                        {
-                            @Html.ActionLink("Modifica Proprietario", "../Proprietarios/Details", new { id = ViewBag.UserId })
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Diventa Proprietario", "../Proprietarios/Create")
-                        }
-                        @*@Html.ActionLink("Diventa Proprietario", "../Proprietarios/Create")*@
-                        
+                       
+                            @*@Html.ActionLink("Diventa Proprietario", "../Proprietarios/Create")*@
 
-                        
 
-                        
-                    </dd>
+
+
+
+</dd>
                     @*<dt style="color:azure; font-size:medium">Account di accesso esterni:</dt>
                     <dd style="color:azure; font-size:medium">
                         @Model.Logins.Count [
@@ -105,8 +99,24 @@
                                     </text>
                                 }
                             }*@
-                    </dd>
+                    
+
+                    
+
                 </dl>
+                
+                <br />
+                <br />
+                @if (ViewBag.isProp)
+                {<div align="center">
+                    @Html.ActionLink("Modifica Proprietario", "../Proprietarios/Details", new { id = ViewBag.UserId })
+                </div>
+                }
+                else
+                {<div align="center">
+                   <h2>@Html.ActionLink("Diventa Proprietario", "../Proprietarios/Create")</h2> 
+                </div>
+                }
             </div>
         </div>
     </div>
