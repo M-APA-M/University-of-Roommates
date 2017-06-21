@@ -115,7 +115,7 @@ namespace UniversityOfRoommates.Controllers
         }
 
         // GET: Casas/Delete/5
-        public async Task<ActionResult> Delete(string nomeCasa, float longitudine, float latitudine)
+        public async Task<ActionResult> Delete(string nomeCasa, double longitudine, double latitudine)
         {
             if (nomeCasa == null || longitudine == 0 || latitudine == 0)
             {
@@ -132,7 +132,7 @@ namespace UniversityOfRoommates.Controllers
         // POST: Casas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(string nomeCasa, float longitudine, float latitudine)
+        public async Task<ActionResult> DeleteConfirmed(string nomeCasa, double longitudine, double latitudine)
         {
             Casa casa = await db.Case.FindAsync(nomeCasa, longitudine, latitudine);
             db.Case.Remove(casa);

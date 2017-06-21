@@ -91,7 +91,8 @@ namespace UniversityOfRoommates.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserName = new SelectList(db.Users, "Id", "nome", proprietario.UserId);
+            string name = System.Web.HttpContext.Current.User.Identity.Name;
+            ViewBag.UserName = db.Users.Where(m => m.UserName == name).First().Id;
             return View(proprietario);
         }
 
