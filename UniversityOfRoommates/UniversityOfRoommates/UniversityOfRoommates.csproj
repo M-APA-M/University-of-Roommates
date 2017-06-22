@@ -244,9 +244,13 @@
     <Content Include="Content\css\owl.carousel.min.css" />
     <Content Include="Content\css\owl.theme.default.min.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\img\Azure.png" />
+    <Content Include="Content\img\BingLogo.png" />
+    <Content Include="Content\img\fabio.jpg" />
+    <Content Include="Content\img\marco.jpg" />
     <Content Include="Content\img\s4.png" />
     <Content Include="Content\img\team02.jpg" />
-    <Content Include="Content\img\video.mp4" />
+    <Content Include="Content\img\VisualStudioLogo.png" />
     <Content Include="Content\img\wip.png" />
     <Content Include="Scripts\js\bootstrap.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />

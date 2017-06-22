@@ -432,7 +432,7 @@ a:after {
 }
 
 .menu h1.logo a:hover {
-	color:#00cbba;
+	color:#f85c37;
 }
 
 .menu img.logo {
@@ -584,10 +584,13 @@ a.button {
 	
 }
 
-/* TEAM CONF */
+/* 
+    CONF */
 
 .team {
-	padding-top: 20px;
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .team:hover {
@@ -595,6 +598,6 @@ a.button {
 }
 
 .team a {
-	padding-right: 10px;
-	padding-left: 10px;
+	padding-right: 300px;
+	padding-left: 30px;
 }
