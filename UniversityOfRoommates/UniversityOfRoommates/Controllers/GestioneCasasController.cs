@@ -129,5 +129,10 @@ namespace UniversityOfRoommates.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult Chat()
+        {
+           
+            return View();
+        }
     }
 }

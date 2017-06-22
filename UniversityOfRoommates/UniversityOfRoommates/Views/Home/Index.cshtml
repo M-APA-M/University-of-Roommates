@@ -113,11 +113,11 @@
                     <i class="icon-remove menu-close"></i>
                     <a href="#home" class="smoothScroll">Home</a>
                     <a href="#services" class="smoothScroll">Servizi</a>
+                    <a href="#about" class="smoothScroll">About us</a>
+                    <a href="#contact" class="smoothScroll">Contact</a>
                     <a href="~/Casas/GetLocations" class="smoothScroll">Mappa</a>
-
                     <a href="~/Casas/GetLocations" class="smoothScroll">Gestione casa</a>
-                    <a href="chat.html" class="smoothScroll">Chat</a>
-                    <a href="item.html" class="smoothScroll">Contact</a>
+                    <a href="~/GestioneCasas/Chat" class="smoothScroll">Chat</a>
                     <a href="#"><i class="icon-facebook"></i></a>
                     <a href="#"><i class="icon-twitter"></i></a>
                     <a href="#"><i class="icon-dribbble"></i></a>
@@ -127,27 +127,27 @@
 
                 <div id="menuToggle"><i class="icon-reorder"></i></div>
             </nav>
-           <h5> @if (Request.IsAuthenticated)
+            @if (Request.IsAuthenticated)
             {
-                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-left" }))
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-left", @style = "font-weight: bold;" }))
                 {
                     @Html.AntiForgeryToken()
 
                     <ul class="nav navbar-nav navbar-left">
                         <li>
-                            @Html.ActionLink("Salve " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                            @Html.ActionLink("Salve " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" , @style= "font-weight: bold;"  })
                         </li>
-                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Disconnetti</a></li>
+                        <li style= "font-weight: bold" ><a href="javascript:document.getElementById('logoutForm').submit()">Disconnetti</a></li>
                     </ul>
                 }
             }
             else
             {
                 <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Registrazione", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                    <li>@Html.ActionLink("Accedi", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    <li>@Html.ActionLink("Registrazione", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "font-weight: bold;" })</li>
+                    <li>@Html.ActionLink("Accedi", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @style = "font-weight: bold;" })</li>
                 </ul>
-           }</h5>
+           }
 
 
             
@@ -156,24 +156,15 @@
             <h1>Room Mates</h1>
             <h2>Organizza casa tua</h2>
         </div>
-            <div class="container">
-                <br>
-
-                @*<h2>Organizza casa tua</h2>*@
-                @*<div class="row">
-                    <br>
-                    <br>
-                    <br>
-                    <div class="col-lg-6 col-lg-offset-3">
-                    </div>
-                </div>*@
-            </div><!-- /container -->
+        
         @*</div>*@<!-- /headerwrap -->
     <!-- ========== WHITE SECTION ========== -->
     <div id="w">
         <div class="container">
             <div class="row">
+               
                 <div class="col-lg-8 col-lg-offset-2">
+                    <iframe src="~/Home/Contact" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0"></iframe>
                     <h3>
                         BENVENUTO IN  <bold>ROOMMATES</bold>.<br />TROVA I COINQUILINI CHE FANNO AL CASO TUO. ORGANIZZA LE FACCENDE DOMESICHE. GESTISCI PAGAMENTI E SCADENZE <br />
 

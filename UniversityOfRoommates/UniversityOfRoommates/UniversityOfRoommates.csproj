@@ -247,6 +247,7 @@
     <Content Include="Content\img\s4.png" />
     <Content Include="Content\img\team02.jpg" />
     <Content Include="Content\img\video.mp4" />
+    <Content Include="Content\img\wip.png" />
     <Content Include="Scripts\js\bootstrap.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\Chart.js" />
@@ -357,6 +358,7 @@
     <Content Include="Views\Account\RegProp.cshtml" />
     <Content Include="Views\Casas\DetailsMap.cshtml" />
     <Content Include="Views\Proprietarios\DetailsMap.cshtml" />
+    <Content Include="Views\GestioneCasas\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -375,12 +377,14 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706191119076_test_table_link.resx">
       <DependentUpon>201706191119076_test_table_link.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706192101258_null-date.resx">
       <DependentUpon>201706192101258_null-date.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706201538040_conversion lat &amp; long to double.resx">
       <DependentUpon>201706201538040_conversion lat &amp; long to double.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
