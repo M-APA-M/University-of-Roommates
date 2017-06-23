@@ -234,8 +234,10 @@
                         <div class="form-group">
                             <label class="UtenteFont">Descrizione servizi  </label>
                             <div class="group">
-                                @Html.EditorFor(model => model.descrizioneServizi, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.descrizioneServizi, "", new { @class = "text-danger" })
+                                <div class="editor-field">
+                                    @Html.TextAreaFor(model => model.descrizioneServizi, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.descrizioneServizi, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
 

@@ -73,6 +73,13 @@ a{color:inherit;text-decoration:none}
     background-repeat:no-repeat
 }
 
+.editor-field textarea {
+    width: 100%;
+    height: 100px;
+    max-width:100%;
+}
+
+
 }
 
 .backGestione {
