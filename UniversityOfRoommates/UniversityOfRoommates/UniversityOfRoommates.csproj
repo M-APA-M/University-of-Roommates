@@ -394,11 +394,11 @@
     <Content Include="Views\FotoCasas\Details.cshtml" />
     <Content Include="Views\FotoCasas\Edit.cshtml" />
     <Content Include="Views\FotoCasas\Index.cshtml" />
+    <Content Include="Views\FotoCasas\FotoCasaOnMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\imgCase\" />
-    <Folder Include="Views\Blobs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

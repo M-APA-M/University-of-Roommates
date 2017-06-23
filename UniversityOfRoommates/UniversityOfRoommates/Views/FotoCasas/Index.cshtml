@@ -4,34 +4,31 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<style>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    .someClass {
+        color: Green !important;
+    }
+    
+</style>
+
+
+
+<div align="center">
+    <h2 style="color:#ff6a00">Pannello foto.</h2>
+        <h2 style="color:#ff6a00">  @Html.ActionLink("Aggiungi", "Create", new {@style = "font-weight:bold;", @class = "someClass", nomeCasa = ViewBag.nomeCasa, lon = ViewBag.lon, lat = ViewBag.lat })</h2>
+    
+</div>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Casa.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.linkFoto)
-        </th>
-        <th></th>
-    </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Casa.UserName)
+            <input type="image" src=@item.linkFoto width="150" height="150">
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.linkFoto)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { nomeCasa = item.nomeCasa, lon = item.longitude, lat = item.latitude, id = item.idFoto }) |
+            @Html.ActionLink("Delete", "Delete", new { nomeCasa = item.nomeCasa, lon = item.longitude, lat = item.latitude, id = item.idFoto })
         </td>
     </tr>
 }
