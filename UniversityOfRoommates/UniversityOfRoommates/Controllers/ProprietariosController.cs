@@ -72,7 +72,7 @@ namespace UniversityOfRoommates.Controllers
             {
                 db.Proprietari.Add(proprietario);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Manage/Index");
             }
 
             ViewBag.UserName = new SelectList(db.Users, "Id", "nome", proprietario.UserId);

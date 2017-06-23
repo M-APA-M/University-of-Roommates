@@ -68,9 +68,10 @@ namespace UniversityOfRoommates.Controllers
         {
            // ModelState.Values[1].Value.Att = Convert.ToDouble(fotoCasa.longitude.ToString().Replace('.', ','));
             //fotoCasa.latitude = Convert.ToDouble(fotoCasa.latitude.ToString().Replace('.', ','));
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 var result = UploadBlob(fotoCasa.nomeCasa, fotoCasa.longitude, fotoCasa.latitude, fotoCasa.idFoto, fotoCasa.linkFoto);
+                fotoCasa.linkFoto = "https://universityofroommates.blob.core.windows.net/fotocasa/"+spaceSubstitution(fotoCasa.nomeCasa,fotoCasa.longitude.ToString(),fotoCasa.latitude.ToString(),fotoCasa.idFoto.ToString());
                 db.FotoCase.Add(fotoCasa);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -161,6 +162,7 @@ namespace UniversityOfRoommates.Controllers
             {
                 blob.UploadFromStream(fileStream);
             }
+           
             return new EmptyResult();
         }
 
@@ -178,6 +180,27 @@ namespace UniversityOfRoommates.Controllers
                 blob.DownloadToStream(fileStream);
             }
             return new EmptyResult();
+        }
+        private string spaceSubstitution(string nc, string lo, string la, string id)
+        {
+            string[] array = nc.Split(' ');
+            string result = "";
+            for (int i=0;i<array.Length;i++)
+            {
+                if (array[i] == "") result += "%20";
+                else
+                {
+                    result += array[i];
+                    if ((i != (array.Length - 2))||array[array.Length-1] != "") result += "%20";
+                }
+            }
+            array = (lo + la + id).Split(',');
+            for (int i = 0; i < array.Length; i++)
+            {
+                result += array[i];
+                if (i != (array.Length - 1)) result += "%2C";
+            }
+            return result;
         }
     }
 }
