@@ -394,6 +394,7 @@
     <Content Include="Views\FotoCasas\Details.cshtml" />
     <Content Include="Views\FotoCasas\Edit.cshtml" />
     <Content Include="Views\FotoCasas\Index.cshtml" />
+    <Content Include="Views\FotoCasas\FotoCasaOnMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

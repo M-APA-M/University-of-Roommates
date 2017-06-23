@@ -18,8 +18,11 @@
                 <label class="UtenteFont">Proprietario : </label>
                @Html.ActionLink("Info proprietario", "../Proprietarios/DetailsMap", new {id=ViewBag.UserId })
             </div>
-
-
+          
+            <div class="group">
+                <label class="UtenteFont">Foto : </label>
+                @Html.ActionLink("Foto", "../FotoCasas/FotoCasaOnMap", new { nc = ViewBag.nomeCasa, lo = ViewBag.lon, la = ViewBag.lat}, new { target = "_blank" })
+            </div>
 
             <div class="group">
                 <label class="UtenteFont">Provincia :  </label>
@@ -87,7 +90,7 @@
                 <span class="DetailFont">@Html.DisplayFor(model => model.descrizioneServizi)</span>
             </div>
 
-
+         
 
 
 

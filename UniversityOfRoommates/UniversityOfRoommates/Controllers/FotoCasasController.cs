@@ -28,6 +28,14 @@ namespace UniversityOfRoommates.Controllers
             ViewBag.lat = la;
             return View(await fotoCase.ToListAsync());
         }
+        public async Task<ActionResult> FotoCasaOnMap(string nc, double lo, double la)
+        {
+            var fotoCase = db.FotoCase.Include(f => f.Casa).Where(m => m.nomeCasa == nc && m.longitude == lo && m.latitude == la);
+            ViewBag.nomeCasa = nc;
+            ViewBag.lon = lo;
+            ViewBag.lat = la;
+            return View(await fotoCase.ToListAsync());
+        }
 
         // GET: FotoCasas/Details/5
         public async Task<ActionResult> Details(string nomeCasa, double lon, double lat, int id)

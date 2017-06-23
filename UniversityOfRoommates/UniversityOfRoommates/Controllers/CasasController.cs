@@ -52,6 +52,9 @@ namespace UniversityOfRoommates.Controllers
                 return HttpNotFound();
             }
             ViewBag.UserId = casa.UserName;
+            ViewBag.nomeCasa = nomeCasa;
+            ViewBag.lon = longitudine;
+            ViewBag.lat = latitudine;
             return View(casa);
         }
 
