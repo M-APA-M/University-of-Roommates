@@ -20,16 +20,19 @@ namespace UniversityOfRoommates.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: FotoCasas
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string nc, double lo, double la)
         {
-            var fotoCase = db.FotoCase.Include(f => f.Casa);
+            var fotoCase = db.FotoCase.Include(f => f.Casa).Where(m => m.nomeCasa == nc && m.longitude == lo && m.latitude == la);
+            ViewBag.nomeCasa = nc;
+            ViewBag.lon = lo;
+            ViewBag.lat = la;
             return View(await fotoCase.ToListAsync());
         }
 
         // GET: FotoCasas/Details/5
         public async Task<ActionResult> Details(string nomeCasa, double lon, double lat, int id)
         {
-            if (nomeCasa=="")
+            if (nomeCasa == "")
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -50,8 +53,9 @@ namespace UniversityOfRoommates.Controllers
             List<FotoCasa> list = db.Case.Where(m => m.nomeCasa == nomeCasa && m.longitudine == lon && m.latitudine == lat).First().FotoCasa.ToList();
             foreach (FotoCasa fc in list)
             {
-                id++;
+                if (fc.idFoto >= id) id = fc.idFoto;
             }
+            id++;
             ViewBag.nomeCasa = nomeCasa;
             ViewBag.lon = lon1;
             ViewBag.lat = lat1;
@@ -66,15 +70,15 @@ namespace UniversityOfRoommates.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "nomeCasa,longitude,latitude,idFoto,linkFoto")] FotoCasa fotoCasa)
         {
-           // ModelState.Values[1].Value.Att = Convert.ToDouble(fotoCasa.longitude.ToString().Replace('.', ','));
+            // ModelState.Values[1].Value.Att = Convert.ToDouble(fotoCasa.longitude.ToString().Replace('.', ','));
             //fotoCasa.latitude = Convert.ToDouble(fotoCasa.latitude.ToString().Replace('.', ','));
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var result = UploadBlob(fotoCasa.nomeCasa, fotoCasa.longitude, fotoCasa.latitude, fotoCasa.idFoto, fotoCasa.linkFoto);
-                fotoCasa.linkFoto = "https://universityofroommates.blob.core.windows.net/fotocasa/"+spaceSubstitution(fotoCasa.nomeCasa,fotoCasa.longitude.ToString(),fotoCasa.latitude.ToString(),fotoCasa.idFoto.ToString());
+                fotoCasa.linkFoto = "https://universityofroommates.blob.core.windows.net/fotocasa/" + spaceSubstitution(fotoCasa.nomeCasa, fotoCasa.longitude.ToString(), fotoCasa.latitude.ToString(), fotoCasa.idFoto.ToString());
                 db.FotoCase.Add(fotoCasa);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { nc = fotoCasa.nomeCasa, lo = fotoCasa.longitude, la = fotoCasa.latitude });
             }
 
             ViewBag.nomeCasa = new SelectList(db.Case, "nomeCasa", "UserName", fotoCasa.nomeCasa);
@@ -84,7 +88,7 @@ namespace UniversityOfRoommates.Controllers
         // GET: FotoCasas/Edit/5
         public async Task<ActionResult> Edit(string nomeCasa, double lon, double lat, int id)
         {
-            if (nomeCasa=="")
+            if (nomeCasa == "")
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -106,9 +110,11 @@ namespace UniversityOfRoommates.Controllers
         {
             if (ModelState.IsValid)
             {
+                var result = UploadBlob(fotoCasa.nomeCasa, fotoCasa.longitude, fotoCasa.latitude, fotoCasa.idFoto, fotoCasa.linkFoto);
+                fotoCasa.linkFoto = "https://universityofroommates.blob.core.windows.net/fotocasa/" + spaceSubstitution(fotoCasa.nomeCasa, fotoCasa.longitude.ToString(), fotoCasa.latitude.ToString(), fotoCasa.idFoto.ToString());
                 db.Entry(fotoCasa).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { nc = fotoCasa.nomeCasa, lo = fotoCasa.longitude, la = fotoCasa.latitude });
             }
             ViewBag.nomeCasa = new SelectList(db.Case, "nomeCasa", "UserName", fotoCasa.nomeCasa);
             return View(fotoCasa);
@@ -117,7 +123,7 @@ namespace UniversityOfRoommates.Controllers
         // GET: FotoCasas/Delete/5
         public async Task<ActionResult> Delete(string nomeCasa, double lon, double lat, int id)
         {
-            if (nomeCasa=="")
+            if (nomeCasa == "")
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -136,8 +142,9 @@ namespace UniversityOfRoommates.Controllers
         {
             FotoCasa fotoCasa = await db.FotoCase.FindAsync(nomeCasa, lon, lat, id);
             db.FotoCase.Remove(fotoCasa);
+            DeleteBlob(nomeCasa, lon, lat, id);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { nc = fotoCasa.nomeCasa, lo = fotoCasa.longitude, la = fotoCasa.latitude });
         }
 
         protected override void Dispose(bool disposing)
@@ -149,7 +156,7 @@ namespace UniversityOfRoommates.Controllers
             base.Dispose(disposing);
         }
 
-        public EmptyResult UploadBlob(string nomeCasa, double lon, double lat, int id , string path)
+        public EmptyResult UploadBlob(string nomeCasa, double lon, double lat, int id, string path)
         {
             // The code in this section goes here.
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -162,7 +169,7 @@ namespace UniversityOfRoommates.Controllers
             {
                 blob.UploadFromStream(fileStream);
             }
-           
+
             return new EmptyResult();
         }
 
@@ -185,14 +192,19 @@ namespace UniversityOfRoommates.Controllers
         {
             string[] array = nc.Split(' ');
             string result = "";
-            for (int i=0;i<array.Length;i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] == "") result += "%20";
                 else
                 {
                     result += array[i];
-                    if ((i != (array.Length - 2))||array[array.Length-1] != "") result += "%20";
+                    if ((i < (array.Length - 1)))
+                    {
+                        result += "%20";
+                    }
+                    else if (array[array.Length - 1] == "") { result += "%20"; }
                 }
+       
             }
             array = (lo + la + id).Split(',');
             for (int i = 0; i < array.Length; i++)
@@ -201,6 +213,18 @@ namespace UniversityOfRoommates.Controllers
                 if (i != (array.Length - 1)) result += "%2C";
             }
             return result;
+        }
+        public EmptyResult DeleteBlob(string nomeCasa, double lon, double lat, int id)
+        {
+            // The code in this section goes here.
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            CloudConfigurationManager.GetSetting("universityofroommates_AzureStorageConnectionString"));
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference("fotocasa");
+            string blobName = nomeCasa + lon.ToString() + lat.ToString() + id.ToString();
+            CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
+            blob.Delete();
+            return new EmptyResult();
         }
     }
 }
