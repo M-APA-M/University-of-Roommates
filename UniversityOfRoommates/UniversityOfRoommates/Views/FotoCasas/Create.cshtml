@@ -3,72 +3,87 @@
 @{
     ViewBag.Title = "Create";
 }
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
-<h2>Create</h2>
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>FotoCasa</h4>
-        <hr />
 
-        @Html.HiddenFor(model => model.nomeCasa , new { @Value = ViewBag.nomeCasa})
-        @Html.HiddenFor(model => model.longitude, new { @Value = ViewBag.lon })
-        @Html.HiddenFor(model => model.latitude, new { @Value = ViewBag.lat })
-        @Html.HiddenFor(model => model.idFoto, new { @Value = ViewBag.id })
+    <div class="body">
+        <div class="login-wrap">
 
-        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.nomeCasa, "nomeCasa", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("nomeCasa", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.nomeCasa, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+            <div class="login-html">
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.longitude, "longitude", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("longitude", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.longitude, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-horizontal">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.latitude, "latitude", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("latitude", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.latitude, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                    <h2 style="color:azure">Inserisci le foto della casa</h2>
+                    @Html.HiddenFor(model => model.nomeCasa, new { @Value = ViewBag.nomeCasa })
+                    @Html.HiddenFor(model => model.longitude, new { @Value = ViewBag.lon })
+                    @Html.HiddenFor(model => model.latitude, new { @Value = ViewBag.lat })
+                    @Html.HiddenFor(model => model.idFoto, new { @Value = ViewBag.id })
 
-        @*<div class="form-grou   p">
-            @Html.LabelFor(model => model.idFoto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.idFoto, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.idFoto, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-        @*<input type="file" id="image" onchange="imagePath()"/>
-        @Html.HiddenFor(m => m.linkFoto, new { id="setPath"})*@
-        @Html.TextBoxFor(m=>m.linkFoto, new { @class = "form-control" })
+                    @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.nomeCasa, "nomeCasa", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("nomeCasa", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.nomeCasa, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.linkFoto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.linkFoto, new { htmlAttributes = new { @type = "file" } })
-                @Html.ValidationMessageFor(model => model.linkFoto, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.longitude, "longitude", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("longitude", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.longitude, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.latitude, "latitude", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("latitude", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.latitude, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                    @*<div class="form-grou   p">
+                            @Html.LabelFor(model => model.idFoto, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.idFoto, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.idFoto, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+                    @*<input type="file" id="image" onchange="imagePath()"/>
+                        @Html.HiddenFor(m => m.linkFoto, new { id="setPath"})*@
+
+
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.linkFoto, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.linkFoto, new { htmlAttributes = new { @type = "file" } })
+                                @Html.ValidationMessageFor(model => model.linkFoto, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+                    @Html.TextBoxFor(m => m.linkFoto, new { @class = "form-control" , placeholder = "Inserisci il percorso della foto" })
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div align="center">
+                                <input type="submit" value="Aggiungi" class="btn btn-default" />
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 }
 <script>
     var imagePath = function () {
@@ -77,5 +92,10 @@
     }
 </script>
 @*<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>*@
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+}
