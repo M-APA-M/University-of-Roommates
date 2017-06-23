@@ -190,23 +190,13 @@ namespace UniversityOfRoommates.Controllers
         }
         private string spaceSubstitution(string nc, string lo, string la, string id)
         {
-            string[] array = nc.Split(' ');
             string result = "";
-            for (int i = 0; i < array.Length; i++)
+            foreach (char c in nc)
             {
-                if (array[i] == "") result += "%20";
-                else
-                {
-                    result += array[i];
-                    if ((i < (array.Length - 1)))
-                    {
-                        result += "%20";
-                    }
-                    else if (array[array.Length - 1] == "") { result += "%20"; }
-                }
-       
+                if (c == ' ') result += "%20";
+                else result += c;
             }
-            array = (lo + la + id).Split(',');
+            string []array = (lo + la + id).Split(',');
             for (int i = 0; i < array.Length; i++)
             {
                 result += array[i];
