@@ -77,7 +77,10 @@ a:after {
 /* ==========================================================================
    Wrap Sections
    ========================================================================== */
-
+@font-face {
+    font-family: 'MANHATTANDARLING-REGULAR';
+    src: url('../../fonts/MANHATTANDARLING-REGULAR.OTF') format('opentype');
+}
 #headerwrap {
 	background: url(../img/header-bg.jpg) no-repeat center top;
 	margin-top: 0px;
@@ -99,6 +102,7 @@ a:after {
     -o-background-size: cover;
     background-size: cover;
 }
+
 @font-face { 
     font-family: 'MANHATTANDARLING-REGULAR';
     src: url('../../fonts/MANHATTANDARLING-REGULAR.OTF') format('opentype');
@@ -107,7 +111,7 @@ a:after {
 #headerwrap h1 {
     margin-top: 130px;
     color: white;
-    font-size: 190px;
+    font-size: 100px;
     font-weight: 100;
     letter-spacing: 3px;
     font-family: 'MANHATTANDARLING-REGULAR';
