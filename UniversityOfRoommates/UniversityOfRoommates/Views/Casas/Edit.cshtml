@@ -82,6 +82,9 @@
                             <input type="submit" value="Salva" class="btn btn-default" />
                         </div>
                     </div>
+                    <div><iframe src=@Url.Action("../FotoCasas/Create", new { nomeCasa=Model.nomeCasa, lon=Model.longitudine, lat=Model.latitudine }) name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" width="100%"></iframe></div>
+                    
+
                 </div>
             </div>
         </div>
