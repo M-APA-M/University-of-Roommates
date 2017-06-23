@@ -109,15 +109,15 @@
         <div id="headerwrap">
             <nav class="menu" id="theMenu">
                 <div class="menu-wrap">
-                    <h1 class="logo"><a href="~/Home/Index">RoomMates</a></h1>
+                    <h1 class="logo"><a href="~/Home/Index">Room Mates</a></h1>
                     <i class="icon-remove menu-close"></i>
                     <a href="#home" class="smoothScroll">Home</a>
                     <a href="#services" class="smoothScroll">Servizi</a>
+                    <a href="#about" class="smoothScroll">About us</a>
+                    <a href="#contact" class="smoothScroll">Contact</a>
                     <a href="~/Casas/GetLocations" class="smoothScroll">Mappa</a>
-
                     <a href="~/Casas/GetLocations" class="smoothScroll">Gestione casa</a>
-                    <a href="chat.html" class="smoothScroll">Chat</a>
-                    <a href="item.html" class="smoothScroll">Contact</a>
+                    <a href="~/GestioneCasas/Chat" class="smoothScroll">Chat</a>
                     <a href="#"><i class="icon-facebook"></i></a>
                     <a href="#"><i class="icon-twitter"></i></a>
                     <a href="#"><i class="icon-dribbble"></i></a>
@@ -127,27 +127,27 @@
 
                 <div id="menuToggle"><i class="icon-reorder"></i></div>
             </nav>
-           <h5> @if (Request.IsAuthenticated)
+            @if (Request.IsAuthenticated)
             {
-                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-left" }))
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-left", @style = "font-weight: bold;" }))
                 {
                     @Html.AntiForgeryToken()
 
                     <ul class="nav navbar-nav navbar-left">
                         <li>
-                            @Html.ActionLink("Salve " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                            @Html.ActionLink("Salve " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" , @style= "font-weight: bold;"  })
                         </li>
-                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Disconnetti</a></li>
+                        <li style= "font-weight: bold" ><a href="javascript:document.getElementById('logoutForm').submit()">Disconnetti</a></li>
                     </ul>
                 }
             }
             else
             {
                 <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Registrazione", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                    <li>@Html.ActionLink("Accedi", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    <li>@Html.ActionLink("Registrazione", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "font-weight: bold;" })</li>
+                    <li>@Html.ActionLink("Accedi", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @style = "font-weight: bold;" })</li>
                 </ul>
-           }</h5>
+           }
 
 
             
@@ -156,24 +156,15 @@
             <h1>Room Mates</h1>
             <h2>Organizza casa tua</h2>
         </div>
-            <div class="container">
-                <br>
-
-                @*<h2>Organizza casa tua</h2>*@
-                @*<div class="row">
-                    <br>
-                    <br>
-                    <br>
-                    <div class="col-lg-6 col-lg-offset-3">
-                    </div>
-                </div>*@
-            </div><!-- /container -->
+        
         @*</div>*@<!-- /headerwrap -->
     <!-- ========== WHITE SECTION ========== -->
     <div id="w">
         <div class="container">
             <div class="row">
+               
                 <div class="col-lg-8 col-lg-offset-2">
+                    
                     <h3>
                         BENVENUTO IN  <bold>ROOMMATES</bold>.<br />TROVA I COINQUILINI CHE FANNO AL CASO TUO. ORGANIZZA LE FACCENDE DOMESICHE. GESTISCI PAGAMENTI E SCADENZE <br />
 
@@ -200,34 +191,34 @@
                         <p>MAPPA</p>
                     </div>
 
-                    <p>La mappa ti permette di cercare case intorno a te. Ricerca in base ai tuoi ingteressi e i coinquilini che stai cercando</p>
+                    <p>La mappa ti permette di cercare case intorno a te. Ricerca in base ai tuoi interessi e i coinquilini che stai cercando</p>
                 </div>
                 <div class="col-lg-3">
                     <img src="~/Content/img/s2.png">
                     <div class="ggBold">
                         <p>GESTIONE CASA</p>
                     </div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                    <p>Organizza le faccende di casa, gestisci compiti e scadenze con i tuoi coinquilini.</p>
                 </div>
                 <div class="col-lg-3">
                     <img src="~/Content/img/s3.png">
                     <div class="ggBold">
                         <p>CHAT</p>
                     </div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                    <p>Una chat fra te e i tuoi coinquilini sempre a portata di mano.</p>
                 </div>
                 <div class="col-lg-3">
                     <img src="~/Content/img/s4.png">
                     <div class="ggBold">
-                        <p>STICAZZI</p>
+                        <p>COINQUILINI</p>
                     </div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                    <p>Trova i coninquilini che fanno al caso tuo !.</p>
                 </div>
             </div>
         </div><!-- /container -->
     </div><!-- /g -->
     <!-- ========== CHARTS - DARK GREY SECTION ========== -->
-    <div id="dg">
+    @*<div id="dg">
         <div class="container">
             <div class="row">
                 <h3>SOME CHARTS</h3>
@@ -294,23 +285,23 @@
 
             </div>
         </div><!-- /container -->
-    </div><!-- /dg -->
+    </div><!-- /dg -->*@
 
     <section id="portfolio" name="portfolio"></section>
     <div id="portfoliowrap">
         <div class="container">
             <div class="row">
-                <h3>COOL WORKS</h3>
+                <h3>PIATTAFORME UTILIZZATE</h3>
                 <br>
                 <br>
                 <div class="col-lg-4 port-space">
-                    <a href="item.html"><img src="~/Content/img/work1.png"></a>
+                    <a href="https://azure.microsoft.com/it-it/"><img src="~/Content/img/Azure.png"></a>
                 </div>
                 <div class="col-lg-4 port-space">
-                    <a href="item.html"><img src="~/Content/img/work2.png"></a>
+                    <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bingmaps.mapapis"><img src="~/Content/img/BingLogo.png"></a>
                 </div>
                 <div class="col-lg-4 port-space">
-                    <a href="item.html"><img src="~/Content/img/work3.png"></a>
+                    <a href="https://www.visualstudio.com/it/?rr=https%3A%2F%2Fwww.google.it%2F"><img src="~/Content/img/VisualStudioLogo.png"></a>
                 </div>
             </div>
         </div><!-- /container -->
@@ -329,23 +320,54 @@
     </div><!-- /w -->
     <!-- ========== ABOUT - GREY SECTION ========== -->
     <section id="about" name="about"></section>
-    <div id="g">
+    <div id="g" align="center">
         <div class="container">
             <div class="row">
                 <h3>ABOUT US</h3>
                 <br>
                 <br>
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
+                @*<div class="col-lg-2"></div>*@
+                @*<div class="col-lg-8">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lectus elit, tincidunt nec turpis sed, accumsan iaculis ipsum. Nulla at augue auctor, tristique erat in, ultricies nunc. Mauris eget metus leo. Ut in mi lacinia, mattis nisl non, ultrices risus. Vestibulum aliquet aliquam ipsum ut ullamcorper. Pellentesque fringilla, massa vel rutrum consequat, nulla velit fermentum dolor, sed scelerisque.</p>
                     <br>
                     <br>
-                </div>
-                <div class="col-lg-2"></div>
+                </div>*@
+                
+                @*<div class="col-lg-2"></div>*@
+                @*<div class="col-lg-3 team">
+                    @*<a href="https://www.facebook.com/michele.mazzamuto">
+                        <img class="img-circle" src="~/Content/img/team02.jpg" height="90" width="90">
+                    </a>
+                        <h4>Michele Mazzamuto</h4>
+                        <h5><i>Product Manager</i></h5>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        <p>
+                            <a href="index.html#"><i class="icon-facebook"></i></a>
+                            <a href="index.html#"><i class="icon-twitter"></i></a>
+                            <a href="index.html#"><i class="icon-envelope"></i></a>
+
+                        </p>*@
+
+
                 <div class="col-lg-3 team">
-                    <img class="img-circle" src="~/Content/img/team01.jpg" height="90" width="90">
-                    <h4>Liz Stewart</h4>
-                    <h5><i>Product Manager</i></h5>
+                    <a href="https://www.facebook.com/michele.mazzamuto">
+                        <img class="img-circle" src="~/Content/img/team02.jpg" height="90" width="90">
+                        </a>
+                        <h4>Michele Mazzamuto</h4>
+                        <h5><i>Front-end Developer</i></h5>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        <p>
+                            <a href="index.html#"><i class="icon-facebook"></i></a>
+                            <a href="index.html#"><i class="icon-twitter"></i></a>
+                            <a href="index.html#"><i class="icon-envelope"></i></a>
+
+                        </p>
+</div>
+
+                <div class="col-lg-3 team">
+                    <img class="img-circle" src="~/Content/img/marco.jpg" height="90" width="90">
+                    <h4>Marco Apa</h4>
+                    <h5><i>Back-end Developer</i></h5>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <p>
                         <a href="index.html#"><i class="icon-facebook"></i></a>
@@ -356,35 +378,9 @@
                 </div>
 
                 <div class="col-lg-3 team">
-                    <img class="img-circle" src="~/Content/img/team02.jpg" height="90" width="90">
-                    <h4>Brad Casey</h4>
-                    <h5><i>Front-end Developer</i></h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <p>
-                        <a href="index.html#"><i class="icon-facebook"></i></a>
-                        <a href="index.html#"><i class="icon-twitter"></i></a>
-                        <a href="index.html#"><i class="icon-envelope"></i></a>
-
-                    </p>
-                </div>
-
-                <div class="col-lg-3 team">
-                    <img class="img-circle" src="~/Content/img/team03.jpg" height="90" width="90">
-                    <h4>Pamela Chow</h4>
-                    <h5><i>Web Designer</i></h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <p>
-                        <a href="index.html#"><i class="icon-facebook"></i></a>
-                        <a href="index.html#"><i class="icon-twitter"></i></a>
-                        <a href="index.html#"><i class="icon-envelope"></i></a>
-
-                    </p>
-                </div>
-
-                <div class="col-lg-3 team">
-                    <img class="img-circle" src="~/Content/img/team04.jpg" height="90" width="90">
-                    <h4>Tim Gates</h4>
-                    <h5><i>Back-end Guru</i></h5>
+                    <img class="img-circle" src="~/Content/img/fabio.jpg" height="90" width="90">
+                    <h4>Fabio Merola</h4>
+                    <h5><i>Back-end Developer</i></h5>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <p>
                         <a href="index.html#"><i class="icon-facebook"></i></a>
@@ -417,15 +413,16 @@
 
                 <div class="col-lg-4">
                     <h3><b>I nostri social</b></h3>
-                    
-                        <a href="index.html#"><i class="icon-facebook"></i></a>
-                        <a href="http://www.google.com"><i class="facebook"></i></a>
-                        <a href="index.html#"><i class="icon-twitter"></i></a>
-                        <a href="index.html#"><i class="icon-envelope"></i></a>
-                    
+
+                    <a href="index.html#"><i class="icon-facebook"></i></a>
+                    <a href="http://www.google.com"><i class="facebook"></i></a>
+                    <a href="index.html#"><i class="icon-twitter"></i></a>
+                    <a href="index.html#"><i class="icon-envelope"></i></a>
+
                     <br>
                 </div>
             </div>
+        </div>
         </div>
     </div><!-- /container -->
     </div><!-- /f -->

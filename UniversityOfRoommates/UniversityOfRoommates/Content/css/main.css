@@ -8,14 +8,14 @@
  */
 
 body {
-  background-color: #f2f2f2;
+    background: url(http://wallpapercave.com/wp/sHBD9f4.jpg) center;
     font-family: "Lato";
     font-weight: 300;
     font-size: 16px;
     color: #555;
-
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
+   
 }
 
 /* Titles */
@@ -82,10 +82,11 @@ a:after {
 	background: url(../img/header-bg.jpg) no-repeat center top;
 	margin-top: 0px;
 	padding-top:30px;
+    padding-bottom:0px;
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 700px;
+	min-height: 800px;
 	width: 100%;
 	
     -webkit-background-size: 100%;
@@ -107,9 +108,20 @@ a:after {
     margin-top: 130px;
     color: white;
     font-size: 190px;
-    font-weight: 700;
+    font-weight: 100;
     letter-spacing: 3px;
     font-family: 'MANHATTANDARLING-REGULAR';
+}
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    h1 {
+        font-size: 10px;
+    }
 }
 
 #headerwrap h2 {
@@ -246,7 +258,7 @@ a:after {
 #w {
     background: #ffffff;
     
-    padding-top: 5px;
+    padding-top: 0px;
     padding-bottom: 35px;
     text-align: center;
 }
@@ -277,7 +289,7 @@ a:after {
     font-size:45px;
 }
 .ggBold {
-    padding-top: 20px;
+    padding-top: 25px;
     font-size: 30px;
     font-weight:bold;
 }
@@ -420,7 +432,7 @@ a:after {
 }
 
 .menu h1.logo a:hover {
-	color:#00cbba;
+	color:#f85c37;
 }
 
 .menu img.logo {
@@ -572,10 +584,13 @@ a.button {
 	
 }
 
-/* TEAM CONF */
+/* 
+    CONF */
 
 .team {
-	padding-top: 20px;
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .team:hover {
@@ -583,6 +598,6 @@ a.button {
 }
 
 .team a {
-	padding-right: 10px;
-	padding-left: 10px;
+	padding-right: 300px;
+	padding-left: 30px;
 }
